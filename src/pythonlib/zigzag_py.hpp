@@ -22,28 +22,27 @@
 #ifndef ZIGZAG_PY_H
 #define ZIGZAG_PY_H
 
+#include <pybind11/pybind11.h>
+
 #include "zigzag.hpp"
-#include <boost/python.hpp>
 
-namespace ocl
-{
-  /// \brief python wrapper for VoronoiDiagram
-  ///
-  class ZigZag_py : public ZigZag
-  {
-  public:
-    ZigZag_py() : ZigZag(){};
+namespace py = pybind11;
 
-    boost::python::list getOutput() const
-    {
-      boost::python::list o;
-      BOOST_FOREACH (Point p, out)
-      {
-        o.append(p);
-      }
-      return o;
+namespace ocl {
+/// Python wrapper for ZigZag
+class ZigZag_py : public ZigZag {
+public:
+    ZigZag_py() : ZigZag() {};
+
+    py::list getOutput() const {
+        py::list o;
+        for (const auto& p : out) {
+            o.append(p);
+        }
+        return o;
     }
-  };
-} // end ocl namespace
-#endif
-// end zigzag_py.hpp
+};
+
+} // namespace ocl
+
+#endif // ZIGZAG_PY_H
