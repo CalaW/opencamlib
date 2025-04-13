@@ -60,7 +60,13 @@ class BatchDropCutter : public Operation {
         std::vector<CLPoint> getCLPoints() {return *clpoints;}
 		/// clears the vector of CLPoints
 		void clearCLPoints() {clpoints->clear();}
-        
+
+        /// Return triangles under cutter, Not for CAM-algorithms, more for visualization and demonstration.
+        std::list<Triangle> getTrianglesUnderCutter(CLPoint& cl, MillingCutter& cutter)
+        {
+            return *root->search_cutter_overlap(&cutter, &cl);
+        }
+
     protected:
         /// unoptimized drop-cutter,  tests against all triangles of surface
         void dropCutter1();

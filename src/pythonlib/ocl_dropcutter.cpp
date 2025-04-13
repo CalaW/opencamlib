@@ -20,10 +20,11 @@
  */
 
 #include <pybind11/pybind11.h>
+#include <pybind11/stl.h>
 
-#include "adaptivepathdropcutter_py.hpp"
-#include "batchdropcutter_py.hpp"
-#include "pathdropcutter_py.hpp"
+#include "adaptivepathdropcutter.hpp"
+#include "batchdropcutter.hpp"
+#include "pathdropcutter.hpp"
 
 /*
  *  Python wrapping of octree and related classes
@@ -33,48 +34,42 @@ namespace py = pybind11;
 using namespace ocl;
 
 void export_dropcutter(py::module_& m) {
-    py::class_<BatchDropCutter>(m, "BatchDropCutter_base");
-
-    py::class_<BatchDropCutter_py, BatchDropCutter>(m, "BatchDropCutter")
+    py::class_<BatchDropCutter>(m, "BatchDropCutter")
         .def(py::init<>())
-        .def("run", &BatchDropCutter_py::run)
-        .def("getCLPoints", &BatchDropCutter_py::getCLPoints_py)
-        .def("setSTL", &BatchDropCutter_py::setSTL)
-        .def("setCutter", &BatchDropCutter_py::setCutter)
-        .def("setThreads", &BatchDropCutter_py::setThreads)
-        .def("getThreads", &BatchDropCutter_py::getThreads)
-        .def("appendPoint", &BatchDropCutter_py::appendPoint)
-        .def("getTrianglesUnderCutter", &BatchDropCutter_py::getTrianglesUnderCutter)
-        .def("getCalls", &BatchDropCutter_py::getCalls)
-        .def("getBucketSize", &BatchDropCutter_py::getBucketSize)
-        .def("setBucketSize", &BatchDropCutter_py::setBucketSize);
+        .def("run", &BatchDropCutter::run)
+        .def("getCLPoints", &BatchDropCutter::getCLPoints)
+        .def("setSTL", &BatchDropCutter::setSTL)
+        .def("setCutter", &BatchDropCutter::setCutter)
+        .def("setThreads", &BatchDropCutter::setThreads)
+        .def("getThreads", &BatchDropCutter::getThreads)
+        .def("appendPoint", &BatchDropCutter::appendPoint)
+        .def("getTrianglesUnderCutter", &BatchDropCutter::getTrianglesUnderCutter)
+        .def("getCalls", &BatchDropCutter::getCalls)
+        .def("getBucketSize", &BatchDropCutter::getBucketSize)
+        .def("setBucketSize", &BatchDropCutter::setBucketSize);
 
-    py::class_<PathDropCutter>(m, "PathDropCutter_base");
-
-    py::class_<PathDropCutter_py, PathDropCutter>(m, "PathDropCutter")
+    py::class_<PathDropCutter>(m, "PathDropCutter")
         .def(py::init<>())
-        .def("run", &PathDropCutter_py::run)
-        .def("getCLPoints", &PathDropCutter_py::getCLPoints_py)
-        .def("setCutter", &PathDropCutter_py::setCutter)
-        .def("setSTL", &PathDropCutter_py::setSTL)
-        .def("setSampling", &PathDropCutter_py::setSampling)
-        .def("setPath", &PathDropCutter_py::setPath)
-        .def("getZ", &PathDropCutter_py::getZ)
-        .def("setZ", &PathDropCutter_py::setZ);
+        .def("run", &PathDropCutter::run)
+        .def("getCLPoints", &PathDropCutter::getCLPoints)
+        .def("setCutter", &PathDropCutter::setCutter)
+        .def("setSTL", &PathDropCutter::setSTL)
+        .def("setSampling", &PathDropCutter::setSampling)
+        .def("setPath", &PathDropCutter::setPath)
+        .def("getZ", &PathDropCutter::getZ)
+        .def("setZ", &PathDropCutter::setZ);
 
-    py::class_<AdaptivePathDropCutter>(m, "AdaptivePathDropCutter_base");
-
-    py::class_<AdaptivePathDropCutter_py, AdaptivePathDropCutter>(m, "AdaptivePathDropCutter")
+    py::class_<AdaptivePathDropCutter>(m, "AdaptivePathDropCutter")
         .def(py::init<>())
-        .def("run", &AdaptivePathDropCutter_py::run)
-        .def("getCLPoints", &AdaptivePathDropCutter_py::getCLPoints_py)
-        .def("setCutter", &AdaptivePathDropCutter_py::setCutter)
-        .def("setSTL", &AdaptivePathDropCutter_py::setSTL)
-        .def("setSampling", &AdaptivePathDropCutter_py::setSampling)
-        .def("setMinSampling", &AdaptivePathDropCutter_py::setMinSampling)
-        .def("setCosLimit", &AdaptivePathDropCutter_py::setCosLimit)
-        .def("getSampling", &AdaptivePathDropCutter_py::getSampling)
-        .def("setPath", &AdaptivePathDropCutter_py::setPath)
-        .def("getZ", &AdaptivePathDropCutter_py::getZ)
-        .def("setZ", &AdaptivePathDropCutter_py::setZ);
+        .def("run", &AdaptivePathDropCutter::run)
+        .def("getCLPoints", &AdaptivePathDropCutter::getCLPoints)
+        .def("setCutter", &AdaptivePathDropCutter::setCutter)
+        .def("setSTL", &AdaptivePathDropCutter::setSTL)
+        .def("setSampling", &AdaptivePathDropCutter::setSampling)
+        .def("setMinSampling", &AdaptivePathDropCutter::setMinSampling)
+        .def("setCosLimit", &AdaptivePathDropCutter::setCosLimit)
+        .def("getSampling", &AdaptivePathDropCutter::getSampling)
+        .def("setPath", &AdaptivePathDropCutter::setPath)
+        .def("getZ", &AdaptivePathDropCutter::getZ)
+        .def("setZ", &AdaptivePathDropCutter::setZ);
 }
