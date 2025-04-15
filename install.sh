@@ -37,7 +37,7 @@ Options:
 
   --platform                  Set the platform, for when auto-detection doesn't work (one of: windows, macos, linux)
 
-  --macos-architecture        Set the macOS architecture to compile for (one of: arm64, x86_64), useful for cross compiling.
+  --macos-architecture        Set the macOS architecture to compile for (one of: arm64, x86_64), useful for cross compiling. Default is arm64.
   --docker-image              Set the docker image to forward this install command to, useful for cross compiling
   --docker-before-install     Run given commands in the docker container before running ./install.sh, (only valid when using --docker-image)
   --cmake-generator           Set the CMake Generator option
@@ -241,6 +241,7 @@ install_ci_dependencies() {
             ${maybe_sudo} yum install curl
         fi
     elif [ "${determined_os}" = "macos" ]; then
+        OCL_MACOS_ARCHITECTURE="${OCL_MACOS_ARCHITECTURE:-arm64}"  # default to arm64
         prettyprint "Downloading libomp for: " "${OCL_MACOS_ARCHITECTURE}"
         if [ "${OCL_MACOS_ARCHITECTURE}" = "arm64" ]; then
             libomp_tar_loc=$(brew fetch --bottle-tag=arm64_sonoma libomp | grep -i downloaded | grep tar.gz | cut -f2 -d ":" | xargs echo)
