@@ -22,16 +22,17 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
-#include "bbox.hpp"    // no python
-#include "ccpoint.hpp" // no python
-#include "clpoint.hpp" // no python
-#include "ellipse.hpp" // no python
+#include "bbox.hpp"
+#include "ccpoint.hpp"
+#include "clpoint.hpp"
+#include "ellipse.hpp"
 #include "ellipseposition.hpp"
-#include "path_py.hpp"     // new-style wrapper
-#include "point.hpp"       // contains no python-specific code
-#include "stlreader.hpp"   // no python
-#include "stlsurf_py.hpp"  // new-style wrapper
-#include "triangle_py.hpp" // new-style python wrapper-class
+#include "ostream_str.hpp"
+#include "path.hpp"
+#include "point.hpp"
+#include "stlreader.hpp"
+#include "stlsurf.hpp"
+#include "triangle.hpp"
 
 namespace py = pybind11;
 using namespace ocl;
@@ -56,10 +57,11 @@ void export_geometry(py::module_& m) {
         .def("yRotate", &Point::yRotate)
         .def("zRotate", &Point::zRotate)
         .def("isRight", &Point::isRight)
-        // .def("isInside", &Point::isInside)
-        // .def("isInsidePoints", &Point::isInside)
+        .def("isInside", py::overload_cast<const Triangle&>(&Point::isInside, py::const_))
+        .def("isInside",
+             py::overload_cast<const Point&, const Point&>(&Point::isInside, py::const_))
         .def("xyDistance", &Point::xyDistance)
-        .def("__str__", &Point::str)
+        .def("__str__", &ostream_str<Point>)
         .def_readwrite("x", &Point::x)
         .def_readwrite("y", &Point::y)
         .def_readwrite("z", &Point::z);
@@ -105,29 +107,27 @@ void export_geometry(py::module_& m) {
         .value("ERROR", ERROR)
         .export_values();
 
-    // Base class for Triangle_py
-    py::class_<Triangle>(m, "Triangle_base");
-
-    py::class_<Triangle_py, Triangle>(m, "Triangle")
+    py::class_<Triangle>(m, "Triangle")
         .def(py::init<Point, Point, Point>())
-        .def("getPoints", &Triangle_py::getPoints)
-        .def("__str__", &Triangle_py::str)
-        .def_readonly("p", &Triangle_py::p)
-        .def_readonly("n", &Triangle_py::n);
+        .def("getPoints", [](const Triangle& t) { return std::to_array(t.p); })
+        .def("__str__", &ostream_str<Triangle>)
+        .def_property_readonly("p", [](const Triangle& t) { return std::to_array(t.p); })
+        .def_readonly("n", &Triangle::n);
 
-    // Base class for STLSurf_py
-    py::class_<STLSurf>(m, "STLSurf_base").def(py::init<>());
-
-    py::class_<STLSurf_py, STLSurf>(m, "STLSurf")
+    py::class_<STLSurf>(m, "STLSurf")
         .def(py::init<>())
-        .def("addTriangle", &STLSurf_py::addTriangle)
-        .def("__str__", &STLSurf_py::str)
-        .def("size", &STLSurf_py::size)
-        .def("rotate", &STLSurf_py::rotate)
-        .def("getBounds", &STLSurf_py::getBounds)
-        .def("getTriangles", &STLSurf_py::getTriangles)
-        .def_readonly("tris", &STLSurf_py::tris)
-        .def_readonly("bb", &STLSurf_py::bb);
+        .def("addTriangle", &STLSurf::addTriangle)
+        .def("__str__", &ostream_str<STLSurf>)
+        .def("size", &STLSurf::size)
+        .def("rotate", &STLSurf::rotate)
+        .def("getBounds",
+             [](const STLSurf& stl) {
+                 return std::array<double, 6>{stl.bb.minpt.x, stl.bb.maxpt.x, stl.bb.minpt.y,
+                                              stl.bb.maxpt.y, stl.bb.minpt.z, stl.bb.maxpt.z};
+             })
+        .def("getTriangles", [](const STLSurf& stl) { return stl.tris; })
+        .def_readonly("tris", &STLSurf::tris)
+        .def_readonly("bb", &STLSurf::bb);
 
     py::class_<STLReader>(m, "STLReader").def(py::init<const std::wstring&, STLSurf&>());
 
@@ -168,14 +168,36 @@ void export_geometry(py::module_& m) {
         .value("ArcSpanType", ArcSpanType)
         .export_values();
 
-    // Base class for Path_py
-    py::class_<Path>(m, "Path_base");
-
-    py::class_<Path_py, Path>(m, "Path")
+    py::class_<Path>(m, "Path")
         .def(py::init<>())
         .def(py::init<Path>())
-        .def("getSpans", &Path_py::getSpans)
-        .def("getTypeSpanPairs", &Path_py::getTypeSpanPairs)
-        .def("append", (void(Path_py::*)(const Line&)) & Path_py::append)
-        .def("append", (void(Path_py::*)(const Arc&)) & Path_py::append);
+        .def("getSpans",
+             [](const Path& p) {
+                 py::list spans;
+                 for (auto span : p.span_list) {
+                     if (span->type() == LineSpanType)
+                         spans.append(static_cast<LineSpan*>(span)->line);
+                     else if (span->type() == ArcSpanType)
+                         spans.append(static_cast<ArcSpan*>(span)->arc);
+                 }
+                 return spans;
+             })
+        .def("getTypeSpanPairs",
+             [](const Path& p) {
+                 py::list slist;
+                 for (auto span : p.span_list) {
+                     if (span->type() == LineSpanType) {
+                         auto tuple =
+                             py::make_tuple(span->type(), static_cast<LineSpan*>(span)->line);
+                         slist.append(tuple);
+                     } else if (span->type() == ArcSpanType) {
+                         auto tuple =
+                             py::make_tuple(span->type(), static_cast<ArcSpan*>(span)->arc);
+                         slist.append(tuple);
+                     }
+                 }
+                 return slist;
+             })
+        .def("append", py::overload_cast<const Line&>(&Path::append))
+        .def("append", py::overload_cast<const Arc&>(&Path::append));
 }
