@@ -33,12 +33,13 @@ using namespace ocl;
 
 void export_cutters(py::module& m) {
     py::class_<MillingCutter, MillingCutter_py>(m, "MillingCutter")
+        .def(py::init<>())
         .def("vertexDrop", &MillingCutter::vertexDrop)
         .def("facetDrop", &MillingCutter::facetDrop)
         .def("edgeDrop", &MillingCutter::edgeDrop)
         .def("dropCutter", &MillingCutter::dropCutter)
         .def("pushCutter", &MillingCutter::pushCutter)
-        .def("offsetCutter", &MillingCutter::offsetCutter, py::return_value_policy::take_ownership)
+        .def("offsetCutter", &MillingCutter::offsetCutter)
         .def("__str__", &MillingCutter::str)
         .def("getRadius", &MillingCutter::getRadius)
         .def("getLength", &MillingCutter::getLength)

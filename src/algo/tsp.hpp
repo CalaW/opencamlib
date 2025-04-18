@@ -21,18 +21,14 @@
 #ifndef TSP_H
 #define TSP_H
 
+#include <ctime>
 #include <iostream>
 #include <vector>
-#include <fstream>
-#include <set>
-#include <ctime>
 
 #include <boost/assert.hpp>
 #include <boost/graph/adjacency_matrix.hpp>
-#include <boost/graph/simple_point.hpp>
 #include <boost/graph/metric_tsp_approx.hpp>
-
-#include <boost/python.hpp>
+#include <boost/graph/simple_point.hpp>
 
 namespace ocl {
 
@@ -119,21 +115,15 @@ public:
     }
     void printOutput() const {
         int n=0;
-        BOOST_FOREACH( Vertex v, output ) {
+        for (Vertex v : output) {
             std::cout << n++ << " : " << v << "\n" ;
         }
     }
     double getLength() const {
         return length;
     }
-    boost::python::list getOutput() const {
-        boost::python::list plist;
-        BOOST_FOREACH(Vertex v, output) {
-            plist.append( v );
-        }
-        return plist;
-    }
-    
+    auto getOutput() const { return output; }
+
 protected:
     Container output;
     PointSet points;

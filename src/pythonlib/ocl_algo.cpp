@@ -19,17 +19,19 @@
  *  along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #include <pybind11/pybind11.h>
+#include <pybind11/stl.h>
 
-#include "adaptivewaterline_py.hpp"
-#include "batchpushcutter_py.hpp"
+#include "adaptivewaterline.hpp"
+#include "batchpushcutter.hpp"
 #include "clsurface.hpp"
-#include "fiber_py.hpp"
-#include "lineclfilter_py.hpp"
+#include "lineclfilter.hpp"
 #include "numeric.hpp"
-#include "tsp.hpp" // fixme: contains python
-#include "waterline_py.hpp"
-#include "weave_py.hpp"
-#include "zigzag_py.hpp"
+#include "simple_weave.hpp"
+#include "smart_weave.hpp"
+#include "tsp.hpp"
+#include "waterline.hpp"
+#include "weave.hpp"
+#include "zigzag.hpp"
 
 namespace py = pybind11;
 using namespace ocl;
@@ -39,39 +41,35 @@ void export_algo(py::module& m) {
     m.def("epsF", epsF);
     m.def("epsD", epsD);
 
-    py::class_<ZigZag>(m, "ZigZag_base");
-
-    py::class_<ZigZag_py, ZigZag>(m, "ZigZag")
+    py::class_<ZigZag>(m, "ZigZag")
         .def(py::init<>())
         .def("run", &ZigZag::run)
         .def("setDirection", &ZigZag::setDirection)
         .def("setOrigin", &ZigZag::setOrigin)
         .def("setStepOver", &ZigZag::setStepOver)
         .def("addPoint", &ZigZag::addPoint)
-        .def("getOutput", &ZigZag_py::getOutput)
+        .def("getOutput", &ZigZag::getOutput)
         .def("__str__", &ZigZag::str);
 
-    py::class_<BatchPushCutter>(m, "BatchPushCutter_base");
-
-    py::class_<BatchPushCutter_py, BatchPushCutter>(m, "BatchPushCutter")
+    py::class_<BatchPushCutter>(m, "BatchPushCutter")
         .def(py::init<>())
-        .def("run", &BatchPushCutter_py::run)
-        .def("setSTL", &BatchPushCutter_py::setSTL)
-        .def("setCutter", &BatchPushCutter_py::setCutter)
-        .def("setThreads", (void(BatchPushCutter_py::*)(int)) & BatchPushCutter_py::setThreads)
-        .def("appendFiber", &BatchPushCutter_py::appendFiber)
-        .def("getOverlapTriangles", &BatchPushCutter_py::getOverlapTriangles)
-        .def("getCLPoints", &BatchPushCutter_py::getCLPoints_py)
-        .def("getFibers", &BatchPushCutter_py::getFibers_py)
-        .def("getCalls", &BatchPushCutter_py::getCalls)
-        .def("setThreads", (void(BatchPushCutter_py::*)(int)) & BatchPushCutter_py::setThreads)
-        .def("getThreads", &BatchPushCutter_py::getThreads)
-        .def("setBucketSize", &BatchPushCutter_py::setBucketSize)
-        .def("getBucketSize", &BatchPushCutter_py::getBucketSize)
-        .def("setXDirection", &BatchPushCutter_py::setXDirection)
-        .def("setYDirection", &BatchPushCutter_py::setYDirection);
+        .def("run", &BatchPushCutter::run)
+        .def("setSTL", &BatchPushCutter::setSTL)
+        .def("setCutter", &BatchPushCutter::setCutter)
+        .def("setThreads", &BatchPushCutter::setThreads)
+        .def("appendFiber", &BatchPushCutter::appendFiber)
+        .def("getOverlapTriangles", &BatchPushCutter::getOverlapTriangles)
+        .def("getCLPoints", &BatchPushCutter::getCLPoints)
+        .def("getFibers", &BatchPushCutter::getFibers, py::return_value_policy::reference_internal)
+        .def("getCalls", &BatchPushCutter::getCalls)
+        .def("getThreads", &BatchPushCutter::getThreads)
+        .def("setBucketSize", &BatchPushCutter::setBucketSize)
+        .def("getBucketSize", &BatchPushCutter::getBucketSize)
+        .def("setXDirection", &BatchPushCutter::setXDirection)
+        .def("setYDirection", &BatchPushCutter::setYDirection);
 
     py::class_<Interval>(m, "Interval")
+        .def(py::init<>())
         .def(py::init<double, double>())
         .def_readonly("upper", &Interval::upper)
         .def_readonly("lower", &Interval::lower)
@@ -82,53 +80,46 @@ void export_algo(py::module& m) {
         .def("empty", &Interval::empty)
         .def("__str__", &Interval::str);
 
-    py::class_<Fiber>(m, "Fiber_base");
-
-    py::class_<Fiber_py, Fiber>(m, "Fiber")
+    py::class_<Fiber>(m, "Fiber")
         .def(py::init<Point, Point>())
-        .def_readonly("p1", &Fiber_py::p1)
-        .def_readonly("p2", &Fiber_py::p2)
-        .def_readonly("dir", &Fiber_py::dir)
-        .def("addInterval", &Fiber_py::addInterval)
-        .def("point", &Fiber_py::point)
-        .def("printInts", &Fiber_py::printInts)
-        .def("getInts", &Fiber_py::getInts);
+        .def_readonly("p1", &Fiber::p1)
+        .def_readonly("p2", &Fiber::p2)
+        .def_readonly("dir", &Fiber::dir)
+        .def("addInterval", &Fiber::addInterval)
+        .def("point", &Fiber::point)
+        .def("printInts", &Fiber::printInts)
+        .def("getInts", [](const Fiber& f) { return f.ints; });
 
-    py::class_<Waterline>(m, "Waterline_base");
-
-    py::class_<Waterline_py, Waterline>(m, "Waterline")
+    py::class_<Waterline>(m, "Waterline")
         .def(py::init<>())
-        .def("setCutter", &Waterline_py::setCutter)
-        .def("setSTL", &Waterline_py::setSTL)
-        .def("setZ", &Waterline_py::setZ)
-        .def("setSampling", &Waterline_py::setSampling)
-        .def("run", &Waterline_py::run)
-        .def("run2", &Waterline_py::run2)
-        .def("reset", &Waterline_py::reset)
-        .def("getLoops", &Waterline_py::py_getLoops)
-        .def("setThreads", &Waterline_py::setThreads)
-        .def("getThreads", &Waterline_py::getThreads)
-        .def("getXFibers", &Waterline_py::py_getXFibers)
-        .def("getYFibers", &Waterline_py::py_getYFibers);
+        .def("setCutter", &Waterline::setCutter)
+        .def("setSTL", &Waterline::setSTL)
+        .def("setZ", &Waterline::setZ)
+        .def("setSampling", &Waterline::setSampling)
+        .def("run", &Waterline::run)
+        .def("run2", &Waterline::run2)
+        .def("reset", &Waterline::reset)
+        .def("getLoops", &Waterline::getLoops)
+        .def("setThreads", &Waterline::setThreads)
+        .def("getThreads", &Waterline::getThreads)
+        .def("getXFibers", &Waterline::getXFibers)
+        .def("getYFibers", &Waterline::getYFibers);
 
-    py::class_<AdaptiveWaterline>(m, "AdaptiveWaterline_base");
-
-    py::class_<AdaptiveWaterline_py, AdaptiveWaterline>(m, "AdaptiveWaterline")
+    py::class_<AdaptiveWaterline>(m, "AdaptiveWaterline")
         .def(py::init<>())
-        .def("setCutter", &AdaptiveWaterline_py::setCutter)
-        .def("setSTL", &AdaptiveWaterline_py::setSTL)
-        .def("setZ", &AdaptiveWaterline_py::setZ)
-        .def("setSampling", &AdaptiveWaterline_py::setSampling)
-        .def("setMinSampling", &AdaptiveWaterline_py::setMinSampling)
-        .def("run", &AdaptiveWaterline_py::run)
-        .def("run2", &AdaptiveWaterline_py::run2)
-        .def("reset", &AdaptiveWaterline_py::reset)
-        // .def("run2", &AdaptiveWaterline_py::run2) // uses Weave::build2()
-        .def("getLoops", &AdaptiveWaterline_py::py_getLoops)
-        .def("setThreads", &AdaptiveWaterline_py::setThreads)
-        .def("getThreads", &AdaptiveWaterline_py::getThreads)
-        .def("getXFibers", &AdaptiveWaterline_py::getXFibers)
-        .def("getYFibers", &AdaptiveWaterline_py::getYFibers);
+        .def("setCutter", &AdaptiveWaterline::setCutter)
+        .def("setSTL", &AdaptiveWaterline::setSTL)
+        .def("setZ", &AdaptiveWaterline::setZ)
+        .def("setSampling", &AdaptiveWaterline::setSampling)
+        .def("setMinSampling", &AdaptiveWaterline::setMinSampling)
+        .def("run", &AdaptiveWaterline::run)
+        .def("run2", &AdaptiveWaterline::run2)
+        .def("reset", &AdaptiveWaterline::reset)
+        .def("getLoops", &AdaptiveWaterline::getLoops)
+        .def("setThreads", &AdaptiveWaterline::setThreads)
+        .def("getThreads", &AdaptiveWaterline::getThreads)
+        .def("getXFibers", &AdaptiveWaterline::getXFibers)
+        .def("getYFibers", &AdaptiveWaterline::getYFibers);
 
     py::enum_<weave::VertexType>(m, "WeaveVertexType")
         .value("CL", weave::CL)
@@ -138,35 +129,31 @@ void export_algo(py::module& m) {
         .value("INT", weave::INT)
         .value("FULLINT", weave::FULLINT);
 
-    /*
-    py::class_<weave::Weave>(m, "Weave_base");
+    py::class_<weave::Weave>(m, "Weave")
+        .def("addFiber", &weave::Weave::addFiber)
+        .def("build", &weave::Weave::build)
+        .def("printGraph", &weave::Weave::printGraph)
+        .def("face_traverse", &weave::Weave::face_traverse)
+        .def("getVertices", &weave::Weave::getVertices)
+        .def("getVerticesByType", &weave::Weave::getVerticesByType)
+        .def("getCLVertices", [](const weave::Weave& w) { return w.getVerticesByType(weave::CL); })
+        .def("getINTVertices",
+             [](const weave::Weave& w) { return w.getVerticesByType(weave::INT); })
+        .def("numVertices", &weave::Weave::numVertices)
+        .def("getEdges", &weave::Weave::getEdges)
+        .def("getLoops", &weave::Weave::getLoops)
+        .def("__str__", &weave::Weave::str);
 
-    py::class_<weave::Weave_py, weave::Weave>(m, "Weave")
-        .def("addFiber", &weave::Weave_py::addFiber)
-        .def("build", &weave::Weave_py::build)
-        .def("build2", &weave::Weave_py::build2)
-        .def("printGraph", &weave::Weave_py::printGraph)
-        .def("face_traverse", &weave::Weave_py::face_traverse)
-        // .def("split_components", &weave::Weave_py::split_components)
-        // .def("get_components", &weave::Weave_py::get_components)
-        .def("getCLVertices", &weave::Weave_py::getCLVertices)
-        .def("getINTVertices", &weave::Weave_py::getINTVertices)
-        .def("getVertices", &weave::Weave_py::getVertices)
-        .def("numVertices", &weave::Weave_py::numVertices)
-        .def("getEdges", &weave::Weave_py::getEdges)
-        .def("getLoops", &weave::Weave_py::py_getLoops)
-        .def("__str__", &weave::Weave_py::str)
-    ;
-    */
+    py::class_<weave::SimpleWeave, weave::Weave>(m, "SimpleWeave").def(py::init<>());
 
-    py::class_<LineCLFilter>(m, "LineCLFilter_base");
+    py::class_<weave::SmartWeave, weave::Weave>(m, "SmartWeave").def(py::init<>());
 
-    py::class_<LineCLFilter_py, LineCLFilter>(m, "LineCLFilter")
+    py::class_<LineCLFilter>(m, "LineCLFilter")
         .def(py::init<>())
-        .def("addCLPoint", &LineCLFilter_py::addCLPoint)
-        .def("setTolerance", &LineCLFilter_py::setTolerance)
-        .def("run", &LineCLFilter_py::run)
-        .def("getCLPoints", &LineCLFilter_py::getCLPoints);
+        .def("addCLPoint", &LineCLFilter::addCLPoint)
+        .def("setTolerance", &LineCLFilter::setTolerance)
+        .def("run", &LineCLFilter::run)
+        .def("getCLPoints", [](const LineCLFilter& f) { return f.clpoints; });
 
     py::class_<clsurf::CutterLocationSurface>(m, "CutterLocationSurface")
         .def(py::init<double>())
@@ -179,13 +166,11 @@ void export_algo(py::module& m) {
         .def("getEdges", &clsurf::CutterLocationSurface::getEdges)
         .def("__str__", &clsurf::CutterLocationSurface::str);
 
-    /*
     py::class_<tsp::TSPSolver>(m, "TSPSolver")
+        .def(py::init<>())
         .def("addPoint", &tsp::TSPSolver::addPoint)
         .def("run", &tsp::TSPSolver::run)
         .def("getOutput", &tsp::TSPSolver::getOutput)
         .def("getLength", &tsp::TSPSolver::getLength)
-        .def("reset", &tsp::TSPSolver::reset)
-    ;
-    */
+        .def("reset", &tsp::TSPSolver::reset);
 }
