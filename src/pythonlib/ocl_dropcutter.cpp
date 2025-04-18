@@ -57,7 +57,8 @@ void export_dropcutter(py::module_& m) {
         .def("setSampling", &PathDropCutter::setSampling)
         .def("setPath", &PathDropCutter::setPath)
         .def("getZ", &PathDropCutter::getZ)
-        .def("setZ", &PathDropCutter::setZ);
+        .def("setZ", &PathDropCutter::setZ)
+        .def_property("minimumZ", &PathDropCutter::getZ, &PathDropCutter::setZ);
 
     py::class_<AdaptivePathDropCutter>(m, "AdaptivePathDropCutter")
         .def(py::init<>())
@@ -71,5 +72,6 @@ void export_dropcutter(py::module_& m) {
         .def("getSampling", &AdaptivePathDropCutter::getSampling)
         .def("setPath", &AdaptivePathDropCutter::setPath)
         .def("getZ", &AdaptivePathDropCutter::getZ)
-        .def("setZ", &AdaptivePathDropCutter::setZ);
+        .def("setZ", &AdaptivePathDropCutter::setZ)
+        .def_property("minimumZ", &AdaptivePathDropCutter::getZ, &AdaptivePathDropCutter::setZ);
 }

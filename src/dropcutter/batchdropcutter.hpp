@@ -57,9 +57,9 @@ class BatchDropCutter : public Operation {
         void run() {this->dropCutter5();};
     // getters and setters
         /// return a vector of CLPoints, the result of this operation
-        std::vector<CLPoint> getCLPoints() {return *clpoints;}
-		/// clears the vector of CLPoints
-		void clearCLPoints() {clpoints->clear();}
+        std::vector<CLPoint> getCLPoints() { return *clpoints; }
+        /// clears the vector of CLPoints
+        void clearCLPoints() { clpoints->clear(); }
 
         /// Return triangles under cutter, Not for CAM-algorithms, more for visualization and demonstration.
         std::list<Triangle> getTrianglesUnderCutter(CLPoint& cl, MillingCutter& cutter)
