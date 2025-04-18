@@ -39,6 +39,7 @@ using namespace ocl;
 
 void export_geometry(py::module_& m) {
     py::class_<Point>(m, "Point")
+        .def(py::init<>())
         .def(py::init<double, double, double>())
         .def(py::init<double, double>())
         .def(py::init<Point>())
@@ -66,25 +67,21 @@ void export_geometry(py::module_& m) {
         .def_readwrite("y", &Point::y)
         .def_readwrite("z", &Point::z);
 
-    py::class_<CLPoint>(m, "CLPoint") // FIXME: should inherit from Point
+    py::class_<CLPoint, Point>(m, "CLPoint")
+        .def(py::init<>())
         .def(py::init<CLPoint>())
         .def(py::init<double, double, double>())
         .def(py::init<double, double, double, CCPoint&>())
         .def("__str__", &CLPoint::str)
-        .def_readwrite("x", &CLPoint::x)
-        .def_readwrite("y", &CLPoint::y)
-        .def_readwrite("z", &CLPoint::z)
         .def("cc", &CLPoint::getCC)
         .def("getCC", &CLPoint::getCC);
 
-    py::class_<CCPoint>(m, "CCPoint") // FIXME: CCPoint should inherit from Point
+    py::class_<CCPoint, Point>(m, "CCPoint")
+        .def(py::init<>())
         .def(py::init<CCPoint>())
         .def(py::init<double, double, double>())
         .def("__str__", &CCPoint::str)
-        .def_readwrite("type", &CCPoint::type)
-        .def_readwrite("x", &CCPoint::x)
-        .def_readwrite("y", &CCPoint::y)
-        .def_readwrite("z", &CCPoint::z);
+        .def_readwrite("type", &CCPoint::type);
 
     py::enum_<CCType>(m, "CCType")
         .value("NONE", NONE)
