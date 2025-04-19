@@ -68,28 +68,6 @@ void export_algo(py::module& m) {
         .def("setXDirection", &BatchPushCutter::setXDirection)
         .def("setYDirection", &BatchPushCutter::setYDirection);
 
-    py::class_<Interval>(m, "Interval")
-        .def(py::init<>())
-        .def(py::init<double, double>())
-        .def_readonly("upper", &Interval::upper)
-        .def_readonly("lower", &Interval::lower)
-        .def_readonly("lower_cc", &Interval::lower_cc)
-        .def_readonly("upper_cc", &Interval::upper_cc)
-        .def("updateUpper", &Interval::updateUpper)
-        .def("updateLower", &Interval::updateLower)
-        .def("empty", &Interval::empty)
-        .def("__str__", &Interval::str);
-
-    py::class_<Fiber>(m, "Fiber")
-        .def(py::init<Point, Point>())
-        .def_readonly("p1", &Fiber::p1)
-        .def_readonly("p2", &Fiber::p2)
-        .def_readonly("dir", &Fiber::dir)
-        .def("addInterval", &Fiber::addInterval)
-        .def("point", &Fiber::point)
-        .def("printInts", &Fiber::printInts)
-        .def("getInts", [](const Fiber& f) { return f.ints; });
-
     py::class_<Waterline>(m, "Waterline")
         .def(py::init<>())
         .def("setCutter", &Waterline::setCutter)

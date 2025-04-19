@@ -27,6 +27,8 @@
 #include "clpoint.hpp"
 #include "ellipse.hpp"
 #include "ellipseposition.hpp"
+#include "fiber.hpp"
+#include "interval.hpp"
 #include "ostream_str.hpp"
 #include "path.hpp"
 #include "point.hpp"
@@ -38,6 +40,8 @@ namespace py = pybind11;
 using namespace ocl;
 
 void export_geometry(py::module_& m) {
+    auto pyTriangle = py::class_<Triangle>(m, "Triangle"); // for stub generation
+
     py::class_<Point>(m, "Point")
         .def(py::init<>())
         .def(py::init<double, double, double>())
@@ -67,22 +71,6 @@ void export_geometry(py::module_& m) {
         .def_readwrite("y", &Point::y)
         .def_readwrite("z", &Point::z);
 
-    py::class_<CLPoint, Point>(m, "CLPoint")
-        .def(py::init<>())
-        .def(py::init<CLPoint>())
-        .def(py::init<double, double, double>())
-        .def(py::init<double, double, double, CCPoint&>())
-        .def("__str__", &CLPoint::str)
-        .def("cc", &CLPoint::getCC)
-        .def("getCC", &CLPoint::getCC);
-
-    py::class_<CCPoint, Point>(m, "CCPoint")
-        .def(py::init<>())
-        .def(py::init<CCPoint>())
-        .def(py::init<double, double, double>())
-        .def("__str__", &CCPoint::str)
-        .def_readwrite("type", &CCPoint::type);
-
     py::enum_<CCType>(m, "CCType")
         .value("NONE", NONE)
         .value("VERTEX", VERTEX)
@@ -104,12 +92,32 @@ void export_geometry(py::module_& m) {
         .value("ERROR", ERROR)
         .export_values();
 
-    py::class_<Triangle>(m, "Triangle")
-        .def(py::init<Point, Point, Point>())
+    py::class_<CCPoint, Point>(m, "CCPoint")
+        .def(py::init<>())
+        .def(py::init<CCPoint>())
+        .def(py::init<double, double, double>())
+        .def("__str__", &CCPoint::str)
+        .def_readwrite("type", &CCPoint::type);
+
+    py::class_<CLPoint, Point>(m, "CLPoint")
+        .def(py::init<>())
+        .def(py::init<CLPoint>())
+        .def(py::init<double, double, double>())
+        .def(py::init<double, double, double, CCPoint&>())
+        .def("__str__", &CLPoint::str)
+        .def("cc", &CLPoint::getCC)
+        .def("getCC", &CLPoint::getCC);
+
+    pyTriangle.def(py::init<Point, Point, Point>())
         .def("getPoints", [](const Triangle& t) { return std::to_array(t.p); })
         .def("__str__", &ostream_str<Triangle>)
         .def_property_readonly("p", [](const Triangle& t) { return std::to_array(t.p); })
         .def_readonly("n", &Triangle::n);
+
+    py::class_<Bbox>(m, "Bbox")
+        .def("isInside", &Bbox::isInside)
+        .def_readonly("maxpt", &Bbox::maxpt)
+        .def_readonly("minpt", &Bbox::minpt);
 
     py::class_<STLSurf>(m, "STLSurf")
         .def(py::init<>())
@@ -127,11 +135,6 @@ void export_geometry(py::module_& m) {
         .def_readonly("bb", &STLSurf::bb);
 
     py::class_<STLReader>(m, "STLReader").def(py::init<const std::wstring&, STLSurf&>());
-
-    py::class_<Bbox>(m, "Bbox")
-        .def("isInside", &Bbox::isInside)
-        .def_readonly("maxpt", &Bbox::maxpt)
-        .def_readonly("minpt", &Bbox::minpt);
 
     // EllipsePosition and Ellipse for toroidal tool edge-tests
     py::class_<EllipsePosition>(m, "EllipsePosition")
@@ -197,4 +200,26 @@ void export_geometry(py::module_& m) {
              })
         .def("append", py::overload_cast<const Line&>(&Path::append))
         .def("append", py::overload_cast<const Arc&>(&Path::append));
+
+    py::class_<Interval>(m, "Interval")
+        .def(py::init<>())
+        .def(py::init<double, double>())
+        .def_readonly("upper", &Interval::upper)
+        .def_readonly("lower", &Interval::lower)
+        .def_readonly("lower_cc", &Interval::lower_cc)
+        .def_readonly("upper_cc", &Interval::upper_cc)
+        .def("updateUpper", &Interval::updateUpper)
+        .def("updateLower", &Interval::updateLower)
+        .def("empty", &Interval::empty)
+        .def("__str__", &Interval::str);
+
+    py::class_<Fiber>(m, "Fiber")
+        .def(py::init<Point, Point>())
+        .def_readonly("p1", &Fiber::p1)
+        .def_readonly("p2", &Fiber::p2)
+        .def_readonly("dir", &Fiber::dir)
+        .def("addInterval", &Fiber::addInterval)
+        .def("point", &Fiber::point)
+        .def("printInts", &Fiber::printInts)
+        .def("getInts", [](const Fiber& f) { return f.ints; });
 }
