@@ -1,7 +1,15 @@
+from pathlib import Path
+
 from opencamlib import ocl
 
+
 def pointToXYZ(point):
-    return "X{:.5f}".format(point.x).rstrip('0').rstrip('.') + " Y{:.5f}".format(point.y).rstrip('0').rstrip('.') + " Z{:.5f}".format(point.z).rstrip('0').rstrip('.')
+    return (
+        f"X{point.x:.5f}".rstrip("0").rstrip(".")
+        + f" Y{point.y:.5f}".rstrip("0").rstrip(".")
+        + f" Z{point.z:.5f}".rstrip("0").rstrip(".")
+    )
+
 
 def waterline(surface, cutter, z, sampling):
     wl = ocl.Waterline()
@@ -10,15 +18,16 @@ def waterline(surface, cutter, z, sampling):
     wl.setZ(z)
     wl.setSampling(sampling)
     wl.run()
-    gcode = ''
+    gcode = ""
     loops = wl.getLoops()
     for loop in loops:
         for point in loop:
             gcode += "G01 " + pointToXYZ(point) + "\n"
     print(gcode)
 
+
 def adaptiveWaterline(surface, cutter, z, sampling, minSampling):
-    print('AdaptiveWaterline')
+    print("AdaptiveWaterline")
     awl = ocl.AdaptiveWaterline()
     awl.setSTL(surface)
     awl.setCutter(cutter)
@@ -26,15 +35,16 @@ def adaptiveWaterline(surface, cutter, z, sampling, minSampling):
     awl.setSampling(sampling)
     awl.setMinSampling(minSampling)
     awl.run()
-    gcode = ''
+    gcode = ""
     loops = awl.getLoops()
     for loop in loops:
         for point in loop:
             gcode += "G01 " + pointToXYZ(point) + "\n"
     print(gcode)
 
+
 def pathDropCutter(surface, cutter, sampling, path):
-    print('PathDropCutter')
+    print("PathDropCutter")
     pdc = ocl.PathDropCutter()
     pdc.setSTL(surface)
     pdc.setCutter(cutter)
@@ -43,13 +53,14 @@ def pathDropCutter(surface, cutter, sampling, path):
     pdc.setSampling(sampling)
     pdc.run()
     points = pdc.getCLPoints()
-    gcode = ''
+    gcode = ""
     for point in points:
         gcode += "G01 " + pointToXYZ(point) + "\n"
     print(gcode)
 
+
 def adaptivePathDropCutter(surface, cutter, sampling, minSampling, path):
-    print('AdaptivePathDropCutter')
+    print("AdaptivePathDropCutter")
     apdc = ocl.AdaptivePathDropCutter()
     apdc.setSTL(surface)
     apdc.setCutter(cutter)
@@ -59,15 +70,16 @@ def adaptivePathDropCutter(surface, cutter, sampling, minSampling, path):
     apdc.setMinSampling(minSampling)
     apdc.run()
     points = apdc.getCLPoints()
-    gcode = ''
+    gcode = ""
     for point in points:
         gcode += "G01 " + pointToXYZ(point) + "\n"
     print(gcode)
 
-if __name__ == "__main__":  
+
+if __name__ == "__main__":
     print(ocl.version())
     surface = ocl.STLSurf()
-    ocl.STLReader("../../stl/gnu_tux_mod.stl", surface)
+    ocl.STLReader(str(Path(__file__).parent / "../../stl/gnu_tux_mod.stl"), surface)
     cutter = ocl.CylCutter(4, 20)
     waterline(surface, cutter, 1, 0.1)
     adaptiveWaterline(surface, cutter, 1, 0.1, 0.001)

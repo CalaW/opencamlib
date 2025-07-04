@@ -2,10 +2,10 @@ from opencamlib import ocl
 
 print(ocl.version())
 
-p0 = ocl.CLPoint(0,0,0)
-p1 = ocl.CLPoint(1,2,3)
-p2 = ocl.CLPoint(1.1,2.2,3.3)
-clp=[]
+p0 = ocl.CLPoint(0, 0, 0)
+p1 = ocl.CLPoint(1, 2, 3)
+p2 = ocl.CLPoint(1.1, 2.2, 3.3)
+clp = []
 clp.append(p0)
 clp.append(p1)
 clp.append(p2)

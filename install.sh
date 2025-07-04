@@ -509,61 +509,61 @@ test_emscriptenlib() {
 }
 
 if [ -n "${OCL_INSTALL_SYSTEM_DEPS}" ]; then
-    prettyprint "Installing system dependencies..."
+    prettyprint "Installing system dependencies... $SECONDS"
     install_system_dependencies
 fi
 
 if [ -n "${OCL_INSTALL_CI_DEPS}" ]; then
-    prettyprint "Installing ci dependencies..."
+    prettyprint "Installing ci dependencies... $SECONDS"
     install_ci_dependencies
 fi
 
 if [ -n "${OCL_INSTALL_BOOST}" ]; then
-    prettyprint "Installing Boost..."
+    prettyprint "Installing Boost... $SECONDS"
     install_boost
 fi
 
 if [ -n "${OCL_CLEAN}" ]; then
-    prettyprint "Cleaning build directory..."
+    prettyprint "Cleaning build directory... $SECONDS"
     build_clean
 fi
 
 if [ "${OCL_BUILD_LIBRARY}" = "cxx" ]; then
-    prettyprint "Building C++ library"
+    prettyprint "Building C++ library $SECONDS"
     build_cxxlib
     if [ -n "${OCL_TEST}" ]; then
-        prettyprint "Testing C++ library"
+        prettyprint "Testing C++ library $SECONDS"
         test_cxxlib
     fi
 fi
 
 if [ "${OCL_BUILD_LIBRARY}" = "nodejs" ]; then
-    prettyprint "Installing node.js dependencies"
+    prettyprint "Installing node.js dependencies $SECONDS"
     dependencies_nodejslib
-    prettyprint "Building node.js library"
+    prettyprint "Building node.js library $SECONDS"
     build_nodejslib
     if [ -n "${OCL_TEST}" ]; then
-        prettyprint "Testing node.js library"
+        prettyprint "Testing node.js library $SECONDS"
         test_nodejslib
     fi
 fi
 
 if [ "${OCL_BUILD_LIBRARY}" = "python" ]; then
-    prettyprint "Building Python library"
+    prettyprint "Building Python library $SECONDS"
     build_pythonlib
     if [ -n "${OCL_TEST}" ]; then
-        prettyprint "Testing Python library"
+        prettyprint "Testing Python library $SECONDS"
         test_pythonlib
     fi
 fi
 
 if [ "${OCL_BUILD_LIBRARY}" = "emscripten" ]; then
-    prettyprint "Installing emscripten dependencies"
+    prettyprint "Installing emscripten dependencies $SECONDS"
     dependencies_emscriptenlib
-    prettyprint "Building emscripten library"
+    prettyprint "Building emscripten library $SECONDS"
     build_emscriptenlib
     if [ -n "${OCL_TEST}" ]; then
-        prettyprint "Testing emscripten library"
+        prettyprint "Testing emscripten library $SECONDS"
         test_emscriptenlib
     fi
 fi

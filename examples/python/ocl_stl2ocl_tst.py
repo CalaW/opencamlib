@@ -1,10 +1,12 @@
-from opencamlib import ocl, camvtk
+from pathlib import Path
+
+from opencamlib import camvtk, ocl
 
 if __name__ == "__main__":
-    s= ocl.STLSurf()
+    s = ocl.STLSurf()
     print(s)
     myscreen = camvtk.VTKScreen()
-    stl = camvtk.STLSurf("../../stl/demo.stl")
+    stl = camvtk.STLSurf(Path(__file__).parent / "../../stl/demo.stl")
     print("STL surface read")
     myscreen.addActor(stl)
     stl.SetWireframe()
@@ -16,4 +18,4 @@ if __name__ == "__main__":
     myscreen.render()
     myscreen.iren.Start()
 
-    #raw_input("Press Enter to terminate") 
+    # raw_input("Press Enter to terminate")
