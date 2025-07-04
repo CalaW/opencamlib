@@ -22,16 +22,9 @@
 #ifndef ADAPTIVEPATHDROPCUTTER_H
 #define ADAPTIVEPATHDROPCUTTER_H
 
-#include <iostream>
-#include <string>
-#include <list>
-
-#include <boost/foreach.hpp>
-
-#include "pathdropcutter.hpp"
-#include "pointdropcutter.hpp"
-#include "path.hpp"
 #include "clpoint.hpp"
+#include "operation.hpp"
+#include "path.hpp"
 
 namespace ocl
 {

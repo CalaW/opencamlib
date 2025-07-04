@@ -22,14 +22,8 @@
 #ifndef ADAPTIVEWATERLINE_HPP
 #define ADAPTIVEWATERLINE_HPP
 
-#include <iostream>
-#include <string>
-#include <vector>
-
-#include <boost/foreach.hpp>
-
-#include "waterline.hpp"
 #include "fiber.hpp"
+#include "waterline.hpp"
 
 namespace ocl
 {

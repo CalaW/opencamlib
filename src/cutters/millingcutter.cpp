@@ -19,8 +19,6 @@
  *  along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <boost/foreach.hpp>
-
 #include "millingcutter.hpp"
 #include "numeric.hpp"
 
@@ -35,13 +33,13 @@ MillingCutter* MillingCutter::offsetCutter(double d) const {
 // general purpose vertex-drop which delegates to this->height(r) of subclass 
 bool MillingCutter::vertexDrop(CLPoint &cl, const Triangle &t) const {
     bool result = false;
-    BOOST_FOREACH( const Point& p, t.p) {           // test each vertex of triangle
+    for (const Point& p : t.p) {                    // test each vertex of triangle
         double q = cl.xyDistance(p);                // distance in XY-plane from cl to p
         if ( q <= radius ) {                        // p is inside the cutter
             CCPoint cc_tmp(p, VERTEX);
             if ( cl.liftZ( p.z - this->height(q), cc_tmp ) )
                 result = true;
-        } 
+        }
     }
     return result;
 }
@@ -53,7 +51,7 @@ bool MillingCutter::facetDrop(CLPoint &cl, const Triangle &t) const { // Drop cu
     if ( isZero_tol( normal.z ) )  // vertical surface
         return false;  //can't drop against vertical surface
     assert( isPositive( normal.z ) );
-    
+
     if ( ( isZero_tol(normal.x) ) && ( isZero_tol(normal.y) ) ) { // horizontal plane special case
         CCPoint cc_tmp( cl.x, cl.y, t.p[0].z, FACET);
         return cl.liftZ_if_inFacet(cc_tmp.z, cc_tmp, t);
@@ -78,7 +76,7 @@ bool MillingCutter::facetDrop(CLPoint &cl, const Triangle &t) const { // Drop cu
 // edge of the input Triangle t.
 bool MillingCutter::edgeDrop(CLPoint &cl, const Triangle &t) const {
     bool result = false;
-    for (int n=0;n<3;n++) { // loop through all three edges
+    for (int n = 0; n < 3; n++) { // loop through all three edges
         int start=n;      // index of the start-point of the edge
         int end=(n+1)%3;  // index of the end-point of the edge
         const Point p1 = t.p[start];
@@ -138,7 +136,7 @@ bool MillingCutter::singleEdgeDrop(CLPoint& cl, const Point& p1, const Point& p2
 // general purpose vertexPush, delegates to this->width(h) 
 bool MillingCutter::vertexPush(const Fiber& f, Interval& i, const Triangle& t) const {
     bool result = false;
-    BOOST_FOREACH( const Point& p, t.p) {
+    for (const Point& p : t.p) {
         if (this->singleVertexPush(f,i,p, VERTEX) )
             result = true;
     }
@@ -160,8 +158,8 @@ bool MillingCutter::singleVertexPush(const Fiber& f, Interval& i, const Point& p
             CCPoint cc_tmp( p, cctyp );
             i.updateUpper( f.tval(stop) , cc_tmp );
             i.updateLower( f.tval(start) , cc_tmp );
-            result = true;                
-        }             
+            result = true;
+        }
     }
     return result;
 }
@@ -172,7 +170,7 @@ bool MillingCutter::facetPush(const Fiber& fib, Interval& i,  const Triangle& t)
                             this->xy_normal_length,
                             fib,i,t);
 }
-    
+
 // general purpose facetPush
 bool MillingCutter::generalFacetPush(double normal_length,
                                      double center_height,
@@ -411,7 +409,7 @@ bool MillingCutter::dropCutter(CLPoint &cl, const Triangle &t) const {
 // TESTING ONLY, don't use for real
 bool MillingCutter::dropCutterSTL(CLPoint &cl, const STLSurf &s) const {
     bool result=false;
-    BOOST_FOREACH( const Triangle& t, s.tris) {
+    for (const Triangle& t : s.tris) {
         if ( this->dropCutter(cl,t) )
             result = true;
     }

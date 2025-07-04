@@ -72,19 +72,17 @@ void Weave::face_traverse() {
     }
 }
 
-
-std::vector< std::vector<Point> > Weave::getLoops() const {
-    std::vector< std::vector<Point> > loop_list;
-    BOOST_FOREACH( std::vector<Vertex> loop, loops ) {
+std::vector<std::vector<Point>> Weave::getLoops() const {
+    std::vector<std::vector<Point>> loop_list;
+    for (std::vector<Vertex> loop : loops) {
         std::vector<Point> point_list;
-        BOOST_FOREACH( Vertex v, loop ) {
-            point_list.push_back( g[v].position );
+        for (Vertex v : loop) {
+            point_list.push_back(g[v].position);
         }
         loop_list.push_back(point_list);
     }
     return loop_list;
 }
-
 
 // this can cause a build error when both face and vertex descriptors have the same type
 // i.e. unsigned int (?)
@@ -94,14 +92,14 @@ void Weave::printGraph()  {
     std::cout << " number of edges: " << g.num_edges()  << "\n"; 
 
     int n=0, n_cl=0, n_internal=0;
-    BOOST_FOREACH(Vertex v, g.vertices() ) {
-        if ( g[v].type == CL )
+    for (Vertex v : g.vertices()) {
+        if (g[v].type == CL)
             ++n_cl;
         else
             ++n_internal;
         ++n;
     }
-    
+
     std::cout << " counted " << n << " vertices\n";
     std::cout << "          CL-nodes: " << n_cl << "\n";
     std::cout << "    internal-nodes: " << n_internal << "\n";

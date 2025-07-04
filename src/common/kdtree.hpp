@@ -25,12 +25,10 @@
 #include <iostream>
 #include <list>
 
-#include <boost/foreach.hpp>
-
-#include "kdnode.hpp"
 #include "bbox.hpp"
-#include "millingcutter.hpp"
 #include "clpoint.hpp"
+#include "kdnode.hpp"
+#include "millingcutter.hpp"
 #include "numeric.hpp"
 
 namespace ocl
@@ -162,20 +160,21 @@ class KDTree {
             // build lists of triangles for hi and lo child nodes
             std::list<BBObj>* lolist = new std::list<BBObj>();
             std::list<BBObj>* hilist = new std::list<BBObj>();
-            BOOST_FOREACH(BBObj t, *tris) { // loop through each triangle and put it in either lolist or hilist
-                if (t.bb[spr->d] > cutvalue) 
+            // loop through each triangle and put it in either lolist or hilist
+            for (BBObj t : *tris) {
+                if (t.bb[spr->d] > cutvalue)
                     hilist->push_back(t);
                 else
                     lolist->push_back(t);
-            } 
-            
+            }
+
             /*
             if (hilist->empty() || lolist->empty()) {// an error ??
                 std::cout << "kdtree: hilist.size()==0! or lolist.size()==0! \n";
                 std::cout << "kdtree: tris->size()= " << tris->size()<< "\n";
                 std::cout << "kdtree: hilist.size()= " << hilist->size()<< "\n";
                 std::cout << "kdtree: lolist.size()= " << lolist->size()<< "\n";
-                BOOST_FOREACH(BBObj t, *tris) {
+                for(BBObj t: *tris) {
                     std::cout << t << "\n";
                     std::cout << t.bb << "\n";
                 }
@@ -221,8 +220,8 @@ class KDTree {
                 // find out the maximum spread
                 //std::cout << "calc_spread()...\n";
                 bool first=true;
-                BOOST_FOREACH(BBObj t, *tris) { // check each triangle
-                    for (unsigned int m=0;m<dimensions.size();++m) {
+                for (BBObj t : *tris) { // check each triangle
+                    for (unsigned int m = 0; m < dimensions.size(); ++m) {
                         // dimensions[m] is the dimensions we want to update
                         // t.bb[ dimensions[m] ]   is the update value
                         double point = dimensions[m];
@@ -230,10 +229,10 @@ class KDTree {
                         if (first) {
                             maxval[point] = tbbpoint;
                             minval[point] = tbbpoint;
-                            if (m==(dimensions.size()-1) )
-                                first=false;
+                            if (m == (dimensions.size() - 1))
+                                first = false;
                         } else {
-                            if (maxval[point] < tbbpoint )
+                            if (maxval[point] < tbbpoint)
                                 maxval[point] = tbbpoint;
                             if (minval[point] > tbbpoint)
                                 minval[point] = tbbpoint;
@@ -272,10 +271,10 @@ class KDTree {
         /// found objects in *tris
         void search_node( std::list<BBObj> *tris, const Bbox& bb, KDNode<BBObj> *node) {
             if (node->isLeaf ) { // we found a bucket node, so add all triangles and return.
-            
-                BOOST_FOREACH( BBObj t, *(node->tris) ) {
-                        tris->push_back(t); 
-                } 
+
+                for (BBObj t : *(node->tris)) {
+                    tris->push_back(t);
+                }
                 //std::cout << " search_node Leaf bucket tris-size() = " << tris->size() << "\n";
                 return; // end recursion
             } else if ( (node->dim % 2) == 0) { // cutting along a min-direction: 0, 2, 4

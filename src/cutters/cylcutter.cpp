@@ -23,10 +23,7 @@
 #include <sstream>
 #include <string>
 
-#include <boost/foreach.hpp>
-
 #include "cylcutter.hpp"
-#include "bullcutter.hpp" // for offsetCutter()
 #include "numeric.hpp"
 
 namespace ocl
@@ -72,8 +69,8 @@ CC_CLZ_Pair CylCutter::singleEdgeDropCanonical(const Point& u1, const Point& u2)
 // general purpose vertexPush, delegates to this->width(h) 
 bool CylCutter::vertexPush(const Fiber& f, Interval& i, const Triangle& t) const {
     bool result = false;
-    BOOST_FOREACH( const Point& p, t.p) {
-        if (this->singleVertexPush(f,i,p, VERTEX) )
+    for (const Point& p : t.p) {
+        if (this->singleVertexPush(f, i, p, VERTEX))
             result = true;
     }
 

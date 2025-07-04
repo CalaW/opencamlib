@@ -23,8 +23,6 @@
 #include <sstream>
 #include <string>
 
-#include <boost/foreach.hpp>
-
 #include "conecutter.hpp"
 #include "compositecutter.hpp" // for offsetCutter()
 #include "numeric.hpp"

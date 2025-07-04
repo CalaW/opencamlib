@@ -19,16 +19,13 @@
  *  along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <boost/foreach.hpp>
-
-#ifdef _OPENMP 
-    #include <omp.h>
+#ifdef _OPENMP
+#include <omp.h>
 #endif
 
 #include "point.hpp"
-#include "triangle.hpp"
 #include "pointdropcutter.hpp"
-
+#include "triangle.hpp"
 
 namespace ocl
 {

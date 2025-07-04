@@ -63,9 +63,9 @@ void SimpleWeave::build() {
     // provide this "via" connection
     //int n_xfiber=0;
     // std::cout << " SimpleWeave::build()... \n";
-    BOOST_FOREACH( Fiber& xf, xfibers) {
-        assert( !xf.empty() ); // no empty fibers please
-        BOOST_FOREACH( Interval& xi, xf.ints ) {
+    for (Fiber& xf : xfibers) {
+        assert(!xf.empty()); // no empty fibers please
+        for (Interval& xi : xf.ints) {
             //std::cout << "x-fiber " << n_xfiber++ << "\n";
             double xmin = xf.point(xi.lower).x;
             double xmax = xf.point(xi.upper).x;
@@ -86,9 +86,10 @@ void SimpleWeave::build() {
             g[e1].prev = e2;
             g[e2].prev = e1;
             //int n_yfiber=0;
-            BOOST_FOREACH( Fiber& yf, yfibers ) { // loop through all y-fibers for all x-intervals
-                if ( (xmin < yf.p1.x) && ( yf.p1.x < xmax ) ) {// potential intersection between y-fiber and x-interval
-                    BOOST_FOREACH( Interval& yi, yf.ints ) {
+            for (Fiber& yf : yfibers) { // loop through all y-fibers for all x-intervals
+                if ((xmin < yf.p1.x) && (yf.p1.x < xmax)) {
+                    // potential intersection between y-fiber and x-interval
+                    for (Interval& yi : yf.ints) {
                         //std::cout << "y-fiber " << n_yfiber++ << "\n";
                         double ymin = yf.point(yi.lower).y ;
                         double ymax = yf.point(yi.upper).y ;
@@ -124,7 +125,7 @@ void SimpleWeave::build() {
                     } // end y interval loop
                 } // end if(potential intersection)
             } // end y fiber loop
-            
+
             // now we've added an x-interval, we've gone through all the y-intervals
             // if there isn't a single intersecting interval, then remove the x-interval as it is useless
             assert( xi.intersections2.size() >= 2  );

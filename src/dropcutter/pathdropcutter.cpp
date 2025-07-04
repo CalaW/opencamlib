@@ -19,9 +19,6 @@
  *  along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <boost/foreach.hpp>
-
-#include "millingcutter.hpp"
 #include "clpoint.hpp"
 #include "pathdropcutter.hpp"
 
@@ -58,8 +55,8 @@ void PathDropCutter::run() {
 
 void PathDropCutter::uniform_sampling_run() {
     clpoints.clear();
-    BOOST_FOREACH( const Span* span, path->span_list ) { // loop through the spans calling run() on each
-        this->sample_span(span); // append points to bdc
+    for (const Span* span : path->span_list) { // loop through the spans calling run() on each
+        this->sample_span(span);               // append points to bdc
     }
     subOp[0]->run();
     clpoints = subOp[0]->getCLPoints();

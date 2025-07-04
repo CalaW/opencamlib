@@ -19,26 +19,19 @@
  *  along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <algorithm>
 #include <vector>
 
-
-#include <boost/foreach.hpp> 
-
 #ifdef _OPENMP
-    #include <omp.h>
+#include <omp.h>
 #endif
 
-#include "millingcutter.hpp"
-#include "point.hpp"
-#include "triangle.hpp"
 #include "line.hpp"
+#include "millingcutter.hpp"
 #include "path.hpp"
+#include "point.hpp"
 
 #include "adaptivewaterline.hpp"
-#include "weave.hpp"
 #include "fiberpushcutter.hpp"
-
 
 namespace ocl
 {

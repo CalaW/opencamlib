@@ -67,7 +67,7 @@ void SmartWeave::build() {
     //std::cout << " done.\n" << std::flush ;
     
     //std::cout << " build2() looping over xfibers ... " << std::flush ;
-    BOOST_FOREACH( Fiber& xf, xfibers ) {
+    for( Fiber& xf: xfibers ) {
         std::vector<Interval>::iterator xi;
         for( xi = xf.ints.begin(); xi < xf.ints.end(); xi++ ) {
             std::set<std::vector<Fiber>::iterator>::const_iterator current, prev;
@@ -94,11 +94,11 @@ void SmartWeave::build() {
     //std::cout << " build2() looping over yfibers ... " << std::flush ;
     //std::cout << yfibers.size() << " fibers to loop over \n"<< std::flush ; 
     //int ny = 0;
-    BOOST_FOREACH( Fiber& yf, yfibers ) {
+    for (Fiber& yf : yfibers) {
         //std::cout << " fiber nr: " << ny++ << " has " << yf.ints.size() << " intervals\n" << std::flush ;
         std::vector<Interval>::iterator yi;
         //int ny_int=0;
-        for( yi = yf.ints.begin(); yi < yf.ints.end(); yi++ ) {
+        for (yi = yf.ints.begin(); yi < yf.ints.end(); yi++) {
             //std::cout << "  interval nr: " << ny_int++ << " has yi->intersections_fibers.size()= " << yi->intersections_fibers.size() << "\n" << std::flush;
             std::set<std::vector<Fiber>::iterator>::iterator current, prev;
             if( yi->intersections_fibers.size() > 1 ) {
@@ -276,18 +276,18 @@ bool SmartWeave::add_vertex( Fiber& xf, Fiber& yf,
                         std::vector<Interval>::iterator yi,
                         enum VertexType type ) {
     //test if vertex exists
-    BOOST_FOREACH( std::vector<Fiber>::iterator it_xf, yi->intersections_fibers ) {
-        if( *it_xf == xf )
+    for (std::vector<Fiber>::iterator it_xf : yi->intersections_fibers) {
+        if (*it_xf == xf)
             return false;
     }
-    Point v_position( yf.p1.x, xf.p1.y, xf.p1.z );
-    Vertex v =g.add_vertex(); 
+    Point v_position(yf.p1.x, xf.p1.y, xf.p1.z);
+    Vertex v = g.add_vertex();
     g[v].position = v_position;
     g[v].type = type;
-    g[v].xi= xi;
-    g[v].yi= yi;
-    xi->intersections2.insert( VertexPair( v, v_position.x ) );
-    yi->intersections2.insert( VertexPair( v, v_position.y ) );
+    g[v].xi = xi;
+    g[v].yi = yi;
+    xi->intersections2.insert(VertexPair(v, v_position.x));
+    yi->intersections2.insert(VertexPair(v, v_position.y));
     return true;
 }
 
@@ -297,12 +297,12 @@ void SmartWeave::add_all_edges()
     std::vector<Vertex> vertices = g.vertices(); 
 
     // std::cout << "There are " << vertices.size() << " vertices.\n";
-    BOOST_FOREACH( Vertex& vertex, vertices ) {
-        if( (g[vertex].type == INT) || (g[vertex].type == FULLINT) ) {
-            std::vector<Vertex>                adjacent_vertices;
-            std::vector<Vertex>::iterator    adj_itr;
-            std::vector<Edge>                in_edges, out_edges;
-            std::vector<Edge>::iterator        in_edge_itr, out_edge_itr;
+    for (Vertex& vertex : vertices) {
+        if ((g[vertex].type == INT) || (g[vertex].type == FULLINT)) {
+            std::vector<Vertex> adjacent_vertices;
+            std::vector<Vertex>::iterator adj_itr;
+            std::vector<Edge> in_edges, out_edges;
+            std::vector<Edge>::iterator in_edge_itr, out_edge_itr;
 
             Vertex x_u, x_l, y_u, y_l;
             boost::tie( x_u, x_l ) = find_neighbor_vertices( VertexPair(vertex, g[vertex].position.x), *(g[vertex].xi), false );

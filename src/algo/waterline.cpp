@@ -19,18 +19,14 @@
  *  along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <boost/foreach.hpp> 
-
 #ifdef _OPENMP
-    #include <omp.h>
+#include <omp.h>
 #endif
 
+#include "batchpushcutter.hpp"
 #include "millingcutter.hpp"
 #include "point.hpp"
-#include "triangle.hpp"
 #include "waterline.hpp"
-#include "batchpushcutter.hpp"
-// #include "weave.hpp"
 #include "simple_weave.hpp"
 #include "smart_weave.hpp"
 
@@ -97,13 +93,13 @@ void Waterline::reset() {
 void Waterline::weave_process() {
     // std::cout << "Weave...\n" << std::flush;
     weave::SimpleWeave weave;
-    BOOST_FOREACH( Fiber f, xfibers ) {
+    for (Fiber f : xfibers) {
         weave.addFiber(f);
     }
-    BOOST_FOREACH( Fiber f, yfibers ) {
+    for (Fiber f : yfibers) {
         weave.addFiber(f);
     }
-   
+
     //std::cout << "Weave::build()..." << std::flush;
     weave.build(); 
     // std::cout << "done.\n";
@@ -120,13 +116,13 @@ void Waterline::weave_process() {
 void Waterline::weave_process2() {
     // std::cout << "Weave...\n" << std::flush;
     weave::SmartWeave weave;
-    BOOST_FOREACH( Fiber f, xfibers ) {
+    for (Fiber f : xfibers) {
         weave.addFiber(f);
     }
-    BOOST_FOREACH( Fiber f, yfibers ) {
+    for (Fiber f : yfibers) {
         weave.addFiber(f);
     }
-   
+
     //std::cout << "Weave::build2()..." << std::flush;
     weave.build(); 
     // std::cout << "done.\n";
@@ -150,17 +146,17 @@ void Waterline::init_fibers() {
     int Ny = (int)( (maxy-miny)/sampling );
     std::vector<double> xvals = generate_range(minx,maxx,Nx);
     std::vector<double> yvals = generate_range(miny,maxy,Ny);
-    BOOST_FOREACH( double y, yvals ) {
-        Point p1 = Point( minx, y, zh );
-        Point p2 = Point( maxx, y, zh );
-        Fiber f = Fiber( p1 , p2 );
-        subOp[0]->appendFiber( f );
+    for (double y : yvals) {
+        Point p1 = Point(minx, y, zh);
+        Point p2 = Point(maxx, y, zh);
+        Fiber f = Fiber(p1, p2);
+        subOp[0]->appendFiber(f);
     }
-    BOOST_FOREACH( double x, xvals ) {
-        Point p1 = Point( x, miny,  zh );
-        Point p2 = Point( x, maxy,  zh );
-        Fiber f = Fiber( p1 , p2 );
-        subOp[1]->appendFiber( f );
+    for (double x : xvals) {
+        Point p1 = Point(x, miny, zh);
+        Point p2 = Point(x, maxy, zh);
+        Fiber f = Fiber(p1, p2);
+        subOp[1]->appendFiber(f);
     }
 }
 

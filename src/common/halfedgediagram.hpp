@@ -22,10 +22,8 @@
 #define HALFEDGEDIAGRAM_HPP
 
 #include <vector>
-#include <list>
 
 #include <boost/graph/adjacency_list.hpp>
-#include <boost/foreach.hpp> 
 
 // bundled BGL properties, see: http://www.boost.org/doc/libs/1_44_0/libs/graph/doc/bundles.html
 
@@ -193,8 +191,8 @@ VertexVector vertices() const {
 /// return all vertices adjacent to given vertex
 VertexVector adjacent_vertices(  Vertex v) {
     VertexVector vv;
-    BOOST_FOREACH( Edge edge, out_edges( v ) ) {
-        vv.push_back( target( edge ) );
+    for (Edge edge : out_edges(v)) {
+        vv.push_back(target(edge));
     }
     return vv;
 }
@@ -297,10 +295,11 @@ FaceVector adjacent_faces( Vertex q ) {
         face_set.insert( g[*itr].face );
     }
     FaceVector fv;
-    BOOST_FOREACH(unsigned int m, face_set) {
+    for (unsigned int m : face_set) {
         fv.push_back(m);
     }
     return fv;
+        // return FaceVector(face_set.begin(), face_set.end());
 }
 
 /// return number of faces in graph
@@ -414,8 +413,8 @@ void insert_vertex_in_half_edge(typename boost::graph_traits< BGLGraph >::vertex
         /// check that all edges belong to the correct face, TODO: template this to make it a useful check
         /*
         bool checkFaces() {
-            BOOST_FOREACH(FaceProps f, faces) {
-                BOOST_FOREACH( HEEdge e, face_edges(f.idx)) {
+            for(FaceProps f: faces) {
+                for( HEEdge e: face_edges(f.idx)) {
                     if ( g[e].face != f.idx )
                         return false;
                 }

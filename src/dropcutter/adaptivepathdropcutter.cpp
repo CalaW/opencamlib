@@ -19,12 +19,9 @@
  *  along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <boost/foreach.hpp>
-
-#include "millingcutter.hpp"
+#include "adaptivepathdropcutter.hpp"
 #include "clpoint.hpp"
 #include "pointdropcutter.hpp"
-#include "adaptivepathdropcutter.hpp"
 
 namespace ocl
 {
@@ -58,13 +55,14 @@ void AdaptivePathDropCutter::adaptive_sampling_run() {
     //std::cout << " apdc::adaptive_sampling_run()... ";
     
     clpoints.clear();
-    BOOST_FOREACH( const Span* span, path->span_list ) {  // this loop could run in parallel, since spans don't depend on eachother
+    // this loop could run in parallel, since spans don't depend on eachother
+    for (const Span* span : path->span_list) {
         CLPoint start = span->getPoint(0.0);
         CLPoint stop = span->getPoint(1.0);
         subOp[0]->run(start);
         subOp[0]->run(stop);
         clpoints.push_back(start);
-        adaptive_sample( span, 0.0, 1.0, start, stop);
+        adaptive_sample(span, 0.0, 1.0, start, stop);
     }
     //std::cout << " DONE clpoints.size()=" << clpoints.size() << "\n";
 }
