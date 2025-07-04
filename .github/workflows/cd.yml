@@ -57,7 +57,7 @@ jobs:
             architecture: "aarch64"
             docker_image: "dockcross/linux-arm64-lts:latest"
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: cxxlib
@@ -88,7 +88,7 @@ jobs:
             --boost-prefix $(pwd) \
             --install \
             --install-prefix $(pwd)/dist
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.os_short }}-cxx-${{ matrix.architecture }}
           path: |
@@ -145,7 +145,7 @@ jobs:
             node_architecture: "arm64"
             docker_image: ghcr.io/prebuild/linux-arm64-lts:latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: nodejslib
@@ -177,7 +177,7 @@ jobs:
             --node-architecture ${{ matrix.node_architecture }} \
             --install \
             --install-prefix $(pwd)/dist
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.os_short }}-nodejs-${{ matrix.node_architecture }}
           path: |
@@ -256,7 +256,7 @@ jobs:
             architecture: "aarch64"
             boost_architecture: "arm"
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       # - name: Cache Boost.Python
@@ -313,7 +313,7 @@ jobs:
       #     if [ -d "boost_1_80_0" ]; then
       #       tar -czf boost-precompiled.tar.gz boost_1_80_0 || true
       #     fi
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.os_short }}-python-${{ matrix.architecture }}
           path: |
@@ -325,7 +325,7 @@ jobs:
     strategy:
       fail-fast: false
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: emscripten
@@ -339,7 +339,7 @@ jobs:
             --boost-prefix $(pwd) \
             --install \
             --install-prefix $(pwd)/dist
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: emscripten
           path: |
@@ -355,7 +355,7 @@ jobs:
     ]
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - uses: actions/download-artifact@v3
@@ -405,7 +405,7 @@ jobs:
     ]
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - uses: actions/download-artifact@v3
@@ -437,7 +437,7 @@ jobs:
     ]
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - uses: actions/download-artifact@v3
