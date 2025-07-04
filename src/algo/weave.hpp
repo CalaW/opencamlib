@@ -18,6 +18,7 @@
  *  You should have received a copy of the GNU Lesser General Public License
  *  along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+
 #ifndef WEAVE_HPP
 #define WEAVE_HPP
 
@@ -30,40 +31,40 @@ namespace ocl {
 
 namespace weave {
 
-    // Abstract base-class for weave-implementations. build() must be implemented in sub-class!
-    class Weave {
-    public:
-        Weave() {}
-        virtual ~Weave() {}
-        /// add Fiber f to the graph
-        /// each fiber should be either in the X or Y-direction
-        /// FIXME: separate addXFiber and addYFiber methods?
-        void addFiber(Fiber& f);
-        /// from the list of fibers, build a graph
-        virtual void build() = 0;
-        /// run planar_face_traversal to get the waterline loops
-        void face_traverse();
-        /// return list of loops
-        std::vector<std::vector<Point>> getLoops() const;
-        /// string representation
-        std::string str();
-        void printGraph();
+// Abstract base-class for weave-implementations. build() must be implemented in sub-class!
+class Weave {
+public:
+    Weave() {}
+    virtual ~Weave() {}
+    /// add Fiber f to the graph
+    /// each fiber should be either in the X or Y-direction
+    /// FIXME: separate addXFiber and addYFiber methods?
+    void addFiber(Fiber& f);
+    /// from the list of fibers, build a graph
+    virtual void build() = 0;
+    /// run planar_face_traversal to get the waterline loops
+    void face_traverse();
+    /// return list of loops
+    std::vector<std::vector<Point>> getLoops() const;
+    /// string representation
+    std::string str();
+    void printGraph();
 
-        int numVertices() const { return g.num_vertices(); }
-        std::vector<Point> getVertices() const;
-        std::vector<Point> getVerticesByType(VertexType t) const;
-        std::vector<std::pair<Point, Point>> getEdges() const;
+    int numVertices() const { return g.num_vertices(); }
+    std::vector<Point> getVertices() const;
+    std::vector<Point> getVerticesByType(VertexType t) const;
+    std::vector<std::pair<Point, Point>> getEdges() const;
 
-    protected:
-        WeaveGraph g;                           ///< the weave-graph
-        std::vector<std::vector<Vertex>> loops; ///< output: list of loops in this weave
-        std::vector<Fiber> xfibers;             ///< the X-fibers
-        std::vector<Fiber> yfibers;             ///< the Y-fibers
-        std::set<Vertex> clVertexSet;           ///< set of CL-points
-    };
+protected:
+    WeaveGraph g;                           ///< the weave-graph
+    std::vector<std::vector<Vertex>> loops; ///< output: list of loops in this weave
+    std::vector<Fiber> xfibers;             ///< the X-fibers
+    std::vector<Fiber> yfibers;             ///< the Y-fibers
+    std::set<Vertex> clVertexSet;           ///< set of CL-points
+};
 
-} // end weave namespace
+} // namespace weave
 
-} // end ocl namespace
+} // namespace ocl
 #endif
 // end file weave.hpp
