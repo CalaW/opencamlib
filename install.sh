@@ -239,6 +239,7 @@ install_boost() {
     if [ -d "${boost_dir}" ]; then
         # boost folder already exists, re-using
         prettyprint "Boost already found, re-using..."
+        return
     elif [ ! -f "${TMPDIR:-"/tmp"}/boost.tar.gz" ]; then
         prettyprint "Downloading boost.tar.gz"
         curl "${boost_url}" --output "${TMPDIR:-"/tmp"}/boost.tar.gz" --silent --location

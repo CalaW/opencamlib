@@ -20,6 +20,7 @@
  */
 
 #include <cassert>
+#include <vector>
 
 #include "triangle.hpp"
 
