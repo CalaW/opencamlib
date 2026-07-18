@@ -419,14 +419,14 @@ get_python_executable() {
 
 build_pythonlib() {
     python_executable=$(get_python_executable)
+        ${python_executable} -m venv env
+        if [ "${determined_os}" = "windows" ]; then
+            source env/Scripts/activate
+        else
+            source env/bin/activate
+        fi
     if [ -n "${OCL_PYTHON_PIP_INSTALL}" ]; then
         ${python_executable} -m pip install scikit-build-core distlib pyproject_metadata
-        # ${python_executable} -m venv env
-        # if [ "${determined_os}" = "windows" ]; then
-        #     source env/Scripts/activate
-        # else
-        #     source env/bin/activate
-        # fi
         # forward cmake args
         export CMAKE_ARGS="${OCL_GENERATOR:+"-G ${OCL_GENERATOR} "}\
 ${OCL_GENERATOR_PLATFORM:+"-A ${OCL_GENERATOR_PLATFORM} "}\
