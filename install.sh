@@ -44,57 +44,92 @@ Options:
 
   --help                      Shows this help page
 EOF
+}
+
+invalid_argument() {
+    echo "$1" >&2
     exit 1
+}
+
+require_option_value() {
+    if [ "$#" -lt 2 ] || [ -z "$2" ] || [[ "$2" = --* ]]; then
+        invalid_argument "Missing value for $1"
+    fi
 }
 
 original_args="$*"
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         --clean) OCL_CLEAN="1"; ;;
-        --build-library) OCL_BUILD_LIBRARY="$2"; shift ;;
-        --build-type) OCL_BUILD_TYPE="$2"; shift ;;
-        --platform) OCL_PLATFORM="$2"; shift ;;
+        --build-library) require_option_value "$@"; OCL_BUILD_LIBRARY="$2"; shift ;;
+        --build-type) require_option_value "$@"; OCL_BUILD_TYPE="$2"; shift ;;
+        --platform) require_option_value "$@"; OCL_PLATFORM="$2"; shift ;;
         --install-system-deps) OCL_INSTALL_SYSTEM_DEPS="1"; ;;
         --install-ci-deps) OCL_INSTALL_CI_DEPS="1"; ;;
         --disable-openmp) OCL_DISABLE_OPENMP="1"; ;;
         --install) OCL_INSTALL="1"; ;;
         --sudo-install) OCL_SUDO_INSTALL="1"; ;;
-        --install-prefix) OCL_INSTALL_PREFIX="$2"; shift ;;
+        --install-prefix) require_option_value "$@"; OCL_INSTALL_PREFIX="$2"; shift ;;
         --install-boost) OCL_INSTALL_BOOST="1"; ;;
         --install-boost-from-repo) OCL_INSTALL_BOOST_FROM_REPO="1"; ;;
-        --boost-prefix) OCL_BOOST_PREFIX="$2"; shift ;;
-        --macos-architecture) OCL_MACOS_ARCHITECTURE="$2"; shift ;;
-        --docker-image) OCL_DOCKER_IMAGE="$2"; shift ;;
-        --docker-before-install) OCL_DOCKER_IMAGE_BEFORE_INSTALL="$2"; shift ;;
-        --cmake-generator) OCL_GENERATOR="$2"; shift ;;
-        --cmake-generator-platform) OCL_GENERATOR_PLATFORM="$2"; shift ;;
-        --python-executable) OCL_PYTHON_EXECUTABLE="$2"; shift ;;
-        --python-prefix) OCL_PYTHON_PREFIX="$2"; shift ;;
+        --boost-prefix) require_option_value "$@"; OCL_BOOST_PREFIX="$2"; shift ;;
+        --macos-architecture) require_option_value "$@"; OCL_MACOS_ARCHITECTURE="$2"; shift ;;
+        --docker-image) require_option_value "$@"; OCL_DOCKER_IMAGE="$2"; shift ;;
+        --docker-before-install) require_option_value "$@"; OCL_DOCKER_IMAGE_BEFORE_INSTALL="$2"; shift ;;
+        --cmake-generator) require_option_value "$@"; OCL_GENERATOR="$2"; shift ;;
+        --cmake-generator-platform) require_option_value "$@"; OCL_GENERATOR_PLATFORM="$2"; shift ;;
+        --python-executable) require_option_value "$@"; OCL_PYTHON_EXECUTABLE="$2"; shift ;;
+        --python-prefix) require_option_value "$@"; OCL_PYTHON_PREFIX="$2"; shift ;;
         --python-pip-install) OCL_PYTHON_PIP_INSTALL="1"; ;;
-        --node-architecture) OCL_NODE_ARCH="$2"; shift ;;
+        --node-architecture) require_option_value "$@"; OCL_NODE_ARCH="$2"; shift ;;
         --test) OCL_TEST="1"; ;;
-        --help|--*)
-            echo $1
-            print_help ;;
-        *)
+        --help) print_help; exit 0 ;;
+        --*) invalid_argument "Unknown option: $1" ;;
+        *) invalid_argument "Unexpected argument: $1" ;;
     esac
     shift
 done
 
 verify_args() {
-    if [ -n "${OCL_CLEAN}" ] && [ -z "${OCL_BUILD_LIBRARY}" ]; then
+    case "${OCL_BUILD_LIBRARY:-}" in
+        ""|cxx|nodejs|python|emscripten) ;;
+        *) invalid_argument "Invalid library type: ${OCL_BUILD_LIBRARY}" ;;
+    esac
+
+    case "${OCL_BUILD_TYPE:-}" in
+        ""|debug|release) ;;
+        *) invalid_argument "Invalid build type: ${OCL_BUILD_TYPE}" ;;
+    esac
+
+    case "${OCL_PLATFORM:-}" in
+        ""|windows|macos|linux) ;;
+        *) invalid_argument "Invalid platform: ${OCL_PLATFORM}" ;;
+    esac
+
+    case "${OCL_MACOS_ARCHITECTURE:-}" in
+        ""|arm64|x86_64) ;;
+        *) invalid_argument "Invalid macOS architecture: ${OCL_MACOS_ARCHITECTURE}" ;;
+    esac
+
+    if [ -n "${OCL_CLEAN:-}" ] && [ -z "${OCL_BUILD_LIBRARY:-}" ]; then
         echo "Cannot set --clean without building a library. add the --build-library [lib] option or remove the --clean option"
         exit 1
-    elif [ -n "${OCL_BUILD_TYPE}" ] && [ -z "${OCL_BUILD_LIBRARY}" ]; then
+    elif [ -n "${OCL_BUILD_TYPE:-}" ] && [ -z "${OCL_BUILD_LIBRARY:-}" ]; then
         echo "Cannot set --build-type without building a library. add the --build-library [lib] option or remove the --build-type option"
         exit 1
-    elif [ -n "${OCL_TEST}" ] && [ -z "${OCL_BUILD_LIBRARY}" ]; then
+    elif [ -n "${OCL_TEST:-}" ] && [ -z "${OCL_BUILD_LIBRARY:-}" ]; then
         echo "Cannot set --test without building a library. add the --build-library [lib] option or remove the --test option"
         exit 1
-    elif [ -n "${OCL_DISABLE_OPENMP}" ] && [ -z "${OCL_BUILD_LIBRARY}" ]; then
+    elif [ -n "${OCL_DISABLE_OPENMP:-}" ] && [ -z "${OCL_BUILD_LIBRARY:-}" ]; then
         echo "Cannot set --disable-openmp without building a library. add the --build-library [lib] option or remove the --disable-openmp option"
         exit 1
-    elif [ -n "${OCL_INSTALL_PREFIX}" ] && [ -z "${OCL_INSTALL}" ] && [ -z "${OCL_SUDO_INSTALL}" ]; then
+    elif { [ -n "${OCL_PYTHON_EXECUTABLE:-}" ] || [ -n "${OCL_PYTHON_PREFIX:-}" ] || [ -n "${OCL_PYTHON_PIP_INSTALL:-}" ]; } && [ "${OCL_BUILD_LIBRARY:-}" != "python" ]; then
+        invalid_argument "Python options require --build-library python"
+    elif [ -n "${OCL_NODE_ARCH:-}" ] && [ "${OCL_BUILD_LIBRARY:-}" != "nodejs" ]; then
+        invalid_argument "--node-architecture requires --build-library nodejs"
+    elif [ -n "${OCL_DOCKER_IMAGE_BEFORE_INSTALL:-}" ] && [ -z "${OCL_DOCKER_IMAGE:-}" ]; then
+        invalid_argument "--docker-before-install requires --docker-image"
+    elif [ -n "${OCL_INSTALL_PREFIX:-}" ] && [ -z "${OCL_INSTALL:-}" ] && [ -z "${OCL_SUDO_INSTALL:-}" ]; then
         echo "WARN: Settings --install-prefix without setting --install or --sudo-install. add --install or --sudo-install option or remove the --install-prefix option"
     fi
 }
@@ -397,12 +432,17 @@ build_nodejslib() {
 }
 
 test_nodejslib() {
+    node_addon_path="${build_dir}/ocl.node"
+    if [ ! -f "${node_addon_path}" ]; then
+        invalid_argument "Cannot find compiled node.js library: ${node_addon_path}"
+    fi
+    export OCL_NODE_PATH="${node_addon_path}"
     cd "${project_dir}/src/npmpackage"
     npm install
     npm run build-node
     cd ../../examples/nodejs
     npm link ../../src/npmpackage
-    if [ "${build_type}" = "debug" ]; then
+    if [ "${build_type_lower}" = "debug" ]; then
         export DEBUG="1"
     fi
     node test.js
