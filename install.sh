@@ -75,7 +75,7 @@ while [[ "$#" -gt 0 ]]; do
         --boost-prefix) require_option_value "$@"; OCL_BOOST_PREFIX="$2"; shift ;;
         --macos-architecture) require_option_value "$@"; OCL_MACOS_ARCHITECTURE="$2"; shift ;;
         --docker-image) require_option_value "$@"; OCL_DOCKER_IMAGE="$2"; shift ;;
-        --docker-before-install) require_option_value "$@"; OCL_DOCKER_IMAGE_BEFORE_INSTALL="$2"; shift ;;
+        --docker-before-install) require_option_value "$@"; OCL_DOCKER_IMAGE_BEFORE_INSTALL="$2"; docker_before_install_argument="1"; shift ;;
         --cmake-generator) require_option_value "$@"; OCL_GENERATOR="$2"; shift ;;
         --cmake-generator-platform) require_option_value "$@"; OCL_GENERATOR_PLATFORM="$2"; shift ;;
         --python-executable) require_option_value "$@"; OCL_PYTHON_EXECUTABLE="$2"; shift ;;
@@ -127,7 +127,7 @@ verify_args() {
         invalid_argument "Python options require --build-library python"
     elif [ -n "${OCL_NODE_ARCH:-}" ] && [ "${OCL_BUILD_LIBRARY:-}" != "nodejs" ]; then
         invalid_argument "--node-architecture requires --build-library nodejs"
-    elif [ -n "${OCL_DOCKER_IMAGE_BEFORE_INSTALL:-}" ] && [ -z "${OCL_DOCKER_IMAGE:-}" ]; then
+    elif [ -n "${docker_before_install_argument:-}" ] && [ -z "${OCL_DOCKER_IMAGE:-}" ]; then
         invalid_argument "--docker-before-install requires --docker-image"
     elif [ -n "${OCL_INSTALL_PREFIX:-}" ] && [ -z "${OCL_INSTALL:-}" ] && [ -z "${OCL_SUDO_INSTALL:-}" ]; then
         echo "WARN: Settings --install-prefix without setting --install or --sudo-install. add --install or --sudo-install option or remove the --install-prefix option"
@@ -194,7 +194,7 @@ install_system_dependencies() {
         fi
         if [ "${OCL_BUILD_LIBRARY}" = "python" ]; then
             if [ -z "${OCL_PYTHON_EXECUTABLE}" ]; then
-                sudo apt install -y --no-install-recommends python3
+                sudo apt install -y --no-install-recommends python3 python3-venv
             fi
         fi
         if [ "${OCL_BUILD_LIBRARY}" = "nodejs" ]; then
@@ -457,16 +457,25 @@ get_python_executable() {
     echo "${OCL_PYTHON_EXECUTABLE:-"${python_executable_fallback}"}"
 }
 
+get_python_env_executable() {
+    if [ "${determined_os}" = "windows" ]; then
+        echo "${project_dir}/env/Scripts/python.exe"
+    else
+        echo "${project_dir}/env/bin/python"
+    fi
+}
+
 build_pythonlib() {
     python_executable=$(get_python_executable)
-        ${python_executable} -m venv env
-        if [ "${determined_os}" = "windows" ]; then
-            source env/Scripts/activate
-        else
-            source env/bin/activate
-        fi
+    "${python_executable}" -m venv "${project_dir}/env"
+    if [ "${determined_os}" = "windows" ]; then
+        source "${project_dir}/env/Scripts/activate"
+    else
+        source "${project_dir}/env/bin/activate"
+    fi
+    python_executable=$(get_python_env_executable)
     if [ -n "${OCL_PYTHON_PIP_INSTALL}" ]; then
-        ${python_executable} -m pip install scikit-build-core distlib pyproject_metadata
+        "${python_executable}" -m pip install scikit-build-core distlib pyproject_metadata
         # forward cmake args
         export CMAKE_ARGS="${OCL_GENERATOR:+"-G ${OCL_GENERATOR} "}\
 ${OCL_GENERATOR_PLATFORM:+"-A ${OCL_GENERATOR_PLATFORM} "}\
@@ -474,7 +483,7 @@ ${OCL_GENERATOR_PLATFORM:+"-A ${OCL_GENERATOR_PLATFORM} "}\
 -D Boost_ADDITIONAL_VERSIONS=${boost_additional_versions} \
 ${OCL_BOOST_PREFIX:+"-D BOOST_ROOT=${OCL_BOOST_PREFIX} "}"
         cd "${project_dir}"
-        ${python_executable} -m pip install --verbose .
+        "${python_executable}" -m pip install --verbose .
     else
         mkdir -p "${build_dir}"
         cd "${build_dir}"
@@ -500,9 +509,9 @@ ${OCL_BOOST_PREFIX:+"-D BOOST_ROOT=${OCL_BOOST_PREFIX} "}"
 }
 
 test_pythonlib() {
-    python_executable=$(get_python_executable)
+    python_executable=$(get_python_env_executable)
     cd "${project_dir}/examples/python"
-    ${python_executable} test.py
+    "${python_executable}" test.py
 }
 
 build_emscriptenlib() {
