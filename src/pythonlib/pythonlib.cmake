@@ -1,5 +1,3 @@
-set(CMAKE_CXX_STANDARD 20)
-
 find_package(Python3 COMPONENTS Interpreter Development.Module REQUIRED)
 if(Python3_FOUND)
   message(STATUS "Found Python: " ${Python3_VERSION})

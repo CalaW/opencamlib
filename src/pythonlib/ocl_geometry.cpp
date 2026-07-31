@@ -18,6 +18,8 @@
  *  You should have received a copy of the GNU Lesser General Public License
  *  along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+#include <array>
+
 #include <pybind11/operators.h>
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
@@ -108,10 +110,13 @@ void export_geometry(py::module_& m) {
         .def("cc", &CLPoint::getCC)
         .def("getCC", &CLPoint::getCC);
 
-    pyTriangle.def(py::init<Point, Point, Point>())
-        .def("getPoints", [](const Triangle& t) { return std::to_array(t.p); })
+    pyTriangle
+        .def(py::init<Point, Point, Point>())
+        .def("getPoints",
+             [](const Triangle& t) { return std::array<Point, 3>{t.p[0], t.p[1], t.p[2]}; })
         .def("__str__", &ostream_str<Triangle>)
-        .def_property_readonly("p", [](const Triangle& t) { return std::to_array(t.p); })
+        .def_property_readonly(
+            "p", [](const Triangle& t) { return std::array<Point, 3>{t.p[0], t.p[1], t.p[2]}; })
         .def_readonly("n", &Triangle::n);
 
     py::class_<Bbox>(m, "Bbox")
