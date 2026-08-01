@@ -48,7 +48,7 @@ public:
         PYBIND11_OVERRIDE(MillingCutter*, MillingCutter, offsetCutter, d);
     }
 
-    std::string str() const override { PYBIND11_OVERRIDE(std::string, MillingCutter, str); }
+    std::string str() const override { PYBIND11_OVERRIDE(std::string, MillingCutter, str,); }
 };
 
 } // end namespace ocl
