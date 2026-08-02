@@ -256,8 +256,8 @@ install_ci_dependencies() {
         prettyprint "Downloading libomp for: " "${OCL_MACOS_ARCHITECTURE}"
         brew_cache=$(brew --cache)
         if [ "${OCL_MACOS_ARCHITECTURE}" = "arm64" ]; then
-            brew fetch --bottle-tag=arm64_tahoe libomp >/dev/null
-            libomp_tar_loc=$(find "${brew_cache}/downloads" -maxdepth 1 -name "*--libomp--*arm64_tahoe.bottle.tar.gz" -print | tail -n1)
+            brew fetch --bottle-tag=arm64_sequoia libomp >/dev/null
+            libomp_tar_loc=$(find "${brew_cache}/downloads" -maxdepth 1 -name "*--libomp--*arm64_sequoia.bottle.tar.gz" -print | tail -n1)
         else
             arch -x86_64 brew fetch --bottle-tag=sonoma libomp >/dev/null
             libomp_tar_loc=$(find "${brew_cache}/downloads" -maxdepth 1 -name "*--libomp--*sonoma.bottle.tar.gz" -print | tail -n1)
