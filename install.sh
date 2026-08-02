@@ -254,18 +254,19 @@ install_ci_dependencies() {
     elif [ "${determined_os}" = "macos" ]; then
         OCL_MACOS_ARCHITECTURE="${OCL_MACOS_ARCHITECTURE:-arm64}"  # default to arm64
         prettyprint "Downloading libomp for: " "${OCL_MACOS_ARCHITECTURE}"
+        brew_cache=$(brew --cache)
         if [ "${OCL_MACOS_ARCHITECTURE}" = "arm64" ]; then
-            libomp_tar_loc=$(brew fetch --bottle-tag=arm64_sequoia libomp | grep -i downloaded | grep tar.gz | cut -f2 -d ":" | xargs echo)
+            brew fetch --bottle-tag=arm64_tahoe libomp >/dev/null
+            libomp_tar_loc=$(find "${brew_cache}/downloads" -maxdepth 1 -name "*--libomp--*arm64_tahoe.bottle.tar.gz" -print | tail -n1)
         else
-            libomp_tar_loc=$(brew fetch --bottle-tag=sequoia libomp | grep -i downloaded | grep tar.gz | cut -f2 -d ":" | xargs echo)
+            arch -x86_64 brew fetch --bottle-tag=sonoma libomp >/dev/null
+            libomp_tar_loc=$(find "${brew_cache}/downloads" -maxdepth 1 -name "*--libomp--*sonoma.bottle.tar.gz" -print | tail -n1)
         fi
-        temp_dir="/tmp"
-        cp "${libomp_tar_loc}" "${temp_dir}/libomp.tar.gz"
-        mkdir "${temp_dir}/libomp" || true
-        tar -xzf "${temp_dir}/libomp.tar.gz" -C "${temp_dir}/libomp"
-        libomp_prefix=$(find "${temp_dir}/libomp/libomp" -depth 1 | head -1)
-        export OPENMP_PREFIX_MACOS="${temp_dir}/libomp/libomp/fixed"
-        mv "${libomp_prefix}" "${OPENMP_PREFIX_MACOS}"
+        [ -n "${libomp_tar_loc}" ] || invalid_argument "Failed to locate ${OCL_MACOS_ARCHITECTURE} libomp bottle in Homebrew cache"
+        cp "${libomp_tar_loc}" /tmp/libomp.tar.gz
+        mkdir -p /tmp/libomp
+        tar -xzf /tmp/libomp.tar.gz -C /tmp/libomp
+        export OPENMP_PREFIX_MACOS="$(find /tmp/libomp/libomp -mindepth 1 -maxdepth 1 -type d -print | head -n1)"
     fi
 }
 
