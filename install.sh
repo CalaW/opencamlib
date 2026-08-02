@@ -29,7 +29,7 @@ Options:
 
   --python-executable         Set a custom path (or name of) the Python executable (only valid when using --build-library python)
   --python-prefix             Set the python prefix, this will be passed to CMake as Python3_ROOT_DIR, to make sure CMake is using the correct Python installation. (only valid when using --build-library python)
-  --python-pip-install        Uses "pip install ." to compile and install the Python library (only valid when using --build-library python)
+  --python-pip-install        Uses the current Python environment's "pip install ." to compile and install the Python library (only valid when using --build-library python)
 
   --platform                  Set the platform, for when auto-detection doesn't work (one of: windows, macos, linux)
 
@@ -194,7 +194,7 @@ install_system_dependencies() {
         fi
         if [ "${OCL_BUILD_LIBRARY}" = "python" ]; then
             if [ -z "${OCL_PYTHON_EXECUTABLE}" ]; then
-                sudo apt install -y --no-install-recommends python3 python3-venv
+                sudo apt install -y --no-install-recommends python3
             fi
         fi
         if [ "${OCL_BUILD_LIBRARY}" = "nodejs" ]; then
@@ -457,23 +457,12 @@ get_python_executable() {
     echo "${OCL_PYTHON_EXECUTABLE:-"${python_executable_fallback}"}"
 }
 
-get_python_env_executable() {
-    if [ "${determined_os}" = "windows" ]; then
-        echo "${project_dir}/env/Scripts/python.exe"
-    else
-        echo "${project_dir}/env/bin/python"
-    fi
-}
-
 build_pythonlib() {
     python_executable=$(get_python_executable)
-    "${python_executable}" -m venv "${project_dir}/env"
-    if [ "${determined_os}" = "windows" ]; then
-        source "${project_dir}/env/Scripts/activate"
-    else
-        source "${project_dir}/env/bin/activate"
+    if ! command_exists "${python_executable}"; then
+        invalid_argument "Cannot find Python executable: ${python_executable}"
     fi
-    python_executable=$(get_python_env_executable)
+
     if [ -n "${OCL_PYTHON_PIP_INSTALL}" ]; then
         "${python_executable}" -m pip install scikit-build-core distlib pyproject_metadata
         # forward cmake args
@@ -509,7 +498,7 @@ ${OCL_BOOST_PREFIX:+"-D BOOST_ROOT=${OCL_BOOST_PREFIX} "}"
 }
 
 test_pythonlib() {
-    python_executable=$(get_python_env_executable)
+    python_executable=$(get_python_executable)
     cd "${project_dir}/examples/python"
     "${python_executable}" test.py
 }
