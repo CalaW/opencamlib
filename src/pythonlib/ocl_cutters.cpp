@@ -26,14 +26,12 @@
 #include "conecutter.hpp"
 #include "cylcutter.hpp"
 #include "millingcutter.hpp"
-#include "millingcutter_py.hpp"
 
 namespace py = pybind11;
 using namespace ocl;
 
 void export_cutters(py::module& m) {
-    py::class_<MillingCutter, MillingCutter_py>(m, "MillingCutter")
-        .def(py::init<>())
+    py::class_<MillingCutter>(m, "MillingCutter")
         .def("vertexDrop", &MillingCutter::vertexDrop)
         .def("facetDrop", &MillingCutter::facetDrop)
         .def("edgeDrop", &MillingCutter::edgeDrop)
