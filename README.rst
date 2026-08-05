@@ -68,7 +68,7 @@ OpenCAMLib provides pre-compiled C++, Node.js and Python libraries for the follo
 | **Linux**   | x86_64 / aarch64 |
 +-------------+------------------+
 
-- The Python library is called ``opencamlib`` and is hosted on PyPi (pypi.org), precompiled libraries are available for Python v3.7 up to v3.11.
+- The Python library is called ``opencamlib`` and is hosted on PyPi (pypi.org), precompiled libraries are available for Python v3.9 up to v3.14.
 - The Node.js + emscripten library is called ``@opencamlib/opencamlib`` and is hosted on npm (npmjs.org), precompiled libraries are available for Node-API v3 and up.
 - The C++ library is called ``libocl`` and is hosted on our Github Releases page.
 
@@ -137,13 +137,7 @@ Having trouble with a pre-compiled library? Please report it to us.
 If there are no pre-compiled libraries for your platform or architecture, or want to customize or package opencamlib, this is for you.
 
 OpenCAMLib uses functionality from a library called Boost.
-For the Python library it uses an extra library called Boost.Python.
-
-Only the Python bindings need Boost to be **compiled** (with Boost.Python).
-All other libraries **DO NOT** need Boost to be compiled, in those cases, a headers only version will suffice.
-So, if you are not compiling the Python libraries, simply download Boost, extract it into a folder, and tell CMake where to look for it.
-
-Make sure to download Boost from the boost.org downloads page, if you download it from github, you have to make sure to install the git submodules **and** build the headers.
+Only Boost headers are required; Boost does not need to be compiled.
 
 We provide a ``install.sh`` script that helps with installation of dependencies and building OpenCAMLib libraries, you might want to take a look at it first.
 You can run ``./install.sh --help`` to look at the available options, or inspect it's source code to find out more.
@@ -157,7 +151,10 @@ To compile OpenCAMLib, you need:
 - **C++ compiler** (It should at least support C++ 14)
 - **Git** (This is used for cloning the repository, and the emscripten SDK)
 - **CMake** (At least version 3.15)
-- **Boost** (When compiling the Python library, you have to **compile** Boost.Python for your Python version after installation)
+- **Boost** headers
+
+Building the Python bindings additionally requires Python development headers.
+pybind11 is installed automatically when building the package with pip.
 
 At this time of writing, here are the packages to install:
 
@@ -166,14 +163,14 @@ Ubuntu Dependencies
 
 ..  code-block:: shell
 
-    sudo apt install -y git cmake curl build-essential libboost-dev
+    sudo apt install -y git cmake curl build-essential libboost-dev python3-dev python3-pip
 
 macOS Dependencies
 ------------------
 
 ..  code-block:: shell
 
-    brew install git cmake curl boost python@3.11 boost-python3
+    brew install git cmake curl boost python
 
 Windows Dependencies
 --------------------
@@ -272,42 +269,23 @@ Next, use cmake-js to compile the library:
 Building for Python
 ===================
 
-The Python library can be compiled similarly to the C++ example above, however, this time Boost.Python has to be compiled first.
-Most systems have Boost.Python available as a download, but only for a specific Python version only (usually the latest Python version).
-These might work if you are using Python from the same package provider, but, unfortunately, this is not a very reliable method, so compiling them yourself is usually the best option.
-
-First, download and extract Boost:
+The Python bindings use pybind11 and can be built and installed directly with pip.
+From the repository root, run:
 
 ..  code-block:: shell
 
-    curl "https://boostorg.jfrog.io/artifactory/main/release/1.80.0/source/boost_1_80_0.tar.gz" --output "boost_1_80_0.tar.gz" --location
-    tar -zxf boost_1_80_0.tar.gz -C /tmp/boost
-    cd /tmp/boost/boost_1_80_0
+    python -m pip install .
 
-Now we can compile it:
+pip creates an isolated build environment and installs scikit-build-core and pybind11 as declared build dependencies.
+Boost is still required in the system.
+
+The package includes a ``py.typed`` marker and type information for the ``opencamlib.ocl`` extension, so Python type checkers and editors can use the bundled API signatures.
+To generate the type stubs, you can use the ``pybind11-stubgen`` tool:
 
 ..  code-block:: shell
 
-    echo "using python ;" > ./user-config.jam
-    ./bootstrap.sh
-    ./b2 \
-      -a \
-      threading="multi" \
-      -j4 \
-      variant="release" \
-      link="static" \
-      address-model="64" \
-      architecture="x86" \
-      --layout="system" \
-      --with-python \
-      --user-config="./user-config.jam" \
-      cxxflags="-fPIC" \
-      stage
-
-Note that you can customize the user-config.jam file to point it to your Python installation
-(see: https://www.boost.org/doc/libs/1_78_0/libs/python/doc/html/building/configuring_boost_build.html).
-You should also specify the correct architecture and address-model.
-On windows, make sure to use windows style paths, e.g. ``C:\\path\\to\\Python``
+    python -m pip install pybind11-stubgen
+    pybind11-stubgen opencamlib -o src/pythonlib/
 
 *****
 Usage
