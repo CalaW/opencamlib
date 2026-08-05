@@ -48,7 +48,7 @@ void export_geometry(py::module_& m) {
         .def(py::init<>())
         .def(py::init<double, double, double>())
         .def(py::init<double, double>())
-        .def(py::init<Point>())
+        .def(py::init<const Point&>())
         .def(py::self * double())
         .def(double() * py::self)
         .def(py::self - py::self)
@@ -91,19 +91,18 @@ void export_geometry(py::module_& m) {
         .value("FACET", FACET)
         .value("FACET_TIP", FACET_TIP)
         .value("FACET_CYL", FACET_CYL)
-        .value("ERROR", ERROR)
-        .export_values();
+        .value("ERROR", ERROR);
 
     py::class_<CCPoint, Point>(m, "CCPoint")
         .def(py::init<>())
-        .def(py::init<CCPoint>())
+        .def(py::init<const CCPoint&>())
         .def(py::init<double, double, double>())
         .def("__str__", &CCPoint::str)
         .def_readwrite("type", &CCPoint::type);
 
     py::class_<CLPoint, Point>(m, "CLPoint")
         .def(py::init<>())
-        .def(py::init<CLPoint>())
+        .def(py::init<const CLPoint&>())
         .def(py::init<double, double, double>())
         .def(py::init<double, double, double, CCPoint&>())
         .def("__str__", &CLPoint::str)
@@ -156,13 +155,13 @@ void export_geometry(py::module_& m) {
 
     py::class_<Line>(m, "Line")
         .def(py::init<Point, Point>())
-        .def(py::init<Line>())
+        .def(py::init<const Line&>())
         .def_readwrite("p1", &Line::p1)
         .def_readwrite("p2", &Line::p2);
 
     py::class_<Arc>(m, "Arc")
         .def(py::init<Point, Point, Point, bool>())
-        .def(py::init<Arc>())
+        .def(py::init<const Arc&>())
         .def_readwrite("p1", &Arc::p1)
         .def_readwrite("p2", &Arc::p2)
         .def_readwrite("c", &Arc::c)
@@ -175,7 +174,7 @@ void export_geometry(py::module_& m) {
 
     py::class_<Path>(m, "Path")
         .def(py::init<>())
-        .def(py::init<Path>())
+        .def(py::init<const Path&>())
         .def("getSpans",
              [](const Path& p) {
                  py::list spans;

@@ -45,11 +45,11 @@ void export_cutters(py::module& m) {
 
     py::class_<CylCutter, MillingCutter>(m, "CylCutter")
         .def(py::init<double, double>())
-        .def("dropCutterSTL", &CylCutter::dropCutterSTL);
+        .def("dropCutterSTL", &CylCutter::dropCutterSTL, py::call_guard<py::gil_scoped_release>());
 
     py::class_<BallCutter, MillingCutter>(m, "BallCutter")
         .def(py::init<double, double>())
-        .def("dropCutterSTL", &BallCutter::dropCutterSTL);
+        .def("dropCutterSTL", &BallCutter::dropCutterSTL, py::call_guard<py::gil_scoped_release>());
 
     py::class_<BullCutter, MillingCutter>(m, "BullCutter").def(py::init<double, double, double>());
 

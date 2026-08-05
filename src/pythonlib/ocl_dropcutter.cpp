@@ -36,7 +36,7 @@ using namespace ocl;
 void export_dropcutter(py::module_& m) {
     py::class_<BatchDropCutter>(m, "BatchDropCutter")
         .def(py::init<>())
-        .def("run", &BatchDropCutter::run)
+        .def("run", &BatchDropCutter::run, py::call_guard<py::gil_scoped_release>())
         .def("getCLPoints", &BatchDropCutter::getCLPoints)
         .def("setSTL", &BatchDropCutter::setSTL, py::keep_alive<1, 2>())
         .def("setCutter", &BatchDropCutter::setCutter, py::keep_alive<1, 2>())
@@ -50,7 +50,7 @@ void export_dropcutter(py::module_& m) {
 
     py::class_<PathDropCutter>(m, "PathDropCutter")
         .def(py::init<>())
-        .def("run", &PathDropCutter::run)
+        .def("run", &PathDropCutter::run, py::call_guard<py::gil_scoped_release>())
         .def("getCLPoints", &PathDropCutter::getCLPoints)
         .def("setCutter", &PathDropCutter::setCutter, py::keep_alive<1, 2>())
         .def("setSTL", &PathDropCutter::setSTL, py::keep_alive<1, 2>())
@@ -62,7 +62,7 @@ void export_dropcutter(py::module_& m) {
 
     py::class_<AdaptivePathDropCutter>(m, "AdaptivePathDropCutter")
         .def(py::init<>())
-        .def("run", &AdaptivePathDropCutter::run)
+        .def("run", &AdaptivePathDropCutter::run, py::call_guard<py::gil_scoped_release>())
         .def("getCLPoints", &AdaptivePathDropCutter::getCLPoints)
         .def("setCutter", &AdaptivePathDropCutter::setCutter, py::keep_alive<1, 2>())
         .def("setSTL", &AdaptivePathDropCutter::setSTL, py::keep_alive<1, 2>())
