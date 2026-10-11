@@ -27,3 +27,4 @@ dist/
 _build/
 boost*
 env/
+.venv/

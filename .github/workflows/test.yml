@@ -132,3 +132,11 @@ jobs:
             --test
         env:
           CMAKE_GENERATOR: ${{ matrix.cmake_generator }}
+      - name: Check Python binding semantics and lifetimes
+        shell: bash
+        run: |
+          python tests/compat/check_defaults.py
+          python tests/compat/check_lifetimes.py
+          python tests/compat/check_tsp.py
+        env:
+          OMP_NUM_THREADS: '1'

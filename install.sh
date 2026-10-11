@@ -263,22 +263,18 @@ install_ci_dependencies() {
         fi
     elif [ "${determined_os}" = "macos" ]; then
         OCL_MACOS_ARCHITECTURE="${OCL_MACOS_ARCHITECTURE:-arm64}"  # default to arm64
-        prettyprint "Downloading libomp for: " "${OCL_MACOS_ARCHITECTURE}"
-        brew_cache=$(brew --cache)
-        if [ "${OCL_MACOS_ARCHITECTURE}" = "arm64" ]; then
-            brew fetch --bottle-tag=arm64_sequoia libomp >/dev/null
-            libomp_tar_loc=$(find "${brew_cache}/downloads" -maxdepth 1 -name "*--libomp--*arm64_sequoia.bottle.tar.gz" -print | tail -n1)
-        else
-            arch -x86_64 brew fetch --bottle-tag=sonoma libomp >/dev/null
-            libomp_tar_loc=$(find "${brew_cache}/downloads" -maxdepth 1 -name "*--libomp--*sonoma.bottle.tar.gz" -print | tail -n1)
+        prettyprint "Installing libomp for: " "${OCL_MACOS_ARCHITECTURE}"
+        # Homebrew builds from source when no bottle is available for this Mac.
+        # CI uses a native runner for each target architecture.
+        brew install libomp
+        libomp_prefix=$(brew --prefix libomp)
+        [ -f "${libomp_prefix}/include/omp.h" ] || invalid_argument "Cannot find libomp headers at ${libomp_prefix}"
+        [ -f "${libomp_prefix}/lib/libomp.dylib" ] || invalid_argument "Cannot find libomp library at ${libomp_prefix}"
+        if ! lipo -verify_arch "${OCL_MACOS_ARCHITECTURE}" "${libomp_prefix}/lib/libomp.dylib"; then
+            invalid_argument "Installed libomp does not support ${OCL_MACOS_ARCHITECTURE}; use a matching macOS runner and Homebrew installation"
         fi
-        [ -n "${libomp_tar_loc}" ] || invalid_argument "Failed to locate ${OCL_MACOS_ARCHITECTURE} libomp bottle in Homebrew cache"
-        cp "${libomp_tar_loc}" /tmp/libomp.tar.gz
-        mkdir -p /tmp/libomp
-        tar -xzf /tmp/libomp.tar.gz -C /tmp/libomp
-        libomp_version_dir=$(find /tmp/libomp/libomp -mindepth 1 -maxdepth 1 -type d ! -name fixed -print | sort | tail -n1)
-        [ -n "${libomp_version_dir}" ] || invalid_argument "Failed to locate extracted libomp bottle"
-        ln -sfn "${libomp_version_dir}" /tmp/libomp/libomp/fixed
+        mkdir -p /tmp/libomp/libomp
+        ln -sfn "${libomp_prefix}" /tmp/libomp/libomp/fixed
         export OPENMP_PREFIX_MACOS="/tmp/libomp/libomp/fixed"
     fi
 }

@@ -1,0 +1,1384 @@
+{
+  "api_transitions": [
+    {
+      "candidate_present": false,
+      "path": "$.exports.AdaptivePathDropCutter_base",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.exports.AdaptiveWaterline_base",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.exports.BatchDropCutter_base",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.exports.BatchPushCutter_base",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.exports.Fiber_base",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.exports.LineCLFilter_base",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.exports.PathDropCutter_base",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.exports.Path_base",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.exports.STLSurf_base",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": true,
+      "path": "$.exports.SimpleWeave",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.exports.SmartWeave",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.exports.TSPSolver",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": false,
+      "path": "$.exports.Triangle_base",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.exports.Waterline_base",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": true,
+      "path": "$.exports.Weave",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": false,
+      "path": "$.exports.ZigZag_base",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.AdaptivePathDropCutter.minimumZ",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": false,
+      "path": "$.members.AdaptivePathDropCutter_base.__init__",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.members.AdaptiveWaterline_base.__init__",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.members.BatchDropCutter_base.__init__",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.members.BatchPushCutter_base.__init__",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.members.CCPoint.x",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.members.CCPoint.y",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.members.CCPoint.z",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.members.CLPoint.x",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.members.CLPoint.y",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.members.CLPoint.z",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.members.Fiber_base.__init__",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.members.LineCLFilter_base.__init__",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.PathDropCutter.minimumZ",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": false,
+      "path": "$.members.PathDropCutter_base.__init__",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.members.Path_base.__init__",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.Point.isInside",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": false,
+      "path": "$.members.STLSurf_base.__init__",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.SimpleWeave.__init__",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.SmartWeave.__init__",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.TSPSolver.__init__",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.TSPSolver.addPoint",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.TSPSolver.getLength",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.TSPSolver.getOutput",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.TSPSolver.reset",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.TSPSolver.run",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": false,
+      "path": "$.members.Triangle_base.__init__",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": false,
+      "path": "$.members.Waterline_base.__init__",
+      "reason": "missing key",
+      "reference_present": true
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.Weave.__init__",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.Weave.__str__",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.Weave.addFiber",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.Weave.build",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.Weave.face_traverse",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.Weave.getCLVertices",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.Weave.getEdges",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.Weave.getINTVertices",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.Weave.getLoops",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.Weave.getVertices",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.Weave.getVerticesByType",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.Weave.numVertices",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": true,
+      "path": "$.members.Weave.printGraph",
+      "reason": "missing key",
+      "reference_present": false
+    },
+    {
+      "candidate_present": false,
+      "path": "$.members.ZigZag_base.__init__",
+      "reason": "missing key",
+      "reference_present": true
+    }
+  ],
+  "cases": {
+    "algorithms.constructor.AdaptivePathDropCutter_base": {
+      "candidate_exception": "AttributeError",
+      "candidate_message": "module 'opencamlib' has no attribute 'AdaptivePathDropCutter_base'",
+      "kind": "removed_constructor",
+      "reason": "Accepted removal of Boost wrapper classes or geometric default constructors.",
+      "reference_value": {"constructible": true, "members": []}
+    },
+    "algorithms.constructor.AdaptiveWaterline_base": {
+      "candidate_exception": "AttributeError",
+      "candidate_message": "module 'opencamlib' has no attribute 'AdaptiveWaterline_base'",
+      "kind": "removed_constructor",
+      "reason": "Accepted removal of Boost wrapper classes or geometric default constructors.",
+      "reference_value": {"constructible": true, "members": []}
+    },
+    "algorithms.constructor.BatchDropCutter_base": {
+      "candidate_exception": "AttributeError",
+      "candidate_message": "module 'opencamlib' has no attribute 'BatchDropCutter_base'",
+      "kind": "removed_constructor",
+      "reason": "Accepted removal of Boost wrapper classes or geometric default constructors.",
+      "reference_value": {"constructible": true, "members": []}
+    },
+    "algorithms.constructor.BatchPushCutter_base": {
+      "candidate_exception": "AttributeError",
+      "candidate_message": "module 'opencamlib' has no attribute 'BatchPushCutter_base'",
+      "kind": "removed_constructor",
+      "reason": "Accepted removal of Boost wrapper classes or geometric default constructors.",
+      "reference_value": {"constructible": true, "members": []}
+    },
+    "algorithms.constructor.LineCLFilter_base": {
+      "candidate_exception": "AttributeError",
+      "candidate_message": "module 'opencamlib' has no attribute 'LineCLFilter_base'",
+      "kind": "removed_constructor",
+      "reason": "Accepted removal of Boost wrapper classes or geometric default constructors.",
+      "reference_value": {"constructible": true, "members": []}
+    },
+    "algorithms.constructor.PathDropCutter_base": {
+      "candidate_exception": "AttributeError",
+      "candidate_message": "module 'opencamlib' has no attribute 'PathDropCutter_base'",
+      "kind": "removed_constructor",
+      "reason": "Accepted removal of Boost wrapper classes or geometric default constructors.",
+      "reference_value": {"constructible": true, "members": []}
+    },
+    "algorithms.constructor.Waterline_base": {
+      "candidate_exception": "AttributeError",
+      "candidate_message": "module 'opencamlib' has no attribute 'Waterline_base'",
+      "kind": "removed_constructor",
+      "reason": "Accepted removal of Boost wrapper classes or geometric default constructors.",
+      "reference_value": {"constructible": true, "members": []}
+    },
+    "algorithms.constructor.Weave": {
+      "candidate_value": {"constructible": false},
+      "kind": "candidate_only",
+      "reason": "New/repaired API; exact reference failure and candidate semantic result are bounded.",
+      "reference_exception": "AttributeError",
+      "reference_message": "module 'opencamlib' has no attribute 'Weave'"
+    },
+    "algorithms.constructor.ZigZag_base": {
+      "candidate_exception": "AttributeError",
+      "candidate_message": "module 'opencamlib' has no attribute 'ZigZag_base'",
+      "kind": "removed_constructor",
+      "reason": "Accepted removal of Boost wrapper classes or geometric default constructors.",
+      "reference_value": {"constructible": true, "members": []}
+    },
+    "algorithms.path_drop.AdaptivePathDropCutter.arc.z-2": {
+      "kind": "compare",
+      "reason": "Exact reviewed framework, tuple, default or minimumZ property transitions; all other data must match.",
+      "transitions": [{"candidate": -1.9, "location": ["property_z", 1], "reference": -2.0}]
+    },
+    "algorithms.path_drop.AdaptivePathDropCutter.arc.z2": {
+      "kind": "compare",
+      "reason": "Exact reviewed framework, tuple, default or minimumZ property transitions; all other data must match.",
+      "transitions": [{"candidate": 2.1, "location": ["property_z", 1], "reference": 2.0}]
+    },
+    "algorithms.path_drop.AdaptivePathDropCutter.line.z-2": {
+      "kind": "compare",
+      "reason": "Exact reviewed framework, tuple, default or minimumZ property transitions; all other data must match.",
+      "transitions": [{"candidate": -1.9, "location": ["property_z", 1], "reference": -2.0}]
+    },
+    "algorithms.path_drop.AdaptivePathDropCutter.line.z2": {
+      "kind": "compare",
+      "reason": "Exact reviewed framework, tuple, default or minimumZ property transitions; all other data must match.",
+      "transitions": [{"candidate": 2.1, "location": ["property_z", 1], "reference": 2.0}]
+    },
+    "algorithms.path_drop.PathDropCutter.arc.z-2": {
+      "kind": "compare",
+      "reason": "Exact reviewed framework, tuple, default or minimumZ property transitions; all other data must match.",
+      "transitions": [{"candidate": -1.9, "location": ["property_z", 1], "reference": -2.0}]
+    },
+    "algorithms.path_drop.PathDropCutter.arc.z2": {
+      "kind": "compare",
+      "reason": "Exact reviewed framework, tuple, default or minimumZ property transitions; all other data must match.",
+      "transitions": [{"candidate": 2.1, "location": ["property_z", 1], "reference": 2.0}]
+    },
+    "algorithms.path_drop.PathDropCutter.line.z-2": {
+      "kind": "compare",
+      "reason": "Exact reviewed framework, tuple, default or minimumZ property transitions; all other data must match.",
+      "transitions": [{"candidate": -1.9, "location": ["property_z", 1], "reference": -2.0}]
+    },
+    "algorithms.path_drop.PathDropCutter.line.z2": {
+      "kind": "compare",
+      "reason": "Exact reviewed framework, tuple, default or minimumZ property transitions; all other data must match.",
+      "transitions": [{"candidate": 2.1, "location": ["property_z", 1], "reference": 2.0}]
+    },
+    "algorithms.return_contracts": {
+      "kind": "compare",
+      "reason": "Exact reviewed framework, tuple, default or minimumZ property transitions; all other data must match.",
+      "transitions": [
+        {"candidate": ["cc", "cross", "dot", "getCC", "isInside", "isRight", "norm", "normalize", "x", "xRotate", "xyDistance", "xyNorm", "y", "yRotate", "z", "zRotate"], "location": ["BatchDropCutter.getCLPoints", "elements", 0, "members"], "reference": ["cc", "getCC", "x", "y", "z"]},
+        {"candidate": ["getPoints", "n", "p"], "location": ["BatchDropCutter.getTrianglesUnderCutter", "elements", 0, "members"], "reference": []},
+        {"candidate": "Triangle", "location": ["BatchDropCutter.getTrianglesUnderCutter", "elements", 0, "type"], "reference": "Triangle_base"},
+        {"candidate": ["getPoints", "n", "p"], "location": ["BatchDropCutter.getTrianglesUnderCutter", "elements", 1, "members"], "reference": []},
+        {"candidate": "Triangle", "location": ["BatchDropCutter.getTrianglesUnderCutter", "elements", 1, "type"], "reference": "Triangle_base"},
+        {"candidate": ["cc", "cross", "dot", "getCC", "isInside", "isRight", "norm", "normalize", "x", "xRotate", "xyDistance", "xyNorm", "y", "yRotate", "z", "zRotate"], "location": ["BatchPushCutter.getCLPoints", "elements", 0, "members"], "reference": ["cc", "getCC", "x", "y", "z"]},
+        {"candidate": ["cc", "cross", "dot", "getCC", "isInside", "isRight", "norm", "normalize", "x", "xRotate", "xyDistance", "xyNorm", "y", "yRotate", "z", "zRotate"], "location": ["BatchPushCutter.getCLPoints", "elements", 1, "members"], "reference": ["cc", "getCC", "x", "y", "z"]},
+        {"candidate": ["getPoints", "n", "p"], "location": ["BatchPushCutter.getOverlapTriangles", "elements", 0, "members"], "reference": []},
+        {"candidate": "Triangle", "location": ["BatchPushCutter.getOverlapTriangles", "elements", 0, "type"], "reference": "Triangle_base"},
+        {"candidate": ["getPoints", "n", "p"], "location": ["BatchPushCutter.getOverlapTriangles", "elements", 1, "members"], "reference": []},
+        {"candidate": "Triangle", "location": ["BatchPushCutter.getOverlapTriangles", "elements", 1, "type"], "reference": "Triangle_base"},
+        {"candidate": ["count", "index"], "location": ["CutterLocationSurface.getEdges", "elements", 0, "members"], "reference": ["append", "clear", "copy", "count", "extend", "index", "insert", "pop", "remove", "reverse", "sort"]},
+        {"candidate": "tuple", "location": ["CutterLocationSurface.getEdges", "elements", 0, "type"], "reference": "list"},
+        {"candidate": ["count", "index"], "location": ["CutterLocationSurface.getEdges", "elements", 1, "members"], "reference": ["append", "clear", "copy", "count", "extend", "index", "insert", "pop", "remove", "reverse", "sort"]},
+        {"candidate": "tuple", "location": ["CutterLocationSurface.getEdges", "elements", 1, "type"], "reference": "list"},
+        {"candidate": ["cross", "dot", "isInside", "isRight", "norm", "normalize", "x", "xRotate", "xyDistance", "xyNorm", "y", "yRotate", "z", "zRotate"], "location": ["CutterLocationSurface.getVertices", "elements", 0, "members"], "reference": ["cross", "dot", "isRight", "norm", "normalize", "x", "xRotate", "xyDistance", "xyNorm", "y", "yRotate", "z", "zRotate"]},
+        {"candidate": ["cross", "dot", "isInside", "isRight", "norm", "normalize", "x", "xRotate", "xyDistance", "xyNorm", "y", "yRotate", "z", "zRotate"], "location": ["CutterLocationSurface.getVertices", "elements", 1, "members"], "reference": ["cross", "dot", "isRight", "norm", "normalize", "x", "xRotate", "xyDistance", "xyNorm", "y", "yRotate", "z", "zRotate"]},
+        {"candidate": false, "location": ["MillingCutter.constructible"], "reference": true}
+      ]
+    },
+    "algorithms.tsp": {
+      "candidate_value": {"first": {"length": 11.49513644249427, "output": [0, 4, 1, 2, 3, 0]}, "reset": [], "second": {"length": 12.0, "output": [0, 1, 2, 0]}},
+      "kind": "candidate_only",
+      "reason": "New/repaired API; exact reference failure and candidate semantic result are bounded.",
+      "reference_exception": "AttributeError",
+      "reference_message": "module 'opencamlib' has no attribute 'TSPSolver'"
+    },
+    "algorithms.tsp.reset_then_destroy": {
+      "candidate_value": {"destroyed_after_reset": true},
+      "kind": "candidate_only",
+      "reason": "New/repaired API; exact reference failure and candidate semantic result are bounded.",
+      "reference_exception": "AttributeError",
+      "reference_message": "module 'opencamlib' has no attribute 'TSPSolver'"
+    },
+    "algorithms.waterline.AdaptiveWaterline.run": {
+      "contours": "algorithm",
+      "empty_fibers": [
+        {
+          "expected": [
+            {"intervals": [], "p1": [-2.6, -2.6, 1.0], "p2": [2.6, -2.6, 1.0]},
+            {"intervals": [], "p1": [-2.6, -2.275, 1.0], "p2": [2.6, -2.275, 1.0]},
+            {"intervals": [], "p1": [-2.6, -1.9500000000000002, 1.0], "p2": [2.6, -1.9500000000000002, 1.0]},
+            {"intervals": [], "p1": [-2.6, -1.625, 1.0], "p2": [2.6, -1.625, 1.0]},
+            {"intervals": [], "p1": [-2.6, -1.54375, 1.0], "p2": [2.6, -1.54375, 1.0]},
+            {"intervals": [], "p1": [-2.6, 1.6250000000000004, 1.0], "p2": [2.6, 1.6250000000000004, 1.0]},
+            {"intervals": [], "p1": [-2.6, 1.9499999999999997, 1.0], "p2": [2.6, 1.9499999999999997, 1.0]},
+            {"intervals": [], "p1": [-2.6, 2.275, 1.0], "p2": [2.6, 2.275, 1.0]},
+            {"intervals": [], "p1": [-2.6, 2.6, 1.0], "p2": [2.6, 2.6, 1.0]}
+          ],
+          "location": ["first", "x"]
+        },
+        {
+          "expected": [
+            {"intervals": [], "p1": [-2.6, -2.6, 1.0], "p2": [-2.6, 2.6, 1.0]},
+            {"intervals": [], "p1": [-2.275, -2.6, 1.0], "p2": [-2.275, 2.6, 1.0]},
+            {"intervals": [], "p1": [-1.9500000000000002, -2.6, 1.0], "p2": [-1.9500000000000002, 2.6, 1.0]},
+            {"intervals": [], "p1": [-1.625, -2.6, 1.0], "p2": [-1.625, 2.6, 1.0]},
+            {"intervals": [], "p1": [-1.54375, -2.6, 1.0], "p2": [-1.54375, 2.6, 1.0]},
+            {"intervals": [], "p1": [1.6250000000000004, -2.6, 1.0], "p2": [1.6250000000000004, 2.6, 1.0]},
+            {"intervals": [], "p1": [1.9499999999999997, -2.6, 1.0], "p2": [1.9499999999999997, 2.6, 1.0]},
+            {"intervals": [], "p1": [2.275, -2.6, 1.0], "p2": [2.275, 2.6, 1.0]},
+            {"intervals": [], "p1": [2.6, -2.6, 1.0], "p2": [2.6, 2.6, 1.0]}
+          ],
+          "location": ["first", "y"]
+        },
+        {
+          "expected": [
+            {"intervals": [], "p1": [-2.6, -2.6, 1.5], "p2": [2.6, -2.6, 1.5]},
+            {"intervals": [], "p1": [-2.6, -2.275, 1.5], "p2": [2.6, -2.275, 1.5]},
+            {"intervals": [], "p1": [-2.6, -1.9500000000000002, 1.5], "p2": [2.6, -1.9500000000000002, 1.5]},
+            {"intervals": [], "p1": [-2.6, -1.625, 1.5], "p2": [2.6, -1.625, 1.5]},
+            {"intervals": [], "p1": [-2.6, -1.3, 1.5], "p2": [2.6, -1.3, 1.5]},
+            {"intervals": [], "p1": [-2.6, -1.21875, 1.5], "p2": [2.6, -1.21875, 1.5]},
+            {"intervals": [], "p1": [-2.6, 1.3000000000000003, 1.5], "p2": [2.6, 1.3000000000000003, 1.5]},
+            {"intervals": [], "p1": [-2.6, 1.6250000000000004, 1.5], "p2": [2.6, 1.6250000000000004, 1.5]},
+            {"intervals": [], "p1": [-2.6, 1.9499999999999997, 1.5], "p2": [2.6, 1.9499999999999997, 1.5]},
+            {"intervals": [], "p1": [-2.6, 2.275, 1.5], "p2": [2.6, 2.275, 1.5]},
+            {"intervals": [], "p1": [-2.6, 2.6, 1.5], "p2": [2.6, 2.6, 1.5]}
+          ],
+          "location": ["second", "x"]
+        },
+        {
+          "expected": [
+            {"intervals": [], "p1": [-2.6, -2.6, 1.5], "p2": [-2.6, 2.6, 1.5]},
+            {"intervals": [], "p1": [-2.275, -2.6, 1.5], "p2": [-2.275, 2.6, 1.5]},
+            {"intervals": [], "p1": [-1.9500000000000002, -2.6, 1.5], "p2": [-1.9500000000000002, 2.6, 1.5]},
+            {"intervals": [], "p1": [-1.625, -2.6, 1.5], "p2": [-1.625, 2.6, 1.5]},
+            {"intervals": [], "p1": [-1.3, -2.6, 1.5], "p2": [-1.3, 2.6, 1.5]},
+            {"intervals": [], "p1": [-1.21875, -2.6, 1.5], "p2": [-1.21875, 2.6, 1.5]},
+            {"intervals": [], "p1": [1.3000000000000003, -2.6, 1.5], "p2": [1.3000000000000003, 2.6, 1.5]},
+            {"intervals": [], "p1": [1.6250000000000004, -2.6, 1.5], "p2": [1.6250000000000004, 2.6, 1.5]},
+            {"intervals": [], "p1": [1.9499999999999997, -2.6, 1.5], "p2": [1.9499999999999997, 2.6, 1.5]},
+            {"intervals": [], "p1": [2.275, -2.6, 1.5], "p2": [2.275, 2.6, 1.5]},
+            {"intervals": [], "p1": [2.6, -2.6, 1.5], "p2": [2.6, 2.6, 1.5]}
+          ],
+          "location": ["second", "y"]
+        }
+      ],
+      "kind": "compare",
+      "paired_case": "algorithms.waterline.AdaptiveWaterline.run.canonical_geometry",
+      "reason": "Allocation-dependent loop origins; preserve vertices/winding; accepted adaptive empty fibers bounded to fixture descriptors."
+    },
+    "algorithms.waterline.AdaptiveWaterline.run.canonical_geometry": {
+      "contours": "algorithm",
+      "empty_fibers": [
+        {
+          "expected": [
+            {"intervals": [], "p1": [-2.6, -2.6, 1.0], "p2": [2.6, -2.6, 1.0]},
+            {"intervals": [], "p1": [-2.6, -2.275, 1.0], "p2": [2.6, -2.275, 1.0]},
+            {"intervals": [], "p1": [-2.6, -1.9500000000000002, 1.0], "p2": [2.6, -1.9500000000000002, 1.0]},
+            {"intervals": [], "p1": [-2.6, -1.625, 1.0], "p2": [2.6, -1.625, 1.0]},
+            {"intervals": [], "p1": [-2.6, -1.54375, 1.0], "p2": [2.6, -1.54375, 1.0]},
+            {"intervals": [], "p1": [-2.6, 1.6250000000000004, 1.0], "p2": [2.6, 1.6250000000000004, 1.0]},
+            {"intervals": [], "p1": [-2.6, 1.9499999999999997, 1.0], "p2": [2.6, 1.9499999999999997, 1.0]},
+            {"intervals": [], "p1": [-2.6, 2.275, 1.0], "p2": [2.6, 2.275, 1.0]},
+            {"intervals": [], "p1": [-2.6, 2.6, 1.0], "p2": [2.6, 2.6, 1.0]}
+          ],
+          "location": ["first", "x"]
+        },
+        {
+          "expected": [
+            {"intervals": [], "p1": [-2.6, -2.6, 1.0], "p2": [-2.6, 2.6, 1.0]},
+            {"intervals": [], "p1": [-2.275, -2.6, 1.0], "p2": [-2.275, 2.6, 1.0]},
+            {"intervals": [], "p1": [-1.9500000000000002, -2.6, 1.0], "p2": [-1.9500000000000002, 2.6, 1.0]},
+            {"intervals": [], "p1": [-1.625, -2.6, 1.0], "p2": [-1.625, 2.6, 1.0]},
+            {"intervals": [], "p1": [-1.54375, -2.6, 1.0], "p2": [-1.54375, 2.6, 1.0]},
+            {"intervals": [], "p1": [1.6250000000000004, -2.6, 1.0], "p2": [1.6250000000000004, 2.6, 1.0]},
+            {"intervals": [], "p1": [1.9499999999999997, -2.6, 1.0], "p2": [1.9499999999999997, 2.6, 1.0]},
+            {"intervals": [], "p1": [2.275, -2.6, 1.0], "p2": [2.275, 2.6, 1.0]},
+            {"intervals": [], "p1": [2.6, -2.6, 1.0], "p2": [2.6, 2.6, 1.0]}
+          ],
+          "location": ["first", "y"]
+        },
+        {
+          "expected": [
+            {"intervals": [], "p1": [-2.6, -2.6, 1.5], "p2": [2.6, -2.6, 1.5]},
+            {"intervals": [], "p1": [-2.6, -2.275, 1.5], "p2": [2.6, -2.275, 1.5]},
+            {"intervals": [], "p1": [-2.6, -1.9500000000000002, 1.5], "p2": [2.6, -1.9500000000000002, 1.5]},
+            {"intervals": [], "p1": [-2.6, -1.625, 1.5], "p2": [2.6, -1.625, 1.5]},
+            {"intervals": [], "p1": [-2.6, -1.3, 1.5], "p2": [2.6, -1.3, 1.5]},
+            {"intervals": [], "p1": [-2.6, -1.21875, 1.5], "p2": [2.6, -1.21875, 1.5]},
+            {"intervals": [], "p1": [-2.6, 1.3000000000000003, 1.5], "p2": [2.6, 1.3000000000000003, 1.5]},
+            {"intervals": [], "p1": [-2.6, 1.6250000000000004, 1.5], "p2": [2.6, 1.6250000000000004, 1.5]},
+            {"intervals": [], "p1": [-2.6, 1.9499999999999997, 1.5], "p2": [2.6, 1.9499999999999997, 1.5]},
+            {"intervals": [], "p1": [-2.6, 2.275, 1.5], "p2": [2.6, 2.275, 1.5]},
+            {"intervals": [], "p1": [-2.6, 2.6, 1.5], "p2": [2.6, 2.6, 1.5]}
+          ],
+          "location": ["second", "x"]
+        },
+        {
+          "expected": [
+            {"intervals": [], "p1": [-2.6, -2.6, 1.5], "p2": [-2.6, 2.6, 1.5]},
+            {"intervals": [], "p1": [-2.275, -2.6, 1.5], "p2": [-2.275, 2.6, 1.5]},
+            {"intervals": [], "p1": [-1.9500000000000002, -2.6, 1.5], "p2": [-1.9500000000000002, 2.6, 1.5]},
+            {"intervals": [], "p1": [-1.625, -2.6, 1.5], "p2": [-1.625, 2.6, 1.5]},
+            {"intervals": [], "p1": [-1.3, -2.6, 1.5], "p2": [-1.3, 2.6, 1.5]},
+            {"intervals": [], "p1": [-1.21875, -2.6, 1.5], "p2": [-1.21875, 2.6, 1.5]},
+            {"intervals": [], "p1": [1.3000000000000003, -2.6, 1.5], "p2": [1.3000000000000003, 2.6, 1.5]},
+            {"intervals": [], "p1": [1.6250000000000004, -2.6, 1.5], "p2": [1.6250000000000004, 2.6, 1.5]},
+            {"intervals": [], "p1": [1.9499999999999997, -2.6, 1.5], "p2": [1.9499999999999997, 2.6, 1.5]},
+            {"intervals": [], "p1": [2.275, -2.6, 1.5], "p2": [2.275, 2.6, 1.5]},
+            {"intervals": [], "p1": [2.6, -2.6, 1.5], "p2": [2.6, 2.6, 1.5]}
+          ],
+          "location": ["second", "y"]
+        }
+      ],
+      "kind": "compare",
+      "reason": "Allocation-dependent loop origins; preserve vertices/winding; accepted adaptive empty fibers bounded to fixture descriptors."
+    },
+    "algorithms.waterline.AdaptiveWaterline.run2": {
+      "contours": "algorithm",
+      "empty_fibers": [
+        {
+          "expected": [
+            {"intervals": [], "p1": [-2.6, -2.6, 1.0], "p2": [2.6, -2.6, 1.0]},
+            {"intervals": [], "p1": [-2.6, -2.275, 1.0], "p2": [2.6, -2.275, 1.0]},
+            {"intervals": [], "p1": [-2.6, -1.9500000000000002, 1.0], "p2": [2.6, -1.9500000000000002, 1.0]},
+            {"intervals": [], "p1": [-2.6, -1.625, 1.0], "p2": [2.6, -1.625, 1.0]},
+            {"intervals": [], "p1": [-2.6, -1.54375, 1.0], "p2": [2.6, -1.54375, 1.0]},
+            {"intervals": [], "p1": [-2.6, 1.6250000000000004, 1.0], "p2": [2.6, 1.6250000000000004, 1.0]},
+            {"intervals": [], "p1": [-2.6, 1.9499999999999997, 1.0], "p2": [2.6, 1.9499999999999997, 1.0]},
+            {"intervals": [], "p1": [-2.6, 2.275, 1.0], "p2": [2.6, 2.275, 1.0]},
+            {"intervals": [], "p1": [-2.6, 2.6, 1.0], "p2": [2.6, 2.6, 1.0]}
+          ],
+          "location": ["first", "x"]
+        },
+        {
+          "expected": [
+            {"intervals": [], "p1": [-2.6, -2.6, 1.0], "p2": [-2.6, 2.6, 1.0]},
+            {"intervals": [], "p1": [-2.275, -2.6, 1.0], "p2": [-2.275, 2.6, 1.0]},
+            {"intervals": [], "p1": [-1.9500000000000002, -2.6, 1.0], "p2": [-1.9500000000000002, 2.6, 1.0]},
+            {"intervals": [], "p1": [-1.625, -2.6, 1.0], "p2": [-1.625, 2.6, 1.0]},
+            {"intervals": [], "p1": [-1.54375, -2.6, 1.0], "p2": [-1.54375, 2.6, 1.0]},
+            {"intervals": [], "p1": [1.6250000000000004, -2.6, 1.0], "p2": [1.6250000000000004, 2.6, 1.0]},
+            {"intervals": [], "p1": [1.9499999999999997, -2.6, 1.0], "p2": [1.9499999999999997, 2.6, 1.0]},
+            {"intervals": [], "p1": [2.275, -2.6, 1.0], "p2": [2.275, 2.6, 1.0]},
+            {"intervals": [], "p1": [2.6, -2.6, 1.0], "p2": [2.6, 2.6, 1.0]}
+          ],
+          "location": ["first", "y"]
+        },
+        {
+          "expected": [
+            {"intervals": [], "p1": [-2.6, -2.6, 1.5], "p2": [2.6, -2.6, 1.5]},
+            {"intervals": [], "p1": [-2.6, -2.275, 1.5], "p2": [2.6, -2.275, 1.5]},
+            {"intervals": [], "p1": [-2.6, -1.9500000000000002, 1.5], "p2": [2.6, -1.9500000000000002, 1.5]},
+            {"intervals": [], "p1": [-2.6, -1.625, 1.5], "p2": [2.6, -1.625, 1.5]},
+            {"intervals": [], "p1": [-2.6, -1.3, 1.5], "p2": [2.6, -1.3, 1.5]},
+            {"intervals": [], "p1": [-2.6, -1.21875, 1.5], "p2": [2.6, -1.21875, 1.5]},
+            {"intervals": [], "p1": [-2.6, 1.3000000000000003, 1.5], "p2": [2.6, 1.3000000000000003, 1.5]},
+            {"intervals": [], "p1": [-2.6, 1.6250000000000004, 1.5], "p2": [2.6, 1.6250000000000004, 1.5]},
+            {"intervals": [], "p1": [-2.6, 1.9499999999999997, 1.5], "p2": [2.6, 1.9499999999999997, 1.5]},
+            {"intervals": [], "p1": [-2.6, 2.275, 1.5], "p2": [2.6, 2.275, 1.5]},
+            {"intervals": [], "p1": [-2.6, 2.6, 1.5], "p2": [2.6, 2.6, 1.5]}
+          ],
+          "location": ["second", "x"]
+        },
+        {
+          "expected": [
+            {"intervals": [], "p1": [-2.6, -2.6, 1.5], "p2": [-2.6, 2.6, 1.5]},
+            {"intervals": [], "p1": [-2.275, -2.6, 1.5], "p2": [-2.275, 2.6, 1.5]},
+            {"intervals": [], "p1": [-1.9500000000000002, -2.6, 1.5], "p2": [-1.9500000000000002, 2.6, 1.5]},
+            {"intervals": [], "p1": [-1.625, -2.6, 1.5], "p2": [-1.625, 2.6, 1.5]},
+            {"intervals": [], "p1": [-1.3, -2.6, 1.5], "p2": [-1.3, 2.6, 1.5]},
+            {"intervals": [], "p1": [-1.21875, -2.6, 1.5], "p2": [-1.21875, 2.6, 1.5]},
+            {"intervals": [], "p1": [1.3000000000000003, -2.6, 1.5], "p2": [1.3000000000000003, 2.6, 1.5]},
+            {"intervals": [], "p1": [1.6250000000000004, -2.6, 1.5], "p2": [1.6250000000000004, 2.6, 1.5]},
+            {"intervals": [], "p1": [1.9499999999999997, -2.6, 1.5], "p2": [1.9499999999999997, 2.6, 1.5]},
+            {"intervals": [], "p1": [2.275, -2.6, 1.5], "p2": [2.275, 2.6, 1.5]},
+            {"intervals": [], "p1": [2.6, -2.6, 1.5], "p2": [2.6, 2.6, 1.5]}
+          ],
+          "location": ["second", "y"]
+        }
+      ],
+      "kind": "compare",
+      "paired_case": "algorithms.waterline.AdaptiveWaterline.run2.canonical_geometry",
+      "reason": "Allocation-dependent loop origins; preserve vertices/winding; accepted adaptive empty fibers bounded to fixture descriptors."
+    },
+    "algorithms.waterline.AdaptiveWaterline.run2.canonical_geometry": {
+      "contours": "algorithm",
+      "empty_fibers": [
+        {
+          "expected": [
+            {"intervals": [], "p1": [-2.6, -2.6, 1.0], "p2": [2.6, -2.6, 1.0]},
+            {"intervals": [], "p1": [-2.6, -2.275, 1.0], "p2": [2.6, -2.275, 1.0]},
+            {"intervals": [], "p1": [-2.6, -1.9500000000000002, 1.0], "p2": [2.6, -1.9500000000000002, 1.0]},
+            {"intervals": [], "p1": [-2.6, -1.625, 1.0], "p2": [2.6, -1.625, 1.0]},
+            {"intervals": [], "p1": [-2.6, -1.54375, 1.0], "p2": [2.6, -1.54375, 1.0]},
+            {"intervals": [], "p1": [-2.6, 1.6250000000000004, 1.0], "p2": [2.6, 1.6250000000000004, 1.0]},
+            {"intervals": [], "p1": [-2.6, 1.9499999999999997, 1.0], "p2": [2.6, 1.9499999999999997, 1.0]},
+            {"intervals": [], "p1": [-2.6, 2.275, 1.0], "p2": [2.6, 2.275, 1.0]},
+            {"intervals": [], "p1": [-2.6, 2.6, 1.0], "p2": [2.6, 2.6, 1.0]}
+          ],
+          "location": ["first", "x"]
+        },
+        {
+          "expected": [
+            {"intervals": [], "p1": [-2.6, -2.6, 1.0], "p2": [-2.6, 2.6, 1.0]},
+            {"intervals": [], "p1": [-2.275, -2.6, 1.0], "p2": [-2.275, 2.6, 1.0]},
+            {"intervals": [], "p1": [-1.9500000000000002, -2.6, 1.0], "p2": [-1.9500000000000002, 2.6, 1.0]},
+            {"intervals": [], "p1": [-1.625, -2.6, 1.0], "p2": [-1.625, 2.6, 1.0]},
+            {"intervals": [], "p1": [-1.54375, -2.6, 1.0], "p2": [-1.54375, 2.6, 1.0]},
+            {"intervals": [], "p1": [1.6250000000000004, -2.6, 1.0], "p2": [1.6250000000000004, 2.6, 1.0]},
+            {"intervals": [], "p1": [1.9499999999999997, -2.6, 1.0], "p2": [1.9499999999999997, 2.6, 1.0]},
+            {"intervals": [], "p1": [2.275, -2.6, 1.0], "p2": [2.275, 2.6, 1.0]},
+            {"intervals": [], "p1": [2.6, -2.6, 1.0], "p2": [2.6, 2.6, 1.0]}
+          ],
+          "location": ["first", "y"]
+        },
+        {
+          "expected": [
+            {"intervals": [], "p1": [-2.6, -2.6, 1.5], "p2": [2.6, -2.6, 1.5]},
+            {"intervals": [], "p1": [-2.6, -2.275, 1.5], "p2": [2.6, -2.275, 1.5]},
+            {"intervals": [], "p1": [-2.6, -1.9500000000000002, 1.5], "p2": [2.6, -1.9500000000000002, 1.5]},
+            {"intervals": [], "p1": [-2.6, -1.625, 1.5], "p2": [2.6, -1.625, 1.5]},
+            {"intervals": [], "p1": [-2.6, -1.3, 1.5], "p2": [2.6, -1.3, 1.5]},
+            {"intervals": [], "p1": [-2.6, -1.21875, 1.5], "p2": [2.6, -1.21875, 1.5]},
+            {"intervals": [], "p1": [-2.6, 1.3000000000000003, 1.5], "p2": [2.6, 1.3000000000000003, 1.5]},
+            {"intervals": [], "p1": [-2.6, 1.6250000000000004, 1.5], "p2": [2.6, 1.6250000000000004, 1.5]},
+            {"intervals": [], "p1": [-2.6, 1.9499999999999997, 1.5], "p2": [2.6, 1.9499999999999997, 1.5]},
+            {"intervals": [], "p1": [-2.6, 2.275, 1.5], "p2": [2.6, 2.275, 1.5]},
+            {"intervals": [], "p1": [-2.6, 2.6, 1.5], "p2": [2.6, 2.6, 1.5]}
+          ],
+          "location": ["second", "x"]
+        },
+        {
+          "expected": [
+            {"intervals": [], "p1": [-2.6, -2.6, 1.5], "p2": [-2.6, 2.6, 1.5]},
+            {"intervals": [], "p1": [-2.275, -2.6, 1.5], "p2": [-2.275, 2.6, 1.5]},
+            {"intervals": [], "p1": [-1.9500000000000002, -2.6, 1.5], "p2": [-1.9500000000000002, 2.6, 1.5]},
+            {"intervals": [], "p1": [-1.625, -2.6, 1.5], "p2": [-1.625, 2.6, 1.5]},
+            {"intervals": [], "p1": [-1.3, -2.6, 1.5], "p2": [-1.3, 2.6, 1.5]},
+            {"intervals": [], "p1": [-1.21875, -2.6, 1.5], "p2": [-1.21875, 2.6, 1.5]},
+            {"intervals": [], "p1": [1.3000000000000003, -2.6, 1.5], "p2": [1.3000000000000003, 2.6, 1.5]},
+            {"intervals": [], "p1": [1.6250000000000004, -2.6, 1.5], "p2": [1.6250000000000004, 2.6, 1.5]},
+            {"intervals": [], "p1": [1.9499999999999997, -2.6, 1.5], "p2": [1.9499999999999997, 2.6, 1.5]},
+            {"intervals": [], "p1": [2.275, -2.6, 1.5], "p2": [2.275, 2.6, 1.5]},
+            {"intervals": [], "p1": [2.6, -2.6, 1.5], "p2": [2.6, 2.6, 1.5]}
+          ],
+          "location": ["second", "y"]
+        }
+      ],
+      "kind": "compare",
+      "reason": "Allocation-dependent loop origins; preserve vertices/winding; accepted adaptive empty fibers bounded to fixture descriptors."
+    },
+    "algorithms.waterline.Waterline.run": {
+      "contours": "algorithm",
+      "kind": "compare",
+      "paired_case": "algorithms.waterline.Waterline.run.canonical_geometry",
+      "reason": "Allocation-dependent loop origins; preserve vertices/winding; accepted adaptive empty fibers bounded to fixture descriptors."
+    },
+    "algorithms.waterline.Waterline.run.canonical_geometry": {
+      "contours": "algorithm",
+      "kind": "compare",
+      "reason": "Allocation-dependent loop origins; preserve vertices/winding; accepted adaptive empty fibers bounded to fixture descriptors."
+    },
+    "algorithms.waterline.Waterline.run2": {
+      "contours": "algorithm",
+      "kind": "compare",
+      "paired_case": "algorithms.waterline.Waterline.run2.canonical_geometry",
+      "reason": "Allocation-dependent loop origins; preserve vertices/winding; accepted adaptive empty fibers bounded to fixture descriptors."
+    },
+    "algorithms.waterline.Waterline.run2.canonical_geometry": {
+      "contours": "algorithm",
+      "kind": "compare",
+      "reason": "Allocation-dependent loop origins; preserve vertices/winding; accepted adaptive empty fibers bounded to fixture descriptors."
+    },
+    "algorithms.weave.SimpleWeave": {
+      "candidate_value": {
+        "cl": [[-1.0, -0.75, 1.0], [-1.0, 0.0, 1.0], [-1.0, 0.75, 1.0], [-0.75, -1.0, 1.0], [-0.75, 1.0, 1.0], [0.0, -1.0, 1.0], [0.0, 1.0, 1.0], [0.75, -1.0, 1.0], [0.75, 1.0, 1.0], [1.0, -0.75, 1.0], [1.0, 0.0, 1.0], [1.0, 0.75, 1.0]],
+        "count": 21,
+        "edges": [
+          [[-1.0, -0.75, 1.0], [-0.75, -0.75, 1.0]],
+          [[-1.0, 0.0, 1.0], [-0.75, 0.0, 1.0]],
+          [[-1.0, 0.75, 1.0], [-0.75, 0.75, 1.0]],
+          [[-0.75, -1.0, 1.0], [-0.75, -0.75, 1.0]],
+          [[-0.75, -0.75, 1.0], [-1.0, -0.75, 1.0]],
+          [[-0.75, -0.75, 1.0], [-0.75, -1.0, 1.0]],
+          [[-0.75, -0.75, 1.0], [-0.75, 0.0, 1.0]],
+          [[-0.75, -0.75, 1.0], [0.0, -0.75, 1.0]],
+          [[-0.75, 0.0, 1.0], [-1.0, 0.0, 1.0]],
+          [[-0.75, 0.0, 1.0], [-0.75, -0.75, 1.0]],
+          [[-0.75, 0.0, 1.0], [-0.75, 0.75, 1.0]],
+          [[-0.75, 0.0, 1.0], [0.0, 0.0, 1.0]],
+          [[-0.75, 0.75, 1.0], [-1.0, 0.75, 1.0]],
+          [[-0.75, 0.75, 1.0], [-0.75, 0.0, 1.0]],
+          [[-0.75, 0.75, 1.0], [-0.75, 1.0, 1.0]],
+          [[-0.75, 0.75, 1.0], [0.0, 0.75, 1.0]],
+          [[-0.75, 1.0, 1.0], [-0.75, 0.75, 1.0]],
+          [[0.0, -1.0, 1.0], [0.0, -0.75, 1.0]],
+          [[0.0, -0.75, 1.0], [-0.75, -0.75, 1.0]],
+          [[0.0, -0.75, 1.0], [0.0, -1.0, 1.0]],
+          [[0.0, -0.75, 1.0], [0.0, 0.0, 1.0]],
+          [[0.0, -0.75, 1.0], [0.75, -0.75, 1.0]],
+          [[0.0, 0.0, 1.0], [-0.75, 0.0, 1.0]],
+          [[0.0, 0.0, 1.0], [0.0, -0.75, 1.0]],
+          [[0.0, 0.0, 1.0], [0.0, 0.75, 1.0]],
+          [[0.0, 0.0, 1.0], [0.75, 0.0, 1.0]],
+          [[0.0, 0.75, 1.0], [-0.75, 0.75, 1.0]],
+          [[0.0, 0.75, 1.0], [0.0, 0.0, 1.0]],
+          [[0.0, 0.75, 1.0], [0.0, 1.0, 1.0]],
+          [[0.0, 0.75, 1.0], [0.75, 0.75, 1.0]],
+          [[0.0, 1.0, 1.0], [0.0, 0.75, 1.0]],
+          [[0.75, -1.0, 1.0], [0.75, -0.75, 1.0]],
+          [[0.75, -0.75, 1.0], [0.0, -0.75, 1.0]],
+          [[0.75, -0.75, 1.0], [0.75, -1.0, 1.0]],
+          [[0.75, -0.75, 1.0], [0.75, 0.0, 1.0]],
+          [[0.75, -0.75, 1.0], [1.0, -0.75, 1.0]],
+          [[0.75, 0.0, 1.0], [0.0, 0.0, 1.0]],
+          [[0.75, 0.0, 1.0], [0.75, -0.75, 1.0]],
+          [[0.75, 0.0, 1.0], [0.75, 0.75, 1.0]],
+          [[0.75, 0.0, 1.0], [1.0, 0.0, 1.0]],
+          [[0.75, 0.75, 1.0], [0.0, 0.75, 1.0]],
+          [[0.75, 0.75, 1.0], [0.75, 0.0, 1.0]],
+          [[0.75, 0.75, 1.0], [0.75, 1.0, 1.0]],
+          [[0.75, 0.75, 1.0], [1.0, 0.75, 1.0]],
+          [[0.75, 1.0, 1.0], [0.75, 0.75, 1.0]],
+          [[1.0, -0.75, 1.0], [0.75, -0.75, 1.0]],
+          [[1.0, 0.0, 1.0], [0.75, 0.0, 1.0]],
+          [[1.0, 0.75, 1.0], [0.75, 0.75, 1.0]]
+        ],
+        "int": [[-0.75, -0.75, 1.0], [-0.75, 0.0, 1.0], [-0.75, 0.75, 1.0], [0.0, -0.75, 1.0], [0.0, 0.0, 1.0], [0.0, 0.75, 1.0], [0.75, -0.75, 1.0], [0.75, 0.0, 1.0], [0.75, 0.75, 1.0]],
+        "loops": [[[-1.0, -0.75, 1.0], [-0.75, -1.0, 1.0], [0.0, -1.0, 1.0], [0.75, -1.0, 1.0], [1.0, -0.75, 1.0], [1.0, 0.0, 1.0], [1.0, 0.75, 1.0], [0.75, 1.0, 1.0], [0.0, 1.0, 1.0], [-0.75, 1.0, 1.0], [-1.0, 0.75, 1.0], [-1.0, 0.0, 1.0]]],
+        "str": "Weave2\n  3 X-fibers\n  3 Y-fibers\n",
+        "types": {
+          "ADJ": [],
+          "CL": [[-1.0, -0.75, 1.0], [-1.0, 0.0, 1.0], [-1.0, 0.75, 1.0], [-0.75, -1.0, 1.0], [-0.75, 1.0, 1.0], [0.0, -1.0, 1.0], [0.0, 1.0, 1.0], [0.75, -1.0, 1.0], [0.75, 1.0, 1.0], [1.0, -0.75, 1.0], [1.0, 0.0, 1.0], [1.0, 0.75, 1.0]],
+          "CL_DONE": [],
+          "FULLINT": [],
+          "INT": [[-0.75, -0.75, 1.0], [-0.75, 0.0, 1.0], [-0.75, 0.75, 1.0], [0.0, -0.75, 1.0], [0.0, 0.0, 1.0], [0.0, 0.75, 1.0], [0.75, -0.75, 1.0], [0.75, 0.0, 1.0], [0.75, 0.75, 1.0]],
+          "TWOADJ": []
+        },
+        "vertices": [[-1.0, -0.75, 1.0], [-1.0, 0.0, 1.0], [-1.0, 0.75, 1.0], [-0.75, -1.0, 1.0], [-0.75, -0.75, 1.0], [-0.75, 0.0, 1.0], [-0.75, 0.75, 1.0], [-0.75, 1.0, 1.0], [0.0, -1.0, 1.0], [0.0, -0.75, 1.0], [0.0, 0.0, 1.0], [0.0, 0.75, 1.0], [0.0, 1.0, 1.0], [0.75, -1.0, 1.0], [0.75, -0.75, 1.0], [0.75, 0.0, 1.0], [0.75, 0.75, 1.0], [0.75, 1.0, 1.0], [1.0, -0.75, 1.0], [1.0, 0.0, 1.0], [1.0, 0.75, 1.0]]
+      },
+      "contours": "weave",
+      "kind": "candidate_only",
+      "reason": "New/repaired API; exact reference failure and candidate semantic result are bounded.",
+      "reference_exception": "AttributeError",
+      "reference_message": "module 'opencamlib' has no attribute 'SimpleWeave'"
+    },
+    "algorithms.weave.SmartWeave": {
+      "candidate_value": {
+        "cl": [[-1.0, -0.75, 1.0], [-1.0, 0.0, 1.0], [-1.0, 0.75, 1.0], [-0.75, -1.0, 1.0], [-0.75, 1.0, 1.0], [0.0, -1.0, 1.0], [0.0, 1.0, 1.0], [0.75, -1.0, 1.0], [0.75, 1.0, 1.0], [1.0, -0.75, 1.0], [1.0, 0.0, 1.0], [1.0, 0.75, 1.0]],
+        "count": 22,
+        "edges": [
+          [[-1.0, -0.75, 1.0], [-0.75, -0.75, 1.0]],
+          [[-1.0, 0.0, 1.0], [-0.75, 0.0, 1.0]],
+          [[-1.0, 0.75, 1.0], [-0.75, 0.75, 1.0]],
+          [[-0.75, -1.0, 1.0], [-0.75, -0.75, 1.0]],
+          [[-0.75, -0.75, 1.0], [-1.0, -0.75, 1.0]],
+          [[-0.75, -0.75, 1.0], [-0.75, -1.0, 1.0]],
+          [[-0.75, -0.75, 1.0], [-0.75, 0.0, 1.0]],
+          [[-0.75, -0.75, 1.0], [0.0, -0.75, 1.0]],
+          [[-0.75, 0.0, 1.0], [-1.0, 0.0, 1.0]],
+          [[-0.75, 0.0, 1.0], [-0.75, -0.75, 1.0]],
+          [[-0.75, 0.0, 1.0], [-0.75, 0.75, 1.0]],
+          [[-0.75, 0.0, 1.0], [0.0, 0.0, 1.0]],
+          [[-0.75, 0.0, 1.0], [0.0, 0.0, 1.0]],
+          [[-0.75, 0.75, 1.0], [-1.0, 0.75, 1.0]],
+          [[-0.75, 0.75, 1.0], [-0.75, 0.0, 1.0]],
+          [[-0.75, 0.75, 1.0], [-0.75, 1.0, 1.0]],
+          [[-0.75, 0.75, 1.0], [0.0, 0.75, 1.0]],
+          [[-0.75, 1.0, 1.0], [-0.75, 0.75, 1.0]],
+          [[0.0, -1.0, 1.0], [0.0, -0.75, 1.0]],
+          [[0.0, -0.75, 1.0], [-0.75, -0.75, 1.0]],
+          [[0.0, -0.75, 1.0], [0.0, -1.0, 1.0]],
+          [[0.0, -0.75, 1.0], [0.0, 0.0, 1.0]],
+          [[0.0, -0.75, 1.0], [0.0, 0.0, 1.0]],
+          [[0.0, -0.75, 1.0], [0.75, -0.75, 1.0]],
+          [[0.0, 0.0, 1.0], [-0.75, 0.0, 1.0]],
+          [[0.0, 0.0, 1.0], [-0.75, 0.0, 1.0]],
+          [[0.0, 0.0, 1.0], [0.0, -0.75, 1.0]],
+          [[0.0, 0.0, 1.0], [0.0, -0.75, 1.0]],
+          [[0.0, 0.0, 1.0], [0.0, 0.75, 1.0]],
+          [[0.0, 0.0, 1.0], [0.0, 0.75, 1.0]],
+          [[0.0, 0.0, 1.0], [0.75, 0.0, 1.0]],
+          [[0.0, 0.0, 1.0], [0.75, 0.0, 1.0]],
+          [[0.0, 0.75, 1.0], [-0.75, 0.75, 1.0]],
+          [[0.0, 0.75, 1.0], [0.0, 0.0, 1.0]],
+          [[0.0, 0.75, 1.0], [0.0, 0.0, 1.0]],
+          [[0.0, 0.75, 1.0], [0.0, 1.0, 1.0]],
+          [[0.0, 0.75, 1.0], [0.75, 0.75, 1.0]],
+          [[0.0, 1.0, 1.0], [0.0, 0.75, 1.0]],
+          [[0.75, -1.0, 1.0], [0.75, -0.75, 1.0]],
+          [[0.75, -0.75, 1.0], [0.0, -0.75, 1.0]],
+          [[0.75, -0.75, 1.0], [0.75, -1.0, 1.0]],
+          [[0.75, -0.75, 1.0], [0.75, 0.0, 1.0]],
+          [[0.75, -0.75, 1.0], [1.0, -0.75, 1.0]],
+          [[0.75, 0.0, 1.0], [0.0, 0.0, 1.0]],
+          [[0.75, 0.0, 1.0], [0.0, 0.0, 1.0]],
+          [[0.75, 0.0, 1.0], [0.75, -0.75, 1.0]],
+          [[0.75, 0.0, 1.0], [0.75, 0.75, 1.0]],
+          [[0.75, 0.0, 1.0], [1.0, 0.0, 1.0]],
+          [[0.75, 0.75, 1.0], [0.0, 0.75, 1.0]],
+          [[0.75, 0.75, 1.0], [0.75, 0.0, 1.0]],
+          [[0.75, 0.75, 1.0], [0.75, 1.0, 1.0]],
+          [[0.75, 0.75, 1.0], [1.0, 0.75, 1.0]],
+          [[0.75, 1.0, 1.0], [0.75, 0.75, 1.0]],
+          [[1.0, -0.75, 1.0], [0.75, -0.75, 1.0]],
+          [[1.0, 0.0, 1.0], [0.75, 0.0, 1.0]],
+          [[1.0, 0.75, 1.0], [0.75, 0.75, 1.0]]
+        ],
+        "int": [[-0.75, -0.75, 1.0], [-0.75, 0.0, 1.0], [-0.75, 0.75, 1.0], [0.0, -0.75, 1.0], [0.0, 0.75, 1.0], [0.75, -0.75, 1.0], [0.75, 0.0, 1.0], [0.75, 0.75, 1.0]],
+        "loops": [[[-1.0, -0.75, 1.0], [-1.0, 0.0, 1.0], [-1.0, 0.75, 1.0], [-0.75, 1.0, 1.0], [0.0, 1.0, 1.0], [0.75, 1.0, 1.0], [1.0, 0.75, 1.0], [1.0, 0.0, 1.0], [1.0, -0.75, 1.0], [0.75, -1.0, 1.0], [0.0, -1.0, 1.0], [-0.75, -1.0, 1.0]]],
+        "str": "Weave2\n  3 X-fibers\n  3 Y-fibers\n",
+        "types": {
+          "ADJ": [],
+          "CL": [[-1.0, -0.75, 1.0], [-1.0, 0.0, 1.0], [-1.0, 0.75, 1.0], [-0.75, -1.0, 1.0], [-0.75, 1.0, 1.0], [0.0, -1.0, 1.0], [0.0, 1.0, 1.0], [0.75, -1.0, 1.0], [0.75, 1.0, 1.0], [1.0, -0.75, 1.0], [1.0, 0.0, 1.0], [1.0, 0.75, 1.0]],
+          "CL_DONE": [],
+          "FULLINT": [[0.0, 0.0, 1.0], [0.0, 0.0, 1.0]],
+          "INT": [[-0.75, -0.75, 1.0], [-0.75, 0.0, 1.0], [-0.75, 0.75, 1.0], [0.0, -0.75, 1.0], [0.0, 0.75, 1.0], [0.75, -0.75, 1.0], [0.75, 0.0, 1.0], [0.75, 0.75, 1.0]],
+          "TWOADJ": []
+        },
+        "vertices": [[-1.0, -0.75, 1.0], [-1.0, 0.0, 1.0], [-1.0, 0.75, 1.0], [-0.75, -1.0, 1.0], [-0.75, -0.75, 1.0], [-0.75, 0.0, 1.0], [-0.75, 0.75, 1.0], [-0.75, 1.0, 1.0], [0.0, -1.0, 1.0], [0.0, -0.75, 1.0], [0.0, 0.0, 1.0], [0.0, 0.0, 1.0], [0.0, 0.75, 1.0], [0.0, 1.0, 1.0], [0.75, -1.0, 1.0], [0.75, -0.75, 1.0], [0.75, 0.0, 1.0], [0.75, 0.75, 1.0], [0.75, 1.0, 1.0], [1.0, -0.75, 1.0], [1.0, 0.0, 1.0], [1.0, 0.75, 1.0]]
+      },
+      "contours": "weave",
+      "kind": "candidate_only",
+      "reason": "New/repaired API; exact reference failure and candidate semantic result are bounded.",
+      "reference_exception": "AttributeError",
+      "reference_message": "module 'opencamlib' has no attribute 'SmartWeave'"
+    },
+    "consumers.freecad.AdaptiveWaterline.islands": {
+      "contours": "loops",
+      "kind": "compare",
+      "paired_case": "consumers.freecad.AdaptiveWaterline.islands.geometry",
+      "reason": "Only directed contour rotation/component ordering may differ; coordinates, layers and closure must match."
+    },
+    "consumers.freecad.AdaptiveWaterline.islands.geometry": {
+      "contours": "loops",
+      "kind": "compare",
+      "reason": "Only directed contour rotation/component ordering may differ; coordinates, layers and closure must match."
+    },
+    "consumers.freecad.AdaptiveWaterline.stack": {
+      "contours": "stack",
+      "kind": "compare",
+      "paired_case": "consumers.freecad.AdaptiveWaterline.stack.geometry",
+      "reason": "Only directed contour rotation/component ordering may differ; coordinates, layers and closure must match."
+    },
+    "consumers.freecad.AdaptiveWaterline.stack.geometry": {
+      "contours": "stack",
+      "kind": "compare",
+      "reason": "Only directed contour rotation/component ordering may differ; coordinates, layers and closure must match."
+    },
+    "consumers.freecad.AdaptiveWaterline.threads": {
+      "contours": "stack",
+      "kind": "compare",
+      "paired_case": "consumers.freecad.AdaptiveWaterline.threads.geometry",
+      "reason": "Only directed contour rotation/component ordering may differ; coordinates, layers and closure must match."
+    },
+    "consumers.freecad.AdaptiveWaterline.threads.geometry": {
+      "contours": "stack",
+      "kind": "compare",
+      "reason": "Only directed contour rotation/component ordering may differ; coordinates, layers and closure must match."
+    },
+    "consumers.freecad.Waterline.islands": {
+      "contours": "loops",
+      "kind": "compare",
+      "paired_case": "consumers.freecad.Waterline.islands.geometry",
+      "reason": "Only directed contour rotation/component ordering may differ; coordinates, layers and closure must match."
+    },
+    "consumers.freecad.Waterline.islands.geometry": {
+      "contours": "loops",
+      "kind": "compare",
+      "reason": "Only directed contour rotation/component ordering may differ; coordinates, layers and closure must match."
+    },
+    "consumers.freecad.Waterline.stack": {
+      "contours": "stack",
+      "kind": "compare",
+      "paired_case": "consumers.freecad.Waterline.stack.geometry",
+      "reason": "Only directed contour rotation/component ordering may differ; coordinates, layers and closure must match."
+    },
+    "consumers.freecad.Waterline.stack.geometry": {
+      "contours": "stack",
+      "kind": "compare",
+      "reason": "Only directed contour rotation/component ordering may differ; coordinates, layers and closure must match."
+    },
+    "consumers.freecad.Waterline.threads": {
+      "contours": "stack",
+      "kind": "compare",
+      "paired_case": "consumers.freecad.Waterline.threads.geometry",
+      "reason": "Only directed contour rotation/component ordering may differ; coordinates, layers and closure must match."
+    },
+    "consumers.freecad.Waterline.threads.geometry": {
+      "contours": "stack",
+      "kind": "compare",
+      "reason": "Only directed contour rotation/component ordering may differ; coordinates, layers and closure must match."
+    },
+    "consumers.freecad.legacy.adaptive_layers_reuse": {
+      "contours": "loops",
+      "kind": "compare",
+      "paired_case": "consumers.freecad.legacy.adaptive_layers_reuse.geometry",
+      "reason": "Only directed contour rotation/component ordering may differ; coordinates, layers and closure must match."
+    },
+    "consumers.freecad.legacy.adaptive_layers_reuse.geometry": {
+      "contours": "loops",
+      "kind": "compare",
+      "reason": "Only directed contour rotation/component ordering may differ; coordinates, layers and closure must match."
+    },
+    "consumers.waterline.AdaptiveWaterline.reset": {
+      "contours": "layers",
+      "kind": "compare",
+      "paired_case": "consumers.waterline.AdaptiveWaterline.reset.geometry",
+      "reason": "Only directed contour rotation/component ordering may differ; coordinates, layers and closure must match."
+    },
+    "consumers.waterline.AdaptiveWaterline.reset.geometry": {
+      "contours": "layers",
+      "kind": "compare",
+      "reason": "Only directed contour rotation/component ordering may differ; coordinates, layers and closure must match."
+    },
+    "consumers.waterline.Waterline.reset": {
+      "contours": "layers",
+      "kind": "compare",
+      "paired_case": "consumers.waterline.Waterline.reset.geometry",
+      "reason": "Only directed contour rotation/component ordering may differ; coordinates, layers and closure must match."
+    },
+    "consumers.waterline.Waterline.reset.geometry": {
+      "contours": "layers",
+      "kind": "compare",
+      "reason": "Only directed contour rotation/component ordering may differ; coordinates, layers and closure must match."
+    },
+    "geometry.Arc.implicit_default_constructor": {
+      "candidate_exception": "TypeError",
+      "candidate_message": "__init__(): incompatible constructor arguments. The following argument types are supported:\n    1. opencamlib.ocl.Arc(arg0: opencamlib.ocl.Point, arg1: opencamlib.ocl.Point, arg2: opencamlib.ocl.Point, arg3: bool)\n    2. opencamlib.ocl.Arc(arg0: opencamlib.ocl.Arc)\n\nInvoked with: ",
+      "kind": "removed_constructor",
+      "reason": "Accepted removal of Boost wrapper classes or geometric default constructors.",
+      "reference_value": {"type": "Arc"}
+    },
+    "geometry.Bbox.construct": {
+      "kind": "compare",
+      "reason": "Exact reviewed framework, tuple, default or minimumZ property transitions; all other data must match.",
+      "transitions": [{"candidate": {"accepted": false, "attribute_error": false, "type_error": true, "value_error": false}, "location": [], "reference": {"accepted": true, "result_type": "Bbox"}}]
+    },
+    "geometry.CCPoint.inherited_metrics": {
+      "candidate_value": {"cross": {"type": "Point", "xyz": [-56.0, -27.0, 23.0]}, "dot": 26.0, "norm": 13.0},
+      "kind": "candidate_only",
+      "reason": "New/repaired API; exact reference failure and candidate semantic result are bounded.",
+      "reference_exception": "AttributeError",
+      "reference_message": "'CCPoint' object has no attribute 'norm'"
+    },
+    "geometry.CLPoint.inherited_metrics": {
+      "candidate_value": {"cross": {"type": "Point", "xyz": [-56.0, -27.0, 23.0]}, "dot": 26.0, "norm": 13.0},
+      "kind": "candidate_only",
+      "reason": "New/repaired API; exact reference failure and candidate semantic result are bounded.",
+      "reference_exception": "AttributeError",
+      "reference_message": "'CLPoint' object has no attribute 'norm'"
+    },
+    "geometry.Ellipse.default_accessibility": {
+      "candidate_exception": "TypeError",
+      "candidate_message": "__init__(): incompatible constructor arguments. The following argument types are supported:\n    1. opencamlib.ocl.Ellipse(arg0: opencamlib.ocl.Point, arg1: typing.SupportsFloat | typing.SupportsIndex, arg2: typing.SupportsFloat | typing.SupportsIndex, arg3: typing.SupportsFloat | typing.SupportsIndex)\n\nInvoked with: ",
+      "kind": "removed_constructor",
+      "reason": "Accepted removal of Boost wrapper classes or geometric default constructors.",
+      "reference_value": {"type": "Ellipse"}
+    },
+    "geometry.Fiber.implicit_default_constructor": {
+      "candidate_exception": "TypeError",
+      "candidate_message": "__init__(): incompatible constructor arguments. The following argument types are supported:\n    1. opencamlib.ocl.Fiber(arg0: opencamlib.ocl.Point, arg1: opencamlib.ocl.Point)\n\nInvoked with: ",
+      "kind": "removed_constructor",
+      "reason": "Accepted removal of Boost wrapper classes or geometric default constructors.",
+      "reference_value": {"type": "Fiber"}
+    },
+    "geometry.Fiber.printInts": {
+      "compare_stdout": true,
+      "kind": "compare",
+      "reason": "Preserve native printing contract."
+    },
+    "geometry.Line.implicit_default_constructor": {
+      "candidate_exception": "TypeError",
+      "candidate_message": "__init__(): incompatible constructor arguments. The following argument types are supported:\n    1. opencamlib.ocl.Line(arg0: opencamlib.ocl.Point, arg1: opencamlib.ocl.Point)\n    2. opencamlib.ocl.Line(arg0: opencamlib.ocl.Line)\n\nInvoked with: ",
+      "kind": "removed_constructor",
+      "reason": "Accepted removal of Boost wrapper classes or geometric default constructors.",
+      "reference_value": {"type": "Line"}
+    },
+    "geometry.Path.getTypeSpanPairs": {
+      "kind": "compare",
+      "reason": "Exact reviewed framework, tuple, default or minimumZ property transitions; all other data must match.",
+      "transitions": [{"candidate": "tuple", "location": ["pair_types", 0], "reference": "list"}, {"candidate": "tuple", "location": ["pair_types", 1], "reference": "list"}]
+    },
+    "geometry.Point.isInside_segment": {
+      "candidate_value": [true, true, true, true, false, false],
+      "kind": "candidate_only",
+      "reason": "New/repaired API; exact reference failure and candidate semantic result are bounded.",
+      "reference_exception": "AttributeError",
+      "reference_message": "'Point' object has no attribute 'isInside'"
+    },
+    "geometry.Point.isInside_triangle": {
+      "candidate_value": [[true, true, false, false, false, false], [true, true, false, false, false, false]],
+      "kind": "candidate_only",
+      "reason": "New/repaired API; exact reference failure and candidate semantic result are bounded.",
+      "reference_exception": "AttributeError",
+      "reference_message": "'Point' object has no attribute 'isInside'"
+    },
+    "geometry.STLSurf.tris": {
+      "candidate_value": {
+        "before": [[{"type": "Point", "xyz": [-2.0, -1.0, 0.0]}, {"type": "Point", "xyz": [3.0, -1.0, 1.0]}, {"type": "Point", "xyz": [0.0, 4.0, 2.0]}], [{"type": "Point", "xyz": [-2.0, -1.0, 0.0]}, {"type": "Point", "xyz": [0.0, 4.0, 2.0]}, {"type": "Point", "xyz": [-3.0, 2.0, -1.0]}]],
+        "container_type": "list",
+        "normals_after": [{"type": "Point", "xyz": [61.0, -0.2993924754260479, 0.9356014857063997]}, {"type": "Point", "xyz": [-0.7071067811865476, 0.0, 0.7071067811865476]}],
+        "size_after": 2
+      },
+      "kind": "candidate_only",
+      "reason": "New/repaired API; exact reference failure and candidate semantic result are bounded.",
+      "reference_exception": "TypeError",
+      "reference_message": "No Python class registered for C++ class std::list<ocl::Triangle, std::allocator<ocl::Triangle> >"
+    },
+    "geometry.Triangle.implicit_default_constructor": {
+      "candidate_exception": "TypeError",
+      "candidate_message": "__init__(): incompatible constructor arguments. The following argument types are supported:\n    1. opencamlib.ocl.Triangle(arg0: opencamlib.ocl.Point, arg1: opencamlib.ocl.Point, arg2: opencamlib.ocl.Point)\n\nInvoked with: ",
+      "kind": "removed_constructor",
+      "reason": "Accepted removal of Boost wrapper classes or geometric default constructors.",
+      "reference_value": {"type": "Triangle"}
+    },
+    "geometry.Triangle.p": {
+      "candidate_value": {"after": [{"type": "Point", "xyz": [-2.0, -1.0, 0.0]}, {"type": "Point", "xyz": [3.0, -1.0, 1.0]}, {"type": "Point", "xyz": [0.0, 4.0, 2.0]}], "container_type": "list", "points": [{"type": "Point", "xyz": [-2.0, -1.0, 0.0]}, {"type": "Point", "xyz": [3.0, -1.0, 1.0]}, {"type": "Point", "xyz": [0.0, 4.0, 2.0]}]},
+      "kind": "candidate_only",
+      "reason": "New/repaired API; exact reference failure and candidate semantic result are bounded.",
+      "reference_exception": "TypeError",
+      "reference_message": "No to_python (by-value) converter found for C++ type: ocl::Point [3]"
+    },
+    "geometry.base.Fiber_base.construct": {
+      "candidate_exception": "AttributeError",
+      "candidate_message": "module 'opencamlib' has no attribute 'Fiber_base'",
+      "kind": "removed_constructor",
+      "reason": "Accepted removal of Boost wrapper classes or geometric default constructors.",
+      "reference_value": {"type": "Fiber_base"}
+    },
+    "geometry.base.Path_base.construct": {
+      "candidate_exception": "AttributeError",
+      "candidate_message": "module 'opencamlib' has no attribute 'Path_base'",
+      "kind": "removed_constructor",
+      "reason": "Accepted removal of Boost wrapper classes or geometric default constructors.",
+      "reference_value": {"type": "Path_base"}
+    },
+    "geometry.base.STLSurf_base.construct": {
+      "candidate_exception": "AttributeError",
+      "candidate_message": "module 'opencamlib' has no attribute 'STLSurf_base'",
+      "kind": "removed_constructor",
+      "reason": "Accepted removal of Boost wrapper classes or geometric default constructors.",
+      "reference_value": {"type": "STLSurf_base"}
+    },
+    "geometry.base.Triangle_base.construct": {
+      "candidate_exception": "AttributeError",
+      "candidate_message": "module 'opencamlib' has no attribute 'Triangle_base'",
+      "kind": "removed_constructor",
+      "reason": "Accepted removal of Boost wrapper classes or geometric default constructors.",
+      "reference_value": {"type": "Triangle_base"}
+    },
+    "geometry.enum.CCType.strings": {
+      "kind": "compare",
+      "reason": "Exact reviewed framework, tuple, default or minimumZ property transitions; all other data must match.",
+      "transitions": [
+        {"candidate": "<CCType.NONE: 0>", "location": [0, "repr"], "reference": "opencamlib.ocl.CCType.NONE"},
+        {"candidate": "CCType.NONE", "location": [0, "str"], "reference": "NONE"},
+        {"candidate": "<CCType.VERTEX: 1>", "location": [1, "repr"], "reference": "opencamlib.ocl.CCType.VERTEX"},
+        {"candidate": "CCType.VERTEX", "location": [1, "str"], "reference": "VERTEX"},
+        {"candidate": "<CCType.VERTEX_CYL: 2>", "location": [2, "repr"], "reference": "opencamlib.ocl.CCType.VERTEX_CYL"},
+        {"candidate": "CCType.VERTEX_CYL", "location": [2, "str"], "reference": "VERTEX_CYL"},
+        {"candidate": "<CCType.EDGE: 3>", "location": [3, "repr"], "reference": "opencamlib.ocl.CCType.EDGE"},
+        {"candidate": "CCType.EDGE", "location": [3, "str"], "reference": "EDGE"},
+        {"candidate": "<CCType.EDGE_SHAFT: 5>", "location": [4, "repr"], "reference": "opencamlib.ocl.CCType.EDGE_SHAFT"},
+        {"candidate": "CCType.EDGE_SHAFT", "location": [4, "str"], "reference": "EDGE_SHAFT"},
+        {"candidate": "<CCType.EDGE_HORIZ: 4>", "location": [5, "repr"], "reference": "opencamlib.ocl.CCType.EDGE_HORIZ"},
+        {"candidate": "CCType.EDGE_HORIZ", "location": [5, "str"], "reference": "EDGE_HORIZ"},
+        {"candidate": "<CCType.EDGE_CYL: 11>", "location": [6, "repr"], "reference": "opencamlib.ocl.CCType.EDGE_CYL"},
+        {"candidate": "CCType.EDGE_CYL", "location": [6, "str"], "reference": "EDGE_CYL"},
+        {"candidate": "<CCType.EDGE_BALL: 8>", "location": [7, "repr"], "reference": "opencamlib.ocl.CCType.EDGE_BALL"},
+        {"candidate": "CCType.EDGE_BALL", "location": [7, "str"], "reference": "EDGE_BALL"},
+        {"candidate": "<CCType.EDGE_CONE: 12>", "location": [8, "repr"], "reference": "opencamlib.ocl.CCType.EDGE_CONE"},
+        {"candidate": "CCType.EDGE_CONE", "location": [8, "str"], "reference": "EDGE_CONE"},
+        {"candidate": "<CCType.EDGE_CONE_BASE: 13>", "location": [9, "repr"], "reference": "opencamlib.ocl.CCType.EDGE_CONE_BASE"},
+        {"candidate": "CCType.EDGE_CONE_BASE", "location": [9, "str"], "reference": "EDGE_CONE_BASE"},
+        {"candidate": "<CCType.EDGE_HORIZ_CYL: 6>", "location": [10, "repr"], "reference": "opencamlib.ocl.CCType.EDGE_HORIZ_CYL"},
+        {"candidate": "CCType.EDGE_HORIZ_CYL", "location": [10, "str"], "reference": "EDGE_HORIZ_CYL"},
+        {"candidate": "<CCType.EDGE_HORIZ_TOR: 7>", "location": [11, "repr"], "reference": "opencamlib.ocl.CCType.EDGE_HORIZ_TOR"},
+        {"candidate": "CCType.EDGE_HORIZ_TOR", "location": [11, "str"], "reference": "EDGE_HORIZ_TOR"},
+        {"candidate": "<CCType.EDGE_POS: 9>", "location": [12, "repr"], "reference": "opencamlib.ocl.CCType.EDGE_POS"},
+        {"candidate": "CCType.EDGE_POS", "location": [12, "str"], "reference": "EDGE_POS"},
+        {"candidate": "<CCType.EDGE_NEG: 10>", "location": [13, "repr"], "reference": "opencamlib.ocl.CCType.EDGE_NEG"},
+        {"candidate": "CCType.EDGE_NEG", "location": [13, "str"], "reference": "EDGE_NEG"},
+        {"candidate": "<CCType.FACET: 14>", "location": [14, "repr"], "reference": "opencamlib.ocl.CCType.FACET"},
+        {"candidate": "CCType.FACET", "location": [14, "str"], "reference": "FACET"},
+        {"candidate": "<CCType.FACET_TIP: 15>", "location": [15, "repr"], "reference": "opencamlib.ocl.CCType.FACET_TIP"},
+        {"candidate": "CCType.FACET_TIP", "location": [15, "str"], "reference": "FACET_TIP"},
+        {"candidate": "<CCType.FACET_CYL: 16>", "location": [16, "repr"], "reference": "opencamlib.ocl.CCType.FACET_CYL"},
+        {"candidate": "CCType.FACET_CYL", "location": [16, "str"], "reference": "FACET_CYL"},
+        {"candidate": "<CCType.ERROR: 17>", "location": [17, "repr"], "reference": "opencamlib.ocl.CCType.ERROR"},
+        {"candidate": "CCType.ERROR", "location": [17, "str"], "reference": "ERROR"}
+      ]
+    },
+    "geometry.enum.SpanType.strings": {
+      "kind": "compare",
+      "reason": "Exact reviewed framework, tuple, default or minimumZ property transitions; all other data must match.",
+      "transitions": [{"candidate": "<SpanType.LineSpanType: 0>", "location": [0, "repr"], "reference": "opencamlib.ocl.SpanType.LineSpanType"}, {"candidate": "SpanType.LineSpanType", "location": [0, "str"], "reference": "LineSpanType"}, {"candidate": "<SpanType.ArcSpanType: 1>", "location": [1, "repr"], "reference": "opencamlib.ocl.SpanType.ArcSpanType"}, {"candidate": "SpanType.ArcSpanType", "location": [1, "str"], "reference": "ArcSpanType"}]
+    },
+    "geometry.enum.WeaveVertexType.strings": {
+      "kind": "compare",
+      "reason": "Exact reviewed framework, tuple, default or minimumZ property transitions; all other data must match.",
+      "transitions": [
+        {"candidate": "<WeaveVertexType.CL: 0>", "location": [0, "repr"], "reference": "opencamlib.ocl.WeaveVertexType.CL"},
+        {"candidate": "WeaveVertexType.CL", "location": [0, "str"], "reference": "CL"},
+        {"candidate": "<WeaveVertexType.CL_DONE: 1>", "location": [1, "repr"], "reference": "opencamlib.ocl.WeaveVertexType.CL_DONE"},
+        {"candidate": "WeaveVertexType.CL_DONE", "location": [1, "str"], "reference": "CL_DONE"},
+        {"candidate": "<WeaveVertexType.ADJ: 2>", "location": [2, "repr"], "reference": "opencamlib.ocl.WeaveVertexType.ADJ"},
+        {"candidate": "WeaveVertexType.ADJ", "location": [2, "str"], "reference": "ADJ"},
+        {"candidate": "<WeaveVertexType.TWOADJ: 3>", "location": [3, "repr"], "reference": "opencamlib.ocl.WeaveVertexType.TWOADJ"},
+        {"candidate": "WeaveVertexType.TWOADJ", "location": [3, "str"], "reference": "TWOADJ"},
+        {"candidate": "<WeaveVertexType.INT: 4>", "location": [4, "repr"], "reference": "opencamlib.ocl.WeaveVertexType.INT"},
+        {"candidate": "WeaveVertexType.INT", "location": [4, "str"], "reference": "INT"},
+        {"candidate": "<WeaveVertexType.FULLINT: 5>", "location": [5, "repr"], "reference": "opencamlib.ocl.WeaveVertexType.FULLINT"},
+        {"candidate": "WeaveVertexType.FULLINT", "location": [5, "str"], "reference": "FULLINT"}
+      ]
+    }
+  },
+  "reference_distribution": "2023.1.11",
+  "required_cases": [
+    "algorithms.batch_drop.BallCutter.threads1", "algorithms.batch_drop.BallCutter.threads2",
+    "algorithms.batch_drop.BullCutter.threads1", "algorithms.batch_drop.BullCutter.threads2",
+    "algorithms.batch_drop.ConeCutter.threads1", "algorithms.batch_drop.ConeCutter.threads2",
+    "algorithms.batch_drop.CylCutter.threads1", "algorithms.batch_drop.CylCutter.threads2",
+    "algorithms.batch_push.X.BallCutter", "algorithms.batch_push.X.BullCutter", "algorithms.batch_push.X.ConeCutter",
+    "algorithms.batch_push.X.CylCutter", "algorithms.batch_push.Y.BallCutter", "algorithms.batch_push.Y.BullCutter",
+    "algorithms.batch_push.Y.ConeCutter", "algorithms.batch_push.Y.CylCutter", "algorithms.cl_surface",
+    "algorithms.constructor.AdaptivePathDropCutter_base", "algorithms.constructor.AdaptiveWaterline_base",
+    "algorithms.constructor.BatchDropCutter_base", "algorithms.constructor.BatchPushCutter_base",
+    "algorithms.constructor.LineCLFilter_base", "algorithms.constructor.PathDropCutter_base",
+    "algorithms.constructor.Waterline_base", "algorithms.constructor.Weave", "algorithms.constructor.ZigZag_base",
+    "algorithms.cutter.BallConeCutter.dropCutter", "algorithms.cutter.BallConeCutter.edgeDrop",
+    "algorithms.cutter.BallConeCutter.facetDrop", "algorithms.cutter.BallConeCutter.pushCutter",
+    "algorithms.cutter.BallConeCutter.vertexDrop", "algorithms.cutter.BallCutter.dropCutter",
+    "algorithms.cutter.BallCutter.dropCutterSTL", "algorithms.cutter.BallCutter.edgeDrop",
+    "algorithms.cutter.BallCutter.facetDrop", "algorithms.cutter.BallCutter.offsetCutter",
+    "algorithms.cutter.BallCutter.pushCutter", "algorithms.cutter.BallCutter.vertexDrop",
+    "algorithms.cutter.BullConeCutter.dropCutter", "algorithms.cutter.BullConeCutter.edgeDrop",
+    "algorithms.cutter.BullConeCutter.facetDrop", "algorithms.cutter.BullConeCutter.pushCutter",
+    "algorithms.cutter.BullConeCutter.vertexDrop", "algorithms.cutter.BullCutter.dropCutter",
+    "algorithms.cutter.BullCutter.edgeDrop", "algorithms.cutter.BullCutter.facetDrop",
+    "algorithms.cutter.BullCutter.offsetCutter", "algorithms.cutter.BullCutter.pushCutter",
+    "algorithms.cutter.BullCutter.vertexDrop", "algorithms.cutter.CompBallCutter.dropCutter",
+    "algorithms.cutter.CompBallCutter.edgeDrop", "algorithms.cutter.CompBallCutter.facetDrop",
+    "algorithms.cutter.CompBallCutter.pushCutter", "algorithms.cutter.CompBallCutter.vertexDrop",
+    "algorithms.cutter.CompCylCutter.dropCutter", "algorithms.cutter.CompCylCutter.edgeDrop",
+    "algorithms.cutter.CompCylCutter.facetDrop", "algorithms.cutter.CompCylCutter.pushCutter",
+    "algorithms.cutter.CompCylCutter.vertexDrop", "algorithms.cutter.ConeConeCutter.dropCutter",
+    "algorithms.cutter.ConeConeCutter.edgeDrop", "algorithms.cutter.ConeConeCutter.facetDrop",
+    "algorithms.cutter.ConeConeCutter.pushCutter", "algorithms.cutter.ConeConeCutter.vertexDrop",
+    "algorithms.cutter.ConeCutter.dropCutter", "algorithms.cutter.ConeCutter.edgeDrop",
+    "algorithms.cutter.ConeCutter.facetDrop", "algorithms.cutter.ConeCutter.offsetCutter",
+    "algorithms.cutter.ConeCutter.pushCutter", "algorithms.cutter.ConeCutter.vertexDrop",
+    "algorithms.cutter.CylConeCutter.dropCutter", "algorithms.cutter.CylConeCutter.edgeDrop",
+    "algorithms.cutter.CylConeCutter.facetDrop", "algorithms.cutter.CylConeCutter.pushCutter",
+    "algorithms.cutter.CylConeCutter.vertexDrop", "algorithms.cutter.CylCutter.dropCutter",
+    "algorithms.cutter.CylCutter.dropCutterSTL", "algorithms.cutter.CylCutter.edgeDrop",
+    "algorithms.cutter.CylCutter.facetDrop", "algorithms.cutter.CylCutter.offsetCutter",
+    "algorithms.cutter.CylCutter.pushCutter", "algorithms.cutter.CylCutter.vertexDrop",
+    "algorithms.line_filter.bend.0.001", "algorithms.line_filter.bend.0.1", "algorithms.line_filter.duplicate.0.001",
+    "algorithms.line_filter.duplicate.0.1", "algorithms.line_filter.straight.0.001",
+    "algorithms.line_filter.straight.0.1", "algorithms.module.numeric",
+    "algorithms.path_drop.AdaptivePathDropCutter.arc.z-2", "algorithms.path_drop.AdaptivePathDropCutter.arc.z2",
+    "algorithms.path_drop.AdaptivePathDropCutter.line.z-2", "algorithms.path_drop.AdaptivePathDropCutter.line.z2",
+    "algorithms.path_drop.PathDropCutter.arc.z-2", "algorithms.path_drop.PathDropCutter.arc.z2",
+    "algorithms.path_drop.PathDropCutter.line.z-2", "algorithms.path_drop.PathDropCutter.line.z2",
+    "algorithms.return_contracts", "algorithms.tsp", "algorithms.tsp.reset_then_destroy",
+    "algorithms.waterline.AdaptiveWaterline.run", "algorithms.waterline.AdaptiveWaterline.run.canonical_geometry",
+    "algorithms.waterline.AdaptiveWaterline.run2", "algorithms.waterline.AdaptiveWaterline.run2.canonical_geometry",
+    "algorithms.waterline.Waterline.run", "algorithms.waterline.Waterline.run.canonical_geometry",
+    "algorithms.waterline.Waterline.run2", "algorithms.waterline.Waterline.run2.canonical_geometry",
+    "algorithms.weave.SimpleWeave", "algorithms.weave.SmartWeave", "algorithms.zigzag.(0, 1, 0)",
+    "algorithms.zigzag.(1, 0, 0)", "algorithms.zigzag.(1, 1, 0)", "consumers.blendercam.ballcone.plain",
+    "consumers.blendercam.ballcone.skin", "consumers.blendercam.ballnose.plain", "consumers.blendercam.ballnose.skin",
+    "consumers.blendercam.bullnose.plain", "consumers.blendercam.bullnose.skin", "consumers.blendercam.cylcone.plain",
+    "consumers.blendercam.cylcone.skin", "consumers.blendercam.end.plain", "consumers.blendercam.end.skin",
+    "consumers.blendercam.vcarve.plain", "consumers.blendercam.vcarve.skin",
+    "consumers.freecad.AdaptivePathDropCutter", "consumers.freecad.AdaptiveWaterline.islands",
+    "consumers.freecad.AdaptiveWaterline.islands.geometry", "consumers.freecad.AdaptiveWaterline.stack",
+    "consumers.freecad.AdaptiveWaterline.stack.geometry", "consumers.freecad.AdaptiveWaterline.threads",
+    "consumers.freecad.AdaptiveWaterline.threads.geometry", "consumers.freecad.PathDropCutter",
+    "consumers.freecad.Waterline.islands", "consumers.freecad.Waterline.islands.geometry",
+    "consumers.freecad.Waterline.stack", "consumers.freecad.Waterline.stack.geometry",
+    "consumers.freecad.Waterline.threads", "consumers.freecad.Waterline.threads.geometry",
+    "consumers.freecad.batch.threads_1", "consumers.freecad.batch.threads_2", "consumers.freecad.batch.threads_None",
+    "consumers.freecad.filter.0.001", "consumers.freecad.filter.0.1", "consumers.freecad.legacy.adaptive_layers_reuse",
+    "consumers.freecad.legacy.adaptive_layers_reuse.geometry", "consumers.freecad.legacy.lines_arcs_reuse",
+    "consumers.freecad.tool_mapping.Ball.normal", "consumers.freecad.tool_mapping.Ball.safe",
+    "consumers.freecad.tool_mapping.Bull.normal", "consumers.freecad.tool_mapping.Bull.safe",
+    "consumers.freecad.tool_mapping.Cone.normal", "consumers.freecad.tool_mapping.Cone.safe",
+    "consumers.freecad.tool_mapping.Cyl.normal", "consumers.freecad.tool_mapping.Cyl.safe",
+    "consumers.waterline.AdaptiveWaterline.reset", "consumers.waterline.AdaptiveWaterline.reset.geometry",
+    "consumers.waterline.Waterline.reset", "consumers.waterline.Waterline.reset.geometry", "geometry.Arc.c_mutation",
+    "geometry.Arc.construct_copy", "geometry.Arc.dir_mutation", "geometry.Arc.implicit_default_constructor",
+    "geometry.Arc.p1_mutation", "geometry.Arc.p2_mutation", "geometry.Bbox.bounds", "geometry.Bbox.construct",
+    "geometry.Bbox.isInside", "geometry.Bbox.maxpt_reference", "geometry.Bbox.minpt_reference",
+    "geometry.CCPoint.construct_0", "geometry.CCPoint.construct_3", "geometry.CCPoint.coordinates",
+    "geometry.CCPoint.copy", "geometry.CCPoint.inherited_metrics", "geometry.CCPoint.string", "geometry.CCPoint.type",
+    "geometry.CLPoint.cc", "geometry.CLPoint.construct_0", "geometry.CLPoint.construct_3",
+    "geometry.CLPoint.coordinates", "geometry.CLPoint.copy", "geometry.CLPoint.copy_contact", "geometry.CLPoint.getCC",
+    "geometry.CLPoint.inherited_metrics", "geometry.CLPoint.string", "geometry.Ellipse.construct",
+    "geometry.Ellipse.default_accessibility", "geometry.Ellipse.ePoint_0.0", "geometry.Ellipse.ePoint_0.5",
+    "geometry.Ellipse.ePoint_1.0", "geometry.Ellipse.ePoint_1.5", "geometry.Ellipse.ePoint_2.0",
+    "geometry.Ellipse.ePoint_3.0", "geometry.Ellipse.ePoint_invalid_position", "geometry.Ellipse.normal_0.0",
+    "geometry.Ellipse.normal_0.5", "geometry.Ellipse.normal_1.0", "geometry.Ellipse.normal_1.5",
+    "geometry.Ellipse.normal_2.0", "geometry.Ellipse.normal_3.0", "geometry.Ellipse.normal_invalid_position",
+    "geometry.Ellipse.oePoint_0.0", "geometry.Ellipse.oePoint_0.5", "geometry.Ellipse.oePoint_1.0",
+    "geometry.Ellipse.oePoint_1.5", "geometry.Ellipse.oePoint_2.0", "geometry.Ellipse.oePoint_3.0",
+    "geometry.Ellipse.oePoint_invalid_position", "geometry.EllipsePosition.__str___accessibility",
+    "geometry.EllipsePosition.construct_accessibility", "geometry.EllipsePosition.default",
+    "geometry.EllipsePosition.mutate", "geometry.EllipsePosition.s_accessibility",
+    "geometry.EllipsePosition.setDiangle_0.0", "geometry.EllipsePosition.setDiangle_0.25",
+    "geometry.EllipsePosition.setDiangle_0.75", "geometry.EllipsePosition.setDiangle_1.0",
+    "geometry.EllipsePosition.setDiangle_1.5", "geometry.EllipsePosition.setDiangle_2.0",
+    "geometry.EllipsePosition.setDiangle_2.5", "geometry.EllipsePosition.setDiangle_3.0",
+    "geometry.EllipsePosition.setDiangle_3.5", "geometry.EllipsePosition.setDiangle_4.0",
+    "geometry.EllipsePosition.setDiangle_accessibility", "geometry.EllipsePosition.t_accessibility",
+    "geometry.Fiber.addInterval_bridge", "geometry.Fiber.addInterval_disjoint", "geometry.Fiber.addInterval_empty",
+    "geometry.Fiber.addInterval_nested", "geometry.Fiber.addInterval_overlap", "geometry.Fiber.addInterval_touching",
+    "geometry.Fiber.construct", "geometry.Fiber.dir_reference", "geometry.Fiber.getInts_copy",
+    "geometry.Fiber.implicit_default_constructor", "geometry.Fiber.p1_reference", "geometry.Fiber.p2_reference",
+    "geometry.Fiber.point", "geometry.Fiber.printInts", "geometry.Interval.construct_()",
+    "geometry.Interval.construct_(-1.0, 2.0)", "geometry.Interval.construct_(0.0, 0.0)",
+    "geometry.Interval.construct_(0.25, 0.75)", "geometry.Interval.contact_reference", "geometry.Interval.updateLower",
+    "geometry.Interval.updateUpper", "geometry.Line.construct_copy", "geometry.Line.implicit_default_constructor",
+    "geometry.Line.p1_mutation", "geometry.Line.p2_mutation", "geometry.Path.append_input_copy", "geometry.Path.copy",
+    "geometry.Path.empty", "geometry.Path.getSpans", "geometry.Path.getTypeSpanPairs", "geometry.Point.construct_0",
+    "geometry.Point.construct_2", "geometry.Point.construct_3", "geometry.Point.coordinates", "geometry.Point.copy",
+    "geometry.Point.cross", "geometry.Point.dot", "geometry.Point.inherited_metrics",
+    "geometry.Point.isInside_segment", "geometry.Point.isInside_triangle", "geometry.Point.isRight",
+    "geometry.Point.norm_(-0.25, 0.5, -0.75)", "geometry.Point.norm_(0, 0, 0)", "geometry.Point.norm_(3, 4, 12)",
+    "geometry.Point.normalize_(-0.25, 0.5, -0.75)", "geometry.Point.normalize_(0, 0, 0)",
+    "geometry.Point.normalize_(3, 4, 12)", "geometry.Point.operator_add", "geometry.Point.operator_eq",
+    "geometry.Point.operator_iadd", "geometry.Point.operator_imul", "geometry.Point.operator_isub",
+    "geometry.Point.operator_mul", "geometry.Point.operator_ne", "geometry.Point.operator_rmul",
+    "geometry.Point.operator_sub", "geometry.Point.string", "geometry.Point.xRotate", "geometry.Point.xyDistance",
+    "geometry.Point.xyNorm_(-0.25, 0.5, -0.75)", "geometry.Point.xyNorm_(0, 0, 0)", "geometry.Point.xyNorm_(3, 4, 12)",
+    "geometry.Point.yRotate", "geometry.Point.zRotate", "geometry.STLReader.append_existing",
+    "geometry.STLReader.ascii", "geometry.STLReader.binary", "geometry.STLReader.empty", "geometry.STLReader.missing",
+    "geometry.STLReader.unicode", "geometry.STLSurf.addTriangle", "geometry.STLSurf.empty",
+    "geometry.STLSurf.getTriangles", "geometry.STLSurf.rotate_composed", "geometry.STLSurf.rotate_x",
+    "geometry.STLSurf.rotate_y", "geometry.STLSurf.rotate_z", "geometry.STLSurf.tris", "geometry.Triangle.getPoints",
+    "geometry.Triangle.implicit_default_constructor", "geometry.Triangle.input_copy", "geometry.Triangle.n",
+    "geometry.Triangle.normal_reference", "geometry.Triangle.p", "geometry.Triangle.string",
+    "geometry.base.Fiber_base.construct", "geometry.base.Path_base.construct", "geometry.base.STLSurf_base.construct",
+    "geometry.base.Triangle_base.construct", "geometry.enum.CCType.EDGE", "geometry.enum.CCType.EDGE_BALL",
+    "geometry.enum.CCType.EDGE_CONE", "geometry.enum.CCType.EDGE_CONE_BASE", "geometry.enum.CCType.EDGE_CYL",
+    "geometry.enum.CCType.EDGE_HORIZ", "geometry.enum.CCType.EDGE_HORIZ_CYL", "geometry.enum.CCType.EDGE_HORIZ_TOR",
+    "geometry.enum.CCType.EDGE_NEG", "geometry.enum.CCType.EDGE_POS", "geometry.enum.CCType.EDGE_SHAFT",
+    "geometry.enum.CCType.ERROR", "geometry.enum.CCType.FACET", "geometry.enum.CCType.FACET_CYL",
+    "geometry.enum.CCType.FACET_TIP", "geometry.enum.CCType.NONE", "geometry.enum.CCType.VERTEX",
+    "geometry.enum.CCType.VERTEX_CYL", "geometry.enum.CCType.numeric_constructor", "geometry.enum.CCType.strings",
+    "geometry.enum.CCType.unknown_numeric_value", "geometry.enum.SpanType.ArcSpanType",
+    "geometry.enum.SpanType.LineSpanType", "geometry.enum.SpanType.numeric_constructor",
+    "geometry.enum.SpanType.strings", "geometry.enum.SpanType.unknown_numeric_value",
+    "geometry.enum.WeaveVertexType.ADJ", "geometry.enum.WeaveVertexType.CL", "geometry.enum.WeaveVertexType.CL_DONE",
+    "geometry.enum.WeaveVertexType.FULLINT", "geometry.enum.WeaveVertexType.INT",
+    "geometry.enum.WeaveVertexType.TWOADJ", "geometry.enum.WeaveVertexType.numeric_constructor",
+    "geometry.enum.WeaveVertexType.strings", "geometry.enum.WeaveVertexType.unknown_numeric_value",
+    "geometry.enum.exported.ArcSpanType", "geometry.enum.exported.LineSpanType",
+    "geometry.errors.ccpoint_assign_wrong_enum", "geometry.errors.fiber_add_wrong_type",
+    "geometry.errors.interval_update_wrong_contact", "geometry.errors.path_append_wrong_type",
+    "geometry.errors.point_add_wrong_type", "geometry.errors.point_assign_wrong_type",
+    "geometry.errors.point_bad_arity", "geometry.errors.point_bad_coordinate", "geometry.errors.point_dot_wrong_type",
+    "geometry.errors.surface_add_wrong_type", "geometry.readonly.Bbox.maxpt", "geometry.readonly.Bbox.minpt",
+    "geometry.readonly.Fiber.dir", "geometry.readonly.Fiber.p1", "geometry.readonly.Fiber.p2",
+    "geometry.readonly.Interval.lower", "geometry.readonly.Interval.lower_cc", "geometry.readonly.Interval.upper",
+    "geometry.readonly.Interval.upper_cc", "geometry.readonly.STLSurf.bb", "geometry.readonly.STLSurf.tris",
+    "geometry.readonly.Triangle.n", "geometry.readonly.Triangle.p"
+  ],
+  "schema_version": 1,
+  "tolerances": {"atol": 1e-10, "rtol": 1e-10}
+}

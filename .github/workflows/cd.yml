@@ -308,6 +308,11 @@ jobs:
             --boost-prefix $(pwd) \
             --install \
             --install-prefix $(pwd)/dist
+      - name: Test Emscripten bindings
+        shell: bash
+        run: |
+          source ../emsdk/emsdk_env.sh
+          node tests/test_emscripten.cjs dist/ocl.js
       - uses: actions/upload-artifact@v5
         with:
           name: emscripten

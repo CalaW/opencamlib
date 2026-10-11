@@ -50,6 +50,11 @@ BUILD_DOC = "OFF"
 [tool.cibuildwheel]
 build = ["cp38*", "cp39*", "cp310*", "cp311*", "cp312*", "cp313*", "cp314-*"]
 skip = ["pp*", "*-musllinux*", "*-manylinux_i686"]
+test-command = [
+  'python "{project}/tests/compat/check_defaults.py"',
+  'python "{project}/tests/compat/check_lifetimes.py"',
+  'python "{project}/tests/compat/check_tsp.py"',
+]
 
 [tool.cibuildwheel.windows]
 archs = ["AMD64", "ARM64"]

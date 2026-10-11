@@ -1,0 +1,57 @@
+name: Python wheel compatibility
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'install.sh'
+      - 'pyproject.toml'
+      - 'CMakeLists.txt'
+      - '.github/workflows/python-compat.yml'
+
+jobs:
+  compare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update && sudo apt-get install -y libboost-dev ninja-build
+      - name: Install reference release and build candidate wheel
+        run: |
+          python -m venv /tmp/ocl-reference
+          python -m venv /tmp/ocl-candidate
+          /tmp/ocl-reference/bin/python -m pip install --only-binary=:all: opencamlib==2023.1.11
+          /tmp/ocl-candidate/bin/python -m pip install .
+        env:
+          CMAKE_BUILD_PARALLEL_LEVEL: '2'
+      - name: Check harness failure detection
+        run: python -m unittest discover -s tests/compat -p 'test_*.py' -v
+      - name: Check installer option handling
+        run: python -m unittest discover -s tests -p 'test_install.py' -v
+      - name: Check candidate binding ownership
+        run: /tmp/ocl-candidate/bin/python tests/compat/check_lifetimes.py
+        env:
+          OMP_NUM_THREADS: '1'
+      - name: Check candidate defaults and TSP lifecycle
+        run: |
+          /tmp/ocl-candidate/bin/python tests/compat/check_defaults.py
+          /tmp/ocl-candidate/bin/python tests/compat/check_tsp.py
+      - name: Compare installed wheels
+        run: |
+          status=0
+          python tests/compat/runner.py --reference /tmp/ocl-reference/bin/python --candidate /tmp/ocl-candidate/bin/python --output build/compat/report.json || status=$?
+          # Status 1 includes intentional changes; setup failures must still fail.
+          if [ "$status" -gt 1 ]; then
+            exit "$status"
+          fi
+          python tests/compat/check_report.py build/compat/report.json
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: python-wheel-compatibility
+          path: build/compat/report.json
